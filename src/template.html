@@ -1,245 +1,276 @@
 <title>七月即兴出发 · 旅行决策手册</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+/* ── 设计基调：calm editorial paper（承接 Word Flow）× Apple 式留白与对齐 ── */
 :root{
-  --bg:#F4F5F1; --card:#FFFFFF; --card2:#EDEFE9; --ink:#1B2433; --muted:#5C6675;
-  --line:#D8DCD2; --accent:#1D63B0; --accent-ink:#174E8C;
+  --paper:#F7F5F0; --card:#FFFFFF; --card2:#F0EDE5; --ink:#1C1913; --muted:#7C766A;
+  --line:#E5E1D6; --accent:#8A5D14; --tungsten:#E4A93C; --select-bg:#F8EFDB;
   --invest:#1D63B0; --food:#C93A22; --project:#0F8A66;
-  --invest-bg:#E7EFF8; --food-bg:#F9EAE6; --project-bg:#E5F3EE;
-  --chip-bg:#EEF0EA; --warn:#9A6B00; --warn-bg:#F6EDD8; --bad:#A83226; --bad-bg:#F7E7E4;
-  --bar-other:#9AA6B5; --shadow:0 1px 2px rgba(20,30,45,.06),0 8px 24px rgba(20,30,45,.07);
+  --ok:#0F8A66; --ok-bg:#EAF3EE; --warn:#8A6D1D; --warn-bg:#F5EEDA; --bad:#A83226; --bad-bg:#F6E9E6;
+  --bar-other:#B9B2A2;
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#10151E; --card:#1A2130; --card2:#141A26; --ink:#E9E7E0; --muted:#9AA3B2;
-    --line:#2C3547; --accent:#4A8CD9; --accent-ink:#7FB0E8;
+    --paper:#14110B; --card:#1E1A12; --card2:#181510; --ink:#F3E9D2; --muted:#9C9484;
+    --line:#332D20; --accent:#E4A93C; --tungsten:#E4A93C; --select-bg:#2A2310;
     --invest:#4A8CD9; --food:#E2694A; --project:#2FA37A;
-    --invest-bg:#1C2A40; --food-bg:#37231D; --project-bg:#16302A;
-    --chip-bg:#232B3B; --warn:#D9A93F; --warn-bg:#2E2716; --bad:#E0705F; --bad-bg:#331D1A;
-    --bar-other:#4E5A6C; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+    --ok:#2FA37A; --ok-bg:#1A2A22; --warn:#D9A93F; --warn-bg:#2C2513; --bad:#E0705F; --bad-bg:#301B16;
+    --bar-other:#57503F;
   }
 }
 :root[data-theme="light"]{
-  --bg:#F4F5F1; --card:#FFFFFF; --card2:#EDEFE9; --ink:#1B2433; --muted:#5C6675;
-  --line:#D8DCD2; --accent:#1D63B0; --accent-ink:#174E8C;
+  --paper:#F7F5F0; --card:#FFFFFF; --card2:#F0EDE5; --ink:#1C1913; --muted:#7C766A;
+  --line:#E5E1D6; --accent:#8A5D14; --tungsten:#E4A93C; --select-bg:#F8EFDB;
   --invest:#1D63B0; --food:#C93A22; --project:#0F8A66;
-  --invest-bg:#E7EFF8; --food-bg:#F9EAE6; --project-bg:#E5F3EE;
-  --chip-bg:#EEF0EA; --warn:#9A6B00; --warn-bg:#F6EDD8; --bad:#A83226; --bad-bg:#F7E7E4;
-  --bar-other:#9AA6B5; --shadow:0 1px 2px rgba(20,30,45,.06),0 8px 24px rgba(20,30,45,.07);
+  --ok:#0F8A66; --ok-bg:#EAF3EE; --warn:#8A6D1D; --warn-bg:#F5EEDA; --bad:#A83226; --bad-bg:#F6E9E6;
+  --bar-other:#B9B2A2;
 }
 :root[data-theme="dark"]{
-  --bg:#10151E; --card:#1A2130; --card2:#141A26; --ink:#E9E7E0; --muted:#9AA3B2;
-  --line:#2C3547; --accent:#4A8CD9; --accent-ink:#7FB0E8;
+  --paper:#14110B; --card:#1E1A12; --card2:#181510; --ink:#F3E9D2; --muted:#9C9484;
+  --line:#332D20; --accent:#E4A93C; --tungsten:#E4A93C; --select-bg:#2A2310;
   --invest:#4A8CD9; --food:#E2694A; --project:#2FA37A;
-  --invest-bg:#1C2A40; --food-bg:#37231D; --project-bg:#16302A;
-  --chip-bg:#232B3B; --warn:#D9A93F; --warn-bg:#2E2716; --bad:#E0705F; --bad-bg:#331D1A;
-  --bar-other:#4E5A6C; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+  --ok:#2FA37A; --ok-bg:#1A2A22; --warn:#D9A93F; --warn-bg:#2C2513; --bad:#E0705F; --bad-bg:#301B16;
+  --bar-other:#57503F;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *,*::before,*::after{animation:none!important;transition:none!important} }
-body{
-  margin:0; background:var(--bg); color:var(--ink);
-  font-family:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Microsoft YaHei",system-ui,sans-serif;
-  font-size:16px; line-height:1.75;
-}
-.serif{font-family:"Songti SC","STSong","Noto Serif SC","SimSun",serif}
-.mono{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
-a{color:var(--accent-ink);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 40%,transparent)}
-a:hover{border-bottom-color:var(--accent)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
-.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Segoe UI","Microsoft YaHei",sans-serif;
+  font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased}
+.serif{font-family:ui-serif,"Songti SC",Georgia,"Noto Serif SC",serif}
+.num{font-variant-numeric:tabular-nums}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px}
 
-/* ── nav ── */
-nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;gap:4px;align-items:center;overflow-x:auto;padding:10px 24px}
-nav .brand{font-weight:700;font-size:14px;margin-right:12px;white-space:nowrap}
-nav a{font-size:13px;color:var(--muted);border:none;padding:4px 10px;border-radius:999px;white-space:nowrap}
-nav a:hover{color:var(--ink);background:var(--chip-bg)}
-nav a .n{font-size:11px;margin-right:3px;color:var(--accent-ink)}
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:22px;align-items:center;overflow-x:auto;padding:13px 24px}
+nav .brand{font-weight:650;font-size:14px;white-space:nowrap;margin-right:auto}
+nav a{font-size:13.5px;color:var(--muted);white-space:nowrap}
+nav a:hover{color:var(--ink);text-decoration:none}
 
-/* ── hero ── */
-header{padding:64px 0 40px;border-bottom:1px solid var(--line)}
-.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-h1{font-size:clamp(38px,6vw,64px);line-height:1.15;margin:10px 0 14px;font-weight:900;letter-spacing:.02em;text-wrap:balance}
-.lede{max-width:42em;color:var(--muted);font-size:17px;margin:0 0 26px}
-.brief{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
-.brief div{flex:1 1 150px;padding:14px 18px;border-right:1px solid var(--line);min-width:140px}
-.brief div:last-child{border-right:none}
-.brief .k{font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
-.brief .v{font-size:15px;font-weight:600;margin-top:2px}
-.intel{margin-top:26px;border-left:3px solid var(--accent);background:var(--card);border-radius:0 10px 10px 0;padding:16px 20px;box-shadow:var(--shadow)}
-.intel h3{margin:0 0 8px;font-size:14px;letter-spacing:.08em}
-.intel ul{margin:0;padding-left:18px;font-size:14.5px;color:var(--muted)}
-.intel li{margin:4px 0}
-.intel strong{color:var(--ink)}
+/* hero */
+header{padding:84px 0 56px}
+.eyebrow{font-size:12.5px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+h1{font-size:clamp(36px,5.5vw,56px);line-height:1.12;margin:14px 0 18px;font-weight:700;letter-spacing:-.015em;text-wrap:balance}
+.lede{max-width:39em;color:var(--muted);font-size:17.5px;margin:0 0 36px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.meta div{background:var(--card);padding:16px 18px}
+.meta .k{font-size:12px;color:var(--muted);letter-spacing:.06em}
+.meta .v{font-size:15px;font-weight:600;margin-top:3px}
 
-/* ── sections ── */
-section{padding:56px 0 8px}
-.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
-.sec-head .num{font-size:13px;color:var(--accent-ink);letter-spacing:.1em}
-h2{font-size:clamp(26px,3.4vw,36px);margin:0;font-weight:900;letter-spacing:.02em}
-.sec-sub{color:var(--muted);margin:6px 0 28px;max-width:46em;font-size:15px}
+/* sections */
+section{padding:64px 0 0}
+.sec-eyebrow{font-size:12.5px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+h2{font-size:clamp(26px,3.4vw,34px);margin:8px 0 10px;font-weight:700;letter-spacing:-.01em}
+.sec-sub{color:var(--muted);margin:0 0 32px;max-width:44em;font-size:15.5px}
 
-/* ── threads ── */
-.threads{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.thread{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
-.thread .tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:10px}
-.thread h3{margin:0 0 8px;font-size:18px}
-.thread p{margin:0;font-size:14.5px;color:var(--muted)}
-.t-invest .tag{background:var(--invest-bg);color:var(--invest)}
-.t-food .tag{background:var(--food-bg);color:var(--food)}
-.t-project .tag{background:var(--project-bg);color:var(--project)}
+/* intel */
+.intel{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.intel .item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.intel .d{font-size:12px;color:var(--muted);letter-spacing:.05em}
+.intel b{display:block;font-size:15px;margin:6px 0 4px;line-height:1.5}
+.intel p{margin:0;font-size:13.5px;color:var(--muted)}
 
-/* ── board ── */
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
-.filters button{font:inherit;font-size:13.5px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+/* threads */
+.threads{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.thread{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.thread .tag{font-size:12.5px;font-weight:650}
+.t-invest .tag{color:var(--invest)} .t-food .tag{color:var(--food)} .t-project .tag{color:var(--project)}
+.thread h3{margin:8px 0 6px;font-size:17px;font-weight:650}
+.thread p{margin:0;font-size:14px;color:var(--muted)}
+
+/* board */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.filters button{font:inherit;font-size:13.5px;padding:7px 15px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
 .filters button:hover{color:var(--ink)}
-.filters button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.board{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
-.dest{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;position:relative}
+.filters button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.board{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.dest{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px;position:relative}
 .dest.hide{display:none}
-.dest h3{margin:0;font-size:19px;display:flex;align-items:center;gap:8px}
-.dest .region{font-size:12px;color:var(--muted);font-weight:400}
+.dest h3{margin:0;font-size:19px;font-weight:650;padding-right:88px}
+.dest .region{display:block;font-size:13px;color:var(--muted);font-weight:400;margin-top:2px}
 .dest .pitch{font-size:14px;color:var(--muted);margin:0;flex:1}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-size:12px;padding:2px 9px;border-radius:999px;background:var(--chip-bg);color:var(--muted);white-space:nowrap}
-.chip.ok{background:var(--project-bg);color:var(--project);font-weight:600}
+.chip{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--card2);color:var(--muted);white-space:nowrap}
+.chip.ok{background:var(--ok-bg);color:var(--ok);font-weight:600}
 .chip.warn{background:var(--warn-bg);color:var(--warn);font-weight:600}
 .chip.bad{background:var(--bad-bg);color:var(--bad);font-weight:600}
-.fitrow{display:flex;gap:10px;flex-wrap:wrap}
-.fit{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted)}
-.dots{display:inline-flex;gap:2px}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.fitrow{display:flex;gap:14px;flex-wrap:wrap}
+.fit{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted)}
+.dots{display:inline-flex;gap:3px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--line)}
 .fit.fi .dot.f{background:var(--invest)} .fit.ff .dot.f{background:var(--food)} .fit.fp .dot.f{background:var(--project)}
-.budget-line{font-size:13px;color:var(--ink);border-top:1px dashed var(--line);padding-top:10px;display:flex;justify-content:space-between;align-items:center}
-.rank{position:absolute;top:-10px;right:14px;background:var(--accent);color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:999px;letter-spacing:.05em}
-:root[data-theme="dark"] .rank, :root:not([data-theme="light"]) .rank{color:#0d1420}
-@media (prefers-color-scheme: light){ :root:not([data-theme="dark"]) .rank{color:#fff} }
+.budget-line{font-size:13.5px;border-top:1px solid var(--line);padding-top:12px;display:flex;justify-content:space-between}
+.budget-line span:first-child{color:var(--muted)}
+.rank{position:absolute;top:16px;right:16px;background:var(--select-bg);color:var(--accent);font-size:12px;font-weight:650;padding:3px 11px;border-radius:999px}
 
-/* ── plans ── */
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
-.tabs button{font:inherit;font-size:15px;font-weight:600;padding:10px 20px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
-.tabs button .mono{font-size:12px;display:block;font-weight:400;margin-top:1px}
-.tabs button.on{border-color:var(--accent);color:var(--ink);box-shadow:inset 0 0 0 1px var(--accent)}
+/* plan tabs */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.tabs button{font:inherit;text-align:left;font-size:15px;font-weight:600;padding:14px 20px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;flex:1 1 180px}
+.tabs button small{display:block;font-size:12.5px;font-weight:400;margin-top:2px}
+.tabs button.on{border-color:var(--tungsten);color:var(--ink);box-shadow:inset 0 0 0 1px var(--tungsten);background:var(--select-bg)}
 .plan{display:none}
 .plan.on{display:block}
-.plan-hero{display:grid;grid-template-columns:1.6fr 1fr;gap:10px;border-radius:14px;overflow:hidden;margin-bottom:18px}
-.plan-hero img{width:100%;height:280px;object-fit:cover;display:block;object-position:center 32%}
-@media (max-width:720px){.plan-hero{grid-template-columns:1fr}.plan-hero img{height:200px}.plan-hero img+img{display:none}}
-.statrow{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden;margin-bottom:24px}
-.statrow div{flex:1 1 140px;padding:12px 16px;border-right:1px solid var(--line);min-width:130px}
-.statrow div:last-child{border-right:none}
-.statrow .k{font-size:11px;letter-spacing:.1em;color:var(--muted)}
-.statrow .v{font-size:14.5px;font-weight:600}
-.plan h4{font-size:17px;margin:30px 0 12px;display:flex;align-items:center;gap:8px}
-.plan h4::before{content:"";width:18px;height:3px;background:var(--accent);border-radius:2px}
-.days{display:flex;flex-direction:column;gap:8px}
-.day{display:grid;grid-template-columns:118px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 16px}
-@media (max-width:600px){.day{grid-template-columns:1fr;gap:4px}}
-.day .d{font-size:13px;color:var(--accent-ink);font-weight:600;line-height:1.5;padding-top:2px}
-.day .d small{display:block;color:var(--muted);font-weight:400}
-.day .body b{font-size:15px}
-.day .body p{margin:3px 0 0;font-size:14px;color:var(--muted)}
-.tagline{display:inline-flex;gap:6px;margin-left:8px;vertical-align:2px}
-.tg{font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px}
-.tg.i{background:var(--invest-bg);color:var(--invest)} .tg.f{background:var(--food-bg);color:var(--food)} .tg.p{background:var(--project-bg);color:var(--project)}
+.plan-hero{display:grid;grid-template-columns:1.6fr 1fr;gap:12px;margin-bottom:20px}
+.plan-hero img{width:100%;height:290px;object-fit:cover;object-position:center 32%;display:block;border-radius:18px}
+@media (max-width:700px){.plan-hero{grid-template-columns:1fr}.plan-hero img{height:210px}.plan-hero img+img{display:none}}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:26px}
+.facts div{background:var(--card);padding:15px 18px}
+.facts .k{font-size:12px;color:var(--muted)}
+.facts .v{font-size:14.5px;font-weight:600;margin-top:3px;line-height:1.5}
+.why{max-width:46em;color:var(--muted);font-size:15.5px;margin:0 0 8px}
+.plan h4{font-size:19px;font-weight:650;margin:44px 0 6px}
+.plan .h4sub{font-size:14px;color:var(--muted);margin:0 0 18px;max-width:44em}
+
+/* hotel options */
+.hgroup{margin-bottom:22px}
+.hgroup .city{font-size:13.5px;font-weight:650;color:var(--muted);margin:0 0 10px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.opt{position:relative;text-align:left;font:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer;display:flex;flex-direction:column;gap:5px}
+.opt:hover{border-color:var(--muted)}
+.opt.sel{border-color:var(--tungsten);background:var(--select-bg)}
+.opt .name{font-size:15px;font-weight:650;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.opt .price{font-size:14px;font-weight:600;white-space:nowrap}
+.opt .desc{font-size:13px;color:var(--muted);margin:0;flex:1}
+.opt .src{font-size:11.5px;color:var(--muted)}
+.opt .mark{position:absolute;top:-9px;left:14px;font-size:11px;font-weight:650;background:var(--tungsten);color:#1C1913;padding:1px 9px;border-radius:999px;opacity:0}
+.opt.sel .mark{opacity:1}
+.opt .recb{color:var(--accent);font-weight:650}
+
+/* days */
+.days{display:flex;flex-direction:column;gap:10px}
+details.day{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:0}
+details.day summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:14px;padding:16px 20px}
+details.day summary::-webkit-details-marker{display:none}
+details.day summary .dd{font-size:13px;font-weight:650;color:var(--accent);white-space:nowrap;min-width:96px}
+details.day summary .dt{font-size:15px;font-weight:600;flex:1}
+details.day summary .caret{color:var(--muted);transition:transform .15s;font-size:11px}
+details.day[open] summary .caret{transform:rotate(90deg)}
+.slots{border-top:1px solid var(--line);padding:8px 20px 16px}
+.slot{display:grid;grid-template-columns:108px 1fr;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.slot:last-child{border-bottom:none}
+.slot .t{font-size:13px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
+.slot .c{font-size:14.5px}
+.slot .c small{display:block;color:var(--muted);font-size:13px;margin-top:1px}
+@media (max-width:560px){.slot{grid-template-columns:1fr;gap:2px}.slot .t{padding-top:0}}
+.abwrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.ab{font:inherit;font-size:13px;padding:6px 13px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;text-align:left}
+.ab.sel{border-color:var(--tungsten);background:var(--select-bg);color:var(--ink);font-weight:600}
+.tg{font-size:11.5px;font-weight:650;padding:1px 8px;border-radius:999px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+.tg.f{background:color-mix(in srgb,var(--food) 12%,transparent);color:var(--food)}
+.tg.i{background:color-mix(in srgb,var(--invest) 12%,transparent);color:var(--invest)}
+.tg.p{background:color-mix(in srgb,var(--project) 12%,transparent);color:var(--project)}
 .tg.b{background:var(--warn-bg);color:var(--warn)}
-.twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media (max-width:760px){.twocol{grid-template-columns:1fr}}
-.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
-.box h5{margin:0 0 10px;font-size:14px;letter-spacing:.05em}
+
+/* boxes, tables */
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.twocol{grid-template-columns:1fr}}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.box h5{margin:0 0 10px;font-size:14.5px;font-weight:650}
 .box ul{margin:0;padding-left:18px;font-size:14px;color:var(--muted)}
-.box li{margin:5px 0}
+.box li{margin:6px 0}
 .box li strong{color:var(--ink)}
-table{border-collapse:collapse;width:100%;font-size:14px;background:var(--card);border-radius:12px;overflow:hidden}
-.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
-th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line)}
-th{font-size:12px;letter-spacing:.08em;color:var(--muted);background:var(--card2)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:600px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;color:var(--muted);background:var(--card2);font-weight:600}
+td.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
+td .src{display:block;font-size:12.5px;color:var(--muted);font-weight:400;margin-top:3px;line-height:1.6}
+td .main{font-size:13.5px;line-height:1.6}
 tr:last-child td{border-bottom:none}
-td.num{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
 tr.total td{font-weight:700;background:var(--card2)}
-.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-.person{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.person{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
 .person b{font-size:14.5px}
-.person span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.person span{display:block;font-size:13px;color:var(--muted);margin-top:4px}
 
-/* ── chart ── */
-.chart-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
+/* selection summary */
+.mysel{background:var(--card);border:1.5px solid var(--tungsten);border-radius:16px;padding:22px 24px;margin-top:26px}
+.mysel h5{margin:0 0 8px;font-size:15px;font-weight:650}
+.mysel .sum{font-size:14px;color:var(--muted);margin:0 0 14px;white-space:pre-line}
+.btn{font:inherit;font-size:14.5px;font-weight:600;padding:10px 22px;border-radius:999px;border:none;background:var(--ink);color:var(--paper);cursor:pointer}
+.btn:hover{opacity:.85}
+
+/* chart */
+.chart-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
 .chart-scroll{overflow-x:auto;position:relative}
-.legend{display:flex;gap:18px;font-size:13px;color:var(--muted);margin-bottom:8px;flex-wrap:wrap}
-.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-.tooltip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12.5px;padding:7px 11px;border-radius:8px;opacity:0;transform:translate(-50%,-110%);white-space:nowrap;transition:opacity .12s;z-index:5}
+.legend{display:flex;gap:18px;font-size:13px;color:var(--muted);margin-bottom:10px;flex-wrap:wrap}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.tooltip{position:absolute;pointer-events:none;background:var(--ink);color:var(--paper);font-size:12.5px;padding:7px 12px;border-radius:8px;opacity:0;transform:translate(-50%,-115%);white-space:nowrap;transition:opacity .12s;z-index:5}
+details.dtable{border:none;background:transparent;padding:10px 0 0}
+details.dtable summary{cursor:pointer;font-size:13.5px;color:var(--accent);font-weight:600;list-style:none}
 
-/* ── platforms ── */
-.plat{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
-.plat .box b{font-size:15px}
-.plat .box p{margin:4px 0 0;font-size:13.5px;color:var(--muted)}
-.plat .use{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;padding:2px 9px;border-radius:999px;background:var(--chip-bg);color:var(--muted);margin-bottom:8px}
+/* platforms */
+.plat{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.plat .box .use{font-size:11.5px;font-weight:650;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.plat .box b{display:block;font-size:15px;margin:6px 0 4px}
+.plat .box p{margin:0;font-size:13.5px;color:var(--muted)}
 
-/* ── checklist ── */
-.steps{counter-reset:step;display:flex;flex-direction:column;gap:10px}
-.step{display:grid;grid-template-columns:44px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 18px}
-.step::before{counter-increment:step;content:counter(step);font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:17px;font-weight:700;color:var(--accent-ink);border:1.5px solid var(--line);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center}
-.step b{font-size:15px}
-.step p{margin:3px 0 0;font-size:14px;color:var(--muted)}
-details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-top:14px}
-summary{cursor:pointer;font-weight:600;font-size:14.5px}
-details pre{white-space:pre-wrap;font-size:13px;background:var(--card2);border-radius:8px;padding:14px;line-height:1.6}
-footer{margin-top:70px;border-top:1px solid var(--line);padding:28px 0 48px;font-size:13px;color:var(--muted)}
-footer p{max-width:60em}
+/* flow steps */
+.steps{display:flex;flex-direction:column;gap:12px;counter-reset:st}
+.step{display:flex;gap:18px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.step .n{counter-increment:st;flex:0 0 34px;height:34px;border-radius:50%;background:var(--select-bg);color:var(--accent);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.step .n::before{content:counter(st)}
+.step .c b{font-size:15.5px;display:block;margin-bottom:3px}
+.step .c p{margin:0;font-size:14px;color:var(--muted)}
+
+footer{margin-top:80px;border-top:1px solid var(--line);padding:32px 0 56px;font-size:13px;color:var(--muted)}
+footer p{max-width:58em;margin:0 0 10px}
 </style>
 
 <nav><div class="wrap">
   <span class="brand serif">七月即兴出发</span>
-  <a href="#board"><span class="n mono">03</span>目的地棋盘</a>
-  <a href="#plans"><span class="n mono">04</span>三个深度方案</a>
-  <a href="#budget"><span class="n mono">05</span>预算对比</a>
-  <a href="#platforms"><span class="n mono">06</span>项目制平台</a>
-  <a href="#action"><span class="n mono">07</span>行动清单</a>
+  <a href="#board">候选棋盘</a>
+  <a href="#plans">三个方案</a>
+  <a href="#budget">预算对比</a>
+  <a href="#platforms">平台库</a>
+  <a href="#flow">下一步</a>
 </div></nav>
 
 <header><div class="wrap">
-  <div class="eyebrow mono">BRIEFING 01 · 行前简报 · 情报核查于 2026.07.10</div>
+  <div class="eyebrow">行前简报 · 第 2 版 · 数据口径 2026.07.11</div>
   <h1 class="serif">七月，即兴出发</h1>
-  <p class="lede">两人从北京出发，5 到 7 天，带着三条主线去深读一个地方：像吉姆·罗杰斯一样看市场，用味觉做记忆的锚点，把行程挂在一个真实的项目上。这一页是完整的决策手册：14 个候选，3 个可以直接执行的方案。</p>
-  <div class="brief">
-    <div><div class="k">出发窗口</div><div class="v mono">7.14 周二 / 7.15 周三</div></div>
-    <div><div class="k">时长</div><div class="v">5 至 7 天，节奏从容</div></div>
+  <p class="lede">两人从北京出发，5 到 7 天，带着三条主线深读一个地方。这一版按你的反馈重做：每个价格给出计算逻辑和来源，行程拆到小时，住宿和部分活动改为可选项。你在页内做完选择后一键复制发给我，我再出最终预订清单。</p>
+  <div class="meta">
+    <div><div class="k">出发窗口</div><div class="v num">7.14 周二 / 7.15 周三</div></div>
+    <div><div class="k">时长</div><div class="v">5 至 7 天</div></div>
     <div><div class="k">证件</div><div class="v">中国护照 + 美签</div></div>
-    <div><div class="k">预算</div><div class="v">不设硬上限，按价值花</div></div>
+    <div><div class="k">预算</div><div class="v">不设硬上限</div></div>
     <div><div class="k">约束</div><div class="v">两人都不开车</div></div>
-  </div>
-  <div class="intel">
-    <h3>本周关键情报（影响排序的四条新变化）</h3>
-    <ul>
-      <li><strong>土耳其自 2026 年 1 月 2 日起对中国免签</strong>，北京直飞伊斯坦布尔每周约 32 班，这是今年最大的目的地红利。</li>
-      <li><strong>印尼已于 2025 年 11 月取消对中国免签</strong>，恢复落地签 / 电子落地签（约 35 美元，30 天），去雅加达做市场调研仍可行，只是多一道手续。</li>
-      <li><strong>中俄自 2025 年 12 月起互免签证</strong>，7 月正是圣彼得堡白夜季。</li>
-      <li><strong>曼谷蝉联亚洲美食之都</strong>：2026 年亚洲 50 佳餐厅 9 家在曼谷，泰国米其林指南首次出现两家三星（Sorn 与 Sühring）。</li>
-    </ul>
   </div>
 </div></header>
 
+<section id="intel"><div class="wrap">
+  <div class="sec-eyebrow">Intel</div>
+  <h2 class="serif">影响排序的四条新变化</h2>
+  <p class="sec-sub">本次调研核实到的政策与榜单变动，直接决定了候选名单的顺序。</p>
+  <div class="intel">
+    <div class="item"><span class="d num">2026.01.02 生效</span><b>土耳其对中国免签 30 天</b><p>今年中国护照最大的目的地增量；土航 + 国航每周 16 班直飞，约 9 小时。</p></div>
+    <div class="item"><span class="d num">2025.11.22 生效</span><b>印尼取消对华免签</b><p>恢复落地签 / e-VOA，约 35 美元 30 天。市场调研仍可行，多一道手续。</p></div>
+    <div class="item"><span class="d num">2025.12 生效</span><b>中俄互免签证</b><p>7 月正值圣彼得堡白夜季，莫斯科双城进入候选。</p></div>
+    <div class="item"><span class="d num">2026 榜单</span><b>曼谷蝉联亚洲美食之都</b><p>亚洲 50 佳 9 家在曼谷；泰国米其林首现两家三星（Sorn、Sühring）。</p></div>
+  </div>
+</div></section>
+
 <section id="threads"><div class="wrap">
-  <div class="sec-head"><span class="num mono">02</span><h2 class="serif">三条探索主线</h2></div>
-  <p class="sec-sub">每个候选目的地都按这三条主线打分（卡片上的圆点，满分三点）。同一次旅行可以叠加两条主线，但建议以一条为主，才有"深读"的密度。</p>
+  <div class="sec-eyebrow">Threads</div>
+  <h2 class="serif">三条探索主线</h2>
+  <p class="sec-sub">每个候选按三条主线打分（卡片上的圆点，满分三点）。建议一条为主、一条为辅。</p>
   <div class="threads">
-    <div class="thread t-invest"><span class="tag">投资视角</span>
-      <h3>把城市当作一份年报来读</h3>
-      <p>罗杰斯式的观察清单：菜市场物价与汇率黑市价差、银行开户门槛、商铺租金与空置率、超市货架上的本国品牌比例、出租车司机的收入账。每天固定 2 小时做"田野扫描"，回来就是一份一手报告。</p></div>
-    <div class="thread t-food"><span class="tag">美食感官</span>
-      <h3>用一张餐桌串起整个行程</h3>
-      <p>以一家极难预订的餐厅为锚（像你朋友飞丹麦那样），前后排开产地、市场、街头与工作坊：先去市场认食材，再上桌吃懂它。预订窗口是硬约束，所以这条主线要最先动手。</p></div>
-    <div class="thread t-project"><span class="tag">项目制 / 商单</span>
-      <h3>给旅行挂一个真实任务</h3>
-      <p>研学、驻场、换宿、展会考察、专家访谈。全球确实有一批平台在发布"需要人到场"的机会（见第 06 节平台库），出发前扫一遍目的地的活动日历与展会排期，行程就有了骨架。</p></div>
+    <div class="thread t-invest"><span class="tag">投资视角</span><h3>把城市当年报读</h3><p>罗杰斯式清单：市场物价与汇率联动、商铺租金梯度、货架上的本国品牌比例。每天 2 小时田野扫描。</p></div>
+    <div class="thread t-food"><span class="tag">美食感官</span><h3>用一张餐桌串起行程</h3><p>以一家难订的餐厅为锚，前后排开产地、市场与工作坊。预订窗口是硬约束，最先动手。</p></div>
+    <div class="thread t-project"><span class="tag">项目制</span><h3>给旅行挂一个真实任务</h3><p>研学、驻场、展会考察、专家访谈。出发前扫一遍目的地的活动与展会排期（见平台库）。</p></div>
   </div>
 </div></section>
 
 <section id="board"><div class="wrap">
-  <div class="sec-head"><span class="num mono">03</span><h2 class="serif">目的地棋盘 · 14 个候选</h2></div>
-  <p class="sec-sub">按签证、航程、七月气候、主线契合度四个维度筛过的名单。预算为两人 7 天全包估算。点击筛选器缩小范围。</p>
+  <div class="sec-eyebrow">Shortlist</div>
+  <h2 class="serif">目的地棋盘 · 14 个候选</h2>
+  <p class="sec-sub">按签证、航程、七月气候、主线契合度筛过的名单。预算为两人 7 天全包估算区间，区间宽度主要来自住宿档位。</p>
   <div class="filters" role="group" aria-label="筛选">
     <button class="on" data-f="all">全部 14</button>
     <button data-f="visa">免签可走</button>
@@ -254,199 +285,290 @@ footer p{max-width:60em}
 </div></section>
 
 <section id="plans"><div class="wrap">
-  <div class="sec-head"><span class="num mono">04</span><h2 class="serif">三个深度方案</h2></div>
-  <p class="sec-sub">怎么选：三条主线都想要、又想避暑，选<b>格鲁吉亚</b>；要直飞、要体验天花板、想看一堂活的通胀经济学课，选<b>土耳其</b>；要把"吃"做成一次朝圣、后勤最省心，选<b>曼谷</b>。以下均按 7.14 周二出发排期，两人都不开车的前提已内置。</p>
+  <div class="sec-eyebrow">Deep Dives</div>
+  <h2 class="serif">三个深度方案</h2>
+  <p class="sec-sub">怎么选：三条主线都要、想避暑，选格鲁吉亚；要直飞和体验上限，选土耳其；要把吃做成朝圣、后勤最省心，选曼谷。以下按 7.14 周二出发排期。住宿和标注「二选一」的活动都可以点选，每个方案页尾可一键复制你的选择发给我。</p>
   <div class="tabs" role="tablist">
-    <button class="on" data-p="p1" role="tab">① 格鲁吉亚<span class="mono">主线最全 · 高加索避暑</span></button>
-    <button data-p="p2" role="tab">② 土耳其<span class="mono">直飞 · 免签新红利</span></button>
-    <button data-p="p3" role="tab">③ 曼谷<span class="mono">美食之都 · 最省心</span></button>
+    <button class="on" data-p="p1" role="tab">① 格鲁吉亚<small>主线最全 · 高加索避暑</small></button>
+    <button data-p="p2" role="tab">② 土耳其<small>直飞 · 免签新红利</small></button>
+    <button data-p="p3" role="tab">③ 曼谷<small>美食之都 · 最省心</small></button>
   </div>
 
-  <!-- ═══ PLAN 1 格鲁吉亚 ═══ -->
+  <!-- ═══════════ PLAN 1 格鲁吉亚 ═══════════ -->
   <div class="plan on" id="p1">
-    <div class="plan-hero"><img src="__TBS__" alt="第比利斯老城全景"><img src="__KZB__" alt="卡兹别克圣三一教堂与高加索山"></div>
-    <div class="statrow">
+    <div class="plan-hero"><img src="__TBS__" alt="第比利斯老城全景"><img src="__KZB__" alt="卡兹别克圣三一教堂"></div>
+    <div class="facts">
       <div><div class="k">签证</div><div class="v">互免 90 天，落地即走</div></div>
-      <div><div class="k">航程</div><div class="v">中转 1 次约 11-13h<br><span class="mono" style="font-size:12px">经阿拉木图 / 乌鲁木齐 / 伊斯坦布尔</span></div></div>
-      <div><div class="k">机票参考</div><div class="v mono">¥3,300+/人 往返</div></div>
+      <div><div class="k">航程</div><div class="v">中转 1 次，全程 11-13h</div></div>
       <div><div class="k">七月气候</div><div class="v">第比利斯 32°C 干燥<br>卡兹别克山区 15-22°C</div></div>
-      <div><div class="k">两人总预算</div><div class="v mono">¥2.5 - 3.5 万</div></div>
+      <div><div class="k">两人总预算</div><div class="v num" id="p1-total">计算中</div></div>
     </div>
-    <p style="max-width:48em;color:var(--muted);font-size:15px">为什么是它：8000 年酿酒史（陶罐酿酒是人类最古老的酿造法，联合国非遗）给美食主线一个独一无二的锚；同时它是教科书级的新兴市场样本，小国开放经济、低税制、外资银行开户友好、葡萄酒出口和中欧走廊都值得实地看。罗杰斯主线和味觉主线在这里是同一条线。</p>
+    <p class="why">为什么是它：8000 年酿酒史（qvevri 陶罐酿造，联合国非遗）给美食主线一个独一无二的锚；同时它是教科书级的新兴市场样本，葡萄酒出口、旅游业与中欧走廊都值得实地看。投资主线和味觉主线在这里是同一条线。</p>
 
-    <h4>七天排期</h4>
+    <h4>住宿 · 每一晚都可以选</h4>
+    <p class="h4sub">点选即改预算。价格为比价网站近期均价或起价（非绑定 7.14-7.20 的锁价），下单前以 Booking / 官网实时报价为准。</p>
+    <div id="p1-hotels"></div>
+
+    <h4>逐日行程 · 按小时拆解</h4>
+    <p class="h4sub">点开每一天看时段安排。时刻为建议节奏，非硬约束；标注「二选一」的时段点选即可。</p>
     <div class="days">
-      <div class="day"><div class="d mono">D1 · 周二 7.14<small>第比利斯</small></div><div class="body"><b>北京出发，傍晚抵达第比利斯</b><span class="tagline"><span class="tg f">美食</span></span><p>入住 Stamba（前印刷厂改造的设计酒店）或 Communal。夜访老城，硫磺浴场区 Abanotubani 泡一场 Chreli Abano 私汤，晚餐找一桌传统 supra 宴席开场。</p></div></div>
-      <div class="day"><div class="d mono">D2 · 周三 7.15<small>第比利斯</small></div><div class="body"><b>老城深读 + 创意经济现场</b><span class="tagline"><span class="tg i">投资</span><span class="tg p">项目</span></span><p>上午缆车上纳里卡拉要塞看城市结构，Dry Bridge 跳蚤市场看苏联遗物定价；下午去 Fabrika（前缝纫厂改造的创业园区），这里是数字游民与本地创业者的聚点，露台咖啡就能搭上话。晚上自然酒吧 8000 Vintages 或 Vino Underground 做品鉴功课。</p></div></div>
-      <div class="day"><div class="d mono">D3 · 周四 7.16<small>第比利斯 · 姆茨赫塔</small></div><div class="body"><b>投资田野日</b><span class="tagline"><span class="tg i">投资</span></span><p>上午 Dezerter Bazaar 中央市场做物价扫描，顺路体验 TBC 或 Bank of Georgia 的开户流程（观察即可）；若提前约到 Galt & Taggart 研究员喝咖啡，放在今天。下午半日姆茨赫塔古都。晚餐 Barbarestan，用 19 世纪格鲁吉亚食谱复刻的名店。</p></div></div>
-      <div class="day"><div class="d mono">D4 · 周五 7.17<small>卡赫季酒区</small></div><div class="body"><b>包车东行卡赫季，酒庄日</b><span class="tagline"><span class="tg f">美食</span><span class="tg b">需预订</span></span><p>GoTrip 包车前往西格纳吉。Pheasant's Tears 酒庄午餐加陶罐酒窖参观（提前邮件约创始人 John Wurdeman 的桌边时间），下午再访一家 qvevri 酿酒作坊动手体验。宿西格纳吉山城。</p></div></div>
-      <div class="day"><div class="d mono">D5 · 周六 7.18<small>军事大道北上</small></div><div class="body"><b>穿越高加索，进山避暑</b><p>包车走格鲁吉亚军事大道北上卡兹别克（约 6h，含途中阿纳努里要塞、古多里观景台）。入住 Rooms Hotel Kazbegi，落地窗正对雪山，是全国最值得住的一晚。</p></div></div>
-      <div class="day"><div class="d mono">D6 · 周日 7.19<small>卡兹别克 · 第比利斯</small></div><div class="body"><b>圣三一教堂与山谷徒步</b><span class="tagline"><span class="tg p">项目</span></span><p>越野车上格尔盖蒂圣三一教堂（2170m），轻徒步 2-3 小时看高加索全景。下午回第比利斯（3h），晚上把没吃到的补上：khinkali 灌汤包名店对比测评。</p></div></div>
-      <div class="day"><div class="d mono">D7 · 周一 7.20<small>回程</small></div><div class="body"><b>买酒托运，回京</b><p>上午采购陶罐酒与香料（干桥市场或 8000 Vintages 可开箱托运），午后航班经停回北京，周二早抵达。</p></div></div>
+      <details class="day" open><summary><span class="dd num">D1 · 周二 7.14</span><span class="dt">北京 → 第比利斯</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">10:30</div><div class="c">首都机场集合，值机并确认行李直挂中转段</div></div>
+        <div class="slot"><div class="t num">13:00 前后</div><div class="c">起飞，经阿拉木图或乌鲁木齐中转<small>以 7.11 在售班期为参考，出票时以实际时刻为准</small></div></div>
+        <div class="slot"><div class="t num">21:30 当地</div><div class="c">抵达第比利斯机场，Bolt 打车进城约 40 拉里（约 ¥103）</div></div>
+        <div class="slot"><div class="t num">22:30</div><div class="c">酒店入住，Shardeni 街区宵夜一碗 khinkali 收尾</div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D2 · 周三 7.15</span><span class="dt">第比利斯老城深读</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">09:00</div><div class="c">酒店早餐</div></div>
+        <div class="slot"><div class="t num">10:00-12:30</div><div class="c">老城步行：和平桥 → 缆车上纳里卡拉要塞 → 格鲁吉亚母亲雕像俯瞰全城</div></div>
+        <div class="slot"><div class="t num">12:30-14:00</div><div class="c">午餐：老城本地馆子（司机向导推荐制，人均约 40 拉里 ≈ ¥103）</div></div>
+        <div class="slot"><div class="t num">14:00-16:00</div><div class="c">Abanotubani 硫磺浴场区，Chreli Abano 私汤一小时<span class="tg b">提前一天订</span><small>私汤约 200-300 拉里/间（≈ ¥516-774），搓澡加约 50 拉里</small></div></div>
+        <div class="slot"><div class="t num">16:30-18:30</div><div class="c">Fabrika 创意园区：前苏联缝纫厂改造，露台咖啡观察数字游民与本地创业者生态<span class="tg p">项目</span></div></div>
+        <div class="slot"><div class="t num">19:30-22:00</div><div class="c">supra 传统宴席体验（含歌队与 tamada 祝酒人，我来订）<span class="tg f">美食</span></div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D3 · 周四 7.16</span><span class="dt">市场物价与投资田野</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">09:30-11:30</div><div class="c">Dezerter Bazaar 中央市场：奶酪、香料、散装葡萄酒批发价记录，和摊主聊供货链<span class="tg i">投资</span></div></div>
+        <div class="slot"><div class="t num">11:30-12:30</div><div class="c">Dry Bridge 干桥跳蚤市场：苏联遗物的定价体系</div></div>
+        <div class="slot"><div class="t num">13:00-14:30</div><div class="c">午餐 + 咖啡休整</div></div>
+        <div class="slot"><div class="t num">15:00-17:00</div><div class="c">二选一<div class="abwrap" data-cg="p1-d3pm"><button class="ab" data-v="A">A · 姆茨赫塔古都半日（车程 30 分钟，世遗修道院）</button><button class="ab" data-v="B">B · 国家博物馆 + 鲁斯塔韦利大街（黄金藏品与苏联占领史展）</button></div></div></div>
+        <div class="slot"><div class="t num">17:30-18:30</div><div class="c">与 Galt & Taggart 研究员或本地创业者咖啡（我行前代约；约不上就自由活动）<span class="tg i">投资</span></div></div>
+        <div class="slot"><div class="t num">19:30-22:00</div><div class="c">晚餐 Barbarestan：19 世纪公爵夫人食谱复刻名店<span class="tg b">需预订</span><small>两人含酒约 350 拉里 ≈ ¥900</small></div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D4 · 周五 7.17</span><span class="dt">卡赫季酒区 · 西格纳吉</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">09:00</div><div class="c">GoTrip 包车出发东行（约 2 小时）</div></div>
+        <div class="slot"><div class="t num">11:00-13:00</div><div class="c">Pheasant's Tears 酒庄：qvevri 地下酒窖参观 + 五款自然酒品鉴<span class="tg f">美食</span></div></div>
+        <div class="slot"><div class="t num">13:00-15:00</div><div class="c">酒庄慢午餐，尝试约创始人 John Wurdeman 同桌（行前邮件）<span class="tg b">需预订</span></div></div>
+        <div class="slot"><div class="t num">15:30-17:30</div><div class="c">西格纳吉山城：城墙步道与广场，俯瞰阿拉赞尼河谷</div></div>
+        <div class="slot"><div class="t num">19:00</div><div class="c">晚餐后入住山城，夜里安静得能听见钟声</div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D5 · 周六 7.18</span><span class="dt">军事大道北上卡兹别克</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">09:00</div><div class="c">包车出发，全天走格鲁吉亚军事大道（总车程约 6 小时，含停留）</div></div>
+        <div class="slot"><div class="t num">11:00-11:40</div><div class="c">阿纳努里要塞与 Zhinvali 水库观景</div></div>
+        <div class="slot"><div class="t num">13:00-14:00</div><div class="c">帕萨纳乌里午餐：khinkali 发源地的原版灌汤包</div></div>
+        <div class="slot"><div class="t num">15:00-15:40</div><div class="c">古多里俄格友谊纪念台（2650m 悬崖环形壁画）</div></div>
+        <div class="slot"><div class="t num">17:00</div><div class="c">抵卡兹别克入住，露台正对 5047m 雪山，晚餐在酒店</div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D6 · 周日 7.19</span><span class="dt">圣三一教堂 → 回第比利斯</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">08:30</div><div class="c">越野车上格尔盖蒂圣三一教堂（2170m，车程 30 分钟，约 100 拉里/车往返）</div></div>
+        <div class="slot"><div class="t num">09:00-11:30</div><div class="c">教堂 + 山谷轻徒步 2 小时<span class="tg p">项目</span></div></div>
+        <div class="slot"><div class="t num">12:00-15:00</div><div class="c">午餐后包车回第比利斯（约 3 小时）</div></div>
+        <div class="slot"><div class="t num">16:00-18:00</div><div class="c">采购：8000 Vintages 买酒并打托运木箱，或干桥市场淘物</div></div>
+        <div class="slot"><div class="t num">19:30</div><div class="c">告别晚餐：把前几天漏掉的补上（khachapuri 奶酪船对比测评）</div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D7 · 周一 7.20</span><span class="dt">回程</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">上午</div><div class="c">自由活动 + 打包（葡萄酒托运，每人 2 瓶免税入境额度）</div></div>
+        <div class="slot"><div class="t num">午后</div><div class="c">机场出发，经中转回京，周二早抵达<small>回程班期以实际出票为准</small></div></div>
+      </div></details>
     </div>
 
     <h4>不开车怎么走</h4>
     <div class="twocol">
       <div class="box"><h5>城际：包车 + 司机是标准解</h5><ul>
-        <li><strong><a href="https://gotrip.ge" target="_blank" rel="noopener">GoTrip.ge</a></strong>：格鲁吉亚本地平台，明码标价包车含司机，第比利斯到卡兹别克往返约 250-350 拉里/天，英文下单。</li>
-        <li><strong><a href="https://www.miutour.com" target="_blank" rel="noopener">蜜柚旅行</a></strong>：中文司机兼向导，卡赫季、卡兹别克一日或多日包车，适合不想用英文沟通的日子。</li>
-        <li>预算方案：Didube 车站拼车去卡兹别克每人 20-35 拉里，体验本地但牺牲灵活性。</li></ul></div>
+        <li><strong><a href="https://gotrip.ge" target="_blank" rel="noopener">GoTrip.ge</a></strong>：本地平台明码标价含司机，第比利斯 ↔ 卡兹别克约 250-350 拉里/天（≈ ¥645-903），英文下单。</li>
+        <li><strong><a href="https://www.miutour.com" target="_blank" rel="noopener">蜜柚旅行</a></strong>：中文司机兼向导约 ¥900-1,200/天，不想说英文的日子用它。</li></ul></div>
       <div class="box"><h5>市内：打车即可</h5><ul>
-        <li><strong>Bolt</strong>（当地版滴滴）市内一程普遍 3-10 拉里，机场到市区约 30-40 拉里。</li>
-        <li>老城步行密度高，一天 1.5 万步是常态，鞋要选好。</li>
-        <li>司机多不说英文，把目的地用格文/英文写好给他看即可。</li></ul></div>
+        <li><strong>Bolt</strong>（当地版滴滴）市内一程 3-10 拉里（≈ ¥8-26）；机场进城约 40 拉里。</li>
+        <li>老城步行密度高，每天 1.5 万步是常态。</li></ul></div>
     </div>
 
-    <h4>两人预算（7 天全包）</h4>
-    <div class="tablewrap"><table>
-      <thead><tr><th>项目</th><th>方案</th><th class="num">估算</th></tr></thead>
-      <tbody>
-        <tr><td>国际机票</td><td>中转 1 次往返 ×2 人</td><td class="num">¥9,000 - 11,000</td></tr>
-        <tr><td>住宿 6 晚</td><td>Stamba / Rooms Kazbegi / 西格纳吉庄园</td><td class="num">¥7,000 - 12,000</td></tr>
-        <tr><td>包车与向导</td><td>GoTrip 或中文司机 3-4 天</td><td class="num">¥3,500 - 5,000</td></tr>
-        <tr><td>餐饮与酒</td><td>含 Barbarestan、酒庄午宴、日常</td><td class="num">¥4,000 - 6,000</td></tr>
-        <tr><td>体验</td><td>硫磺浴、酿酒工坊、美食徒步</td><td class="num">¥1,500 - 2,500</td></tr>
-        <tr class="total"><td>合计</td><td>两人</td><td class="num">≈ ¥2.5 - 3.5 万</td></tr>
-      </tbody>
-    </table></div>
+    <h4>两人预算 · 含计算逻辑</h4>
+    <p class="h4sub">住宿一行随你上面的选择实时变化。「缓冲」指临近出发出票的常见涨幅，属于估算而非报价。</p>
+    <div class="tablewrap"><table id="p1-budget"></table></div>
 
     <h4>资源对接</h4>
     <div class="people">
-      <div class="person"><b>John Wurdeman · 西格纳吉</b><span>Pheasant's Tears 创始人，美籍画家转型酿酒师，格鲁吉亚自然酒复兴的核心人物。通过酒庄官网邮件即可约到，supra 晚宴的最佳主人。</span></div>
-      <div class="person"><b>Culinary Backstreets 第比利斯站</b><span>美食记者做的深度徒步（约 $135/人），带你进平常进不去的家庭厨房与作坊，两条主线的最佳外包。<a href="https://culinarybackstreets.com/culinary-walks/tbilisi/" target="_blank" rel="noopener">官网预订</a></span></div>
-      <div class="person"><b>Galt & Taggart · 第比利斯</b><span>格鲁吉亚银行系投行的研究部，官网可下载英文宏观与行业报告（葡萄酒、地产、旅游业），行前必读，也是约咖啡的由头。<a href="https://galtandtaggart.com" target="_blank" rel="noopener">研究报告</a></span></div>
-      <div class="person"><b>行前阅读 · Alice Feiring</b><span>《For the Love of Wine》，美国酒评人写格鲁吉亚酿酒传统的挽歌与复兴，7 小时航程正好读完。</span></div>
+      <div class="person"><b>John Wurdeman · 西格纳吉</b><span>Pheasant's Tears 创始人，美籍画家转型酿酒师，自然酒复兴核心人物。酒庄官网邮件可约。</span></div>
+      <div class="person"><b>Culinary Backstreets 第比利斯</b><span>美食记者带的深度徒步，约 $135/人。<a href="https://culinarybackstreets.com/culinary-walks/tbilisi/" target="_blank" rel="noopener">官网预订</a></span></div>
+      <div class="person"><b>Galt & Taggart</b><span>格鲁吉亚银行系投行研究部，英文宏观与行业报告免费下载，行前必读。<a href="https://galtandtaggart.com" target="_blank" rel="noopener">研究报告</a></span></div>
+      <div class="person"><b>行前阅读</b><span>Alice Feiring《For the Love of Wine》，写格鲁吉亚酿酒传统的复兴，航程正好读完。</span></div>
     </div>
+    <div class="mysel"><h5>我的选择 · 格鲁吉亚</h5><p class="sum" id="p1-sum"></p><button class="btn" data-copy="p1">复制选择结果发给 Claude</button></div>
   </div>
 
-  <!-- ═══ PLAN 2 土耳其 ═══ -->
+  <!-- ═══════════ PLAN 2 土耳其 ═══════════ -->
   <div class="plan" id="p2">
     <div class="plan-hero"><img src="__IST__" alt="伊斯坦布尔与博斯普鲁斯海峡"><img src="__CAP__" alt="卡帕多奇亚日出热气球"></div>
-    <div class="statrow">
-      <div><div class="k">签证</div><div class="v">免签 30 天<br><span class="mono" style="font-size:12px">2026.1.2 新政</span></div></div>
-      <div><div class="k">航程</div><div class="v">直飞约 10.5h<br><span class="mono" style="font-size:12px">国航 / 土航 每周约 32 班</span></div></div>
-      <div><div class="k">机票参考</div><div class="v mono">¥3,500+/人 往返</div></div>
+    <div class="facts">
+      <div><div class="k">签证</div><div class="v">免签 30 天（2026.1 新政）</div></div>
+      <div><div class="k">航程</div><div class="v">直飞约 9h<br>土航 + 国航周 16 班</div></div>
       <div><div class="k">七月气候</div><div class="v">伊斯坦布尔 29°C<br>卡帕多奇亚干热、清晨凉</div></div>
-      <div><div class="k">两人总预算</div><div class="v mono">¥3.8 - 5.5 万</div></div>
+      <div><div class="k">两人总预算</div><div class="v num" id="p2-total">计算中</div></div>
     </div>
-    <p style="max-width:48em;color:var(--muted);font-size:15px">为什么是它：免签新政刚落地半年，是今年中国护照最大的目的地增量；对投资主线，土耳其是全球最生动的通胀与汇率现场，大巴扎里的金店、地毯商和批发市场就是活的宏观课；美食侧有米其林指南背书加上安纳托利亚食物人类学的深度。预算上限高，正好匹配"不设硬上限"。</p>
+    <p class="why">为什么是它：免签新政落地半年，是今年中国护照最大的红利；大巴扎是全球最生动的通胀与汇率现场；美食侧有米其林指南与安纳托利亚食物人类学的双重深度。预算上限高，匹配「不设硬上限」。</p>
 
-    <h4>七天排期</h4>
+    <h4>住宿 · 每一晚都可以选</h4>
+    <p class="h4sub">点选即改预算。价格为比价网站近期均价或起价（非绑定 7.14-7.20 的锁价），下单前以官网 / Booking 实时报价为准。</p>
+    <div id="p2-hotels"></div>
+
+    <h4>逐日行程 · 按小时拆解</h4>
+    <p class="h4sub">点开每一天看时段安排。</p>
     <div class="days">
-      <div class="day"><div class="d mono">D1 · 周二 7.14<small>伊斯坦布尔</small></div><div class="body"><b>直飞抵达，佩拉区落脚</b><p>入住 Pera Palace（阿加莎·克里斯蒂写《东方快车谋杀案》的酒店）或 Soho House Istanbul。傍晚加拉塔塔周边散步，屋顶餐厅看金角湾日落倒时差。</p></div></div>
-      <div class="day"><div class="d mono">D2 · 周三 7.15<small>历史半岛</small></div><div class="body"><b>圣索菲亚 + 大巴扎的通胀经济学</b><span class="tagline"><span class="tg i">投资</span></span><p>上午圣索菲亚、蓝色清真寺、地下水宫；下午把大巴扎当田野现场：金店挂牌价与里拉汇率的实时联动、地毯商的美元定价逻辑、香料市场的批发链条，和店主聊十分钟胜读十篇报告。晚餐渡轮去亚洲岸 Kadıköy 的 Çiya Sofrası。</p></div></div>
-      <div class="day"><div class="d mono">D3 · 周四 7.16<small>博斯普鲁斯</small></div><div class="body"><b>渡轮读城 + 两星晚餐</b><span class="tagline"><span class="tg f">美食</span><span class="tg b">需预订</span></span><p>上午博斯普鲁斯渡轮纵贯欧亚两岸看地产与港口格局，午后 Balat/Fener 老街区加一场土耳其咖啡工作坊。晚餐 TURK Fatih Tutak（米其林两星，现代安纳托利亚菜的定义者），需提前一至两周官网订位。</p></div></div>
-      <div class="day"><div class="d mono">D4 · 周五 7.17<small>飞卡帕多奇亚</small></div><div class="body"><b>洞穴酒店 + 陶艺小镇</b><span class="tagline"><span class="tg p">项目</span></span><p>早班机飞开塞利或内夫谢希尔（1.5h），入住 Museum Hotel 或 Sultan Cave Suites 洞穴酒店。下午红线：格雷梅露天博物馆、Avanos 陶艺小镇上手拉坯（红河陶土，两千年的手艺）。</p></div></div>
-      <div class="day"><div class="d mono">D5 · 周六 7.18<small>卡帕多奇亚</small></div><div class="body"><b>日出热气球</b><span class="tagline"><span class="tg b">需预订</span></span><p>凌晨 4:30 出发，Royal 或 Butterfly Balloons（约 €300+/人，7 月清晨风况稳定，起飞率高）。白天绿线：代林库尤地下城 + Ihlara 峡谷徒步。晚上洞穴餐厅吃 testi kebab 瓦罐牛肉。</p></div></div>
-      <div class="day"><div class="d mono">D6 · 周日 7.19<small>回伊斯坦布尔</small></div><div class="body"><b>回城，收尾采购</b><span class="tagline"><span class="tg f">美食</span></span><p>午后航班回伊斯坦布尔。Nişantaşı 街区或香料市场补货：开心果酱、土耳其软糖名店 Hacı Bekir（1777 年老店）、铜制咖啡具。晚餐留给一家 Ocakbaşı 炭火烤肉馆收官。</p></div></div>
-      <div class="day"><div class="d mono">D7 · 周一 7.20<small>回程</small></div><div class="body"><b>直飞回京</b><p>上午自由（博斯普鲁斯边早餐是土耳其的国民仪式），午后直飞，周二上午抵京。</p></div></div>
+      <details class="day" open><summary><span class="dd num">D1 · 周二 7.14</span><span class="dt">北京 → 伊斯坦布尔</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">上午</div><div class="c">直飞出发（土航 / 国航，约 9 小时；以实际出票时刻为准）</div></div>
+        <div class="slot"><div class="t num">15:00 当地</div><div class="c">抵达 IST 新机场，机场快线或出租进城约 1 小时</div></div>
+        <div class="slot"><div class="t num">17:00</div><div class="c">佩拉区酒店入住</div></div>
+        <div class="slot"><div class="t num">18:30-21:30</div><div class="c">加拉塔塔周边 + 独立大街散步，屋顶餐厅看金角湾日落倒时差</div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D2 · 周三 7.15</span><span class="dt">历史半岛 + 大巴扎经济学</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">09:00-12:30</div><div class="c">圣索菲亚（开门即进避人流）→ 蓝色清真寺 → 地下水宫</div></div>
+        <div class="slot"><div class="t num">12:30-14:00</div><div class="c">午餐：历史半岛烤肉老店（人均 600-900 里拉 ≈ ¥87-131）</div></div>
+        <div class="slot"><div class="t num">14:00-17:30</div><div class="c">大巴扎 + 香料市场田野：金店挂牌价与当日汇率的联动、地毯商的美元定价逻辑、批发链访谈<span class="tg i">投资</span></div></div>
+        <div class="slot"><div class="t num">18:00</div><div class="c">Eminönü 渡轮去亚洲岸 Kadıköy（20 分钟，既是交通也是观光）</div></div>
+        <div class="slot"><div class="t num">19:00-21:30</div><div class="c">Çiya Sofrası 晚餐：《主厨的餐桌》人物 Musa Dağdeviren 的安纳托利亚食物档案馆<span class="tg f">美食</span></div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D3 · 周四 7.16</span><span class="dt">博斯普鲁斯 + 两星晚餐</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">09:30-12:00</div><div class="c">长线渡轮纵贯海峡：欧亚两岸的地产、别墅与港口格局<span class="tg i">投资</span></div></div>
+        <div class="slot"><div class="t num">12:30-14:00</div><div class="c">Balat / Fener 彩色老街午餐与街拍</div></div>
+        <div class="slot"><div class="t num">14:30-16:30</div><div class="c">二选一<div class="abwrap" data-cg="p2-d3pm"><button class="ab" data-v="A">A · 土耳其咖啡烘焙工作坊（含铜壶冲煮）</button><button class="ab" data-v="B">B · 佩拉博物馆 + Nişantaşı 街区漫步</button></div></div></div>
+        <div class="slot"><div class="t num">19:30-22:30</div><div class="c">TURK Fatih Tutak 两星晚餐：现代安纳托利亚菜定义者<span class="tg b">需两周前订位</span><small>tasting 每人约 €200，我来盯放位</small></div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D4 · 周五 7.17</span><span class="dt">飞卡帕多奇亚 · 红线</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">08:30</div><div class="c">去机场，约 10:00 起飞（土航 / 飞马 1.5 小时至开塞利或内夫谢希尔）</div></div>
+        <div class="slot"><div class="t num">12:30</div><div class="c">洞穴酒店入住（酒店含机场接驳）</div></div>
+        <div class="slot"><div class="t num">14:00-18:00</div><div class="c">红线：格雷梅露天博物馆 → Çavuşin 老村 → Avanos 陶艺小镇上手拉坯（红河陶土，两千年手艺）<span class="tg p">项目</span></div></div>
+        <div class="slot"><div class="t num">19:30</div><div class="c">洞穴餐厅晚餐，早睡（明天凌晨飞行）</div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D5 · 周六 7.18</span><span class="dt">日出热气球 · 绿线</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">04:30</div><div class="c">热气球公司上门接驳</div></div>
+        <div class="slot"><div class="t num">05:30-06:45</div><div class="c">日出飞行约 1 小时（Royal / Butterfly 头部公司，7 月清晨风况稳定，起飞率高）<span class="tg b">需预订</span></div></div>
+        <div class="slot"><div class="t num">07:30-10:30</div><div class="c">回酒店补觉 + 洞穴露台早午餐</div></div>
+        <div class="slot"><div class="t num">11:00-16:00</div><div class="c">绿线：代林库尤地下城（地下八层）+ Ihlara 峡谷徒步</div></div>
+        <div class="slot"><div class="t num">19:00</div><div class="c">testi kebab 瓦罐牛肉：上桌前敲开陶罐</div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D6 · 周日 7.19</span><span class="dt">回伊斯坦布尔 · 收尾</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">10:00</div><div class="c">航班回伊斯坦布尔</div></div>
+        <div class="slot"><div class="t num">13:00-17:00</div><div class="c">二选一<div class="abwrap" data-cg="p2-d6pm"><button class="ab" data-v="A">A · Karaköy / Nişantaşı 买手店与咖啡</button><button class="ab" data-v="B">B · 多尔玛巴赫切宫（奥斯曼末代宫殿）</button></div></div></div>
+        <div class="slot"><div class="t num">17:30-19:00</div><div class="c">香料市场补货：开心果酱、1777 年老店 Hacı Bekir 软糖、铜咖啡具</div></div>
+        <div class="slot"><div class="t num">20:00</div><div class="c">Ocakbaşı 炭火烤肉收官</div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D7 · 周一 7.20</span><span class="dt">回程</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">08:30-10:00</div><div class="c">博斯普鲁斯边土耳其式早餐（国民仪式，一桌二十碟）</div></div>
+        <div class="slot"><div class="t num">11:00</div><div class="c">去机场，午后直飞，周二上午抵京</div></div>
+      </div></details>
     </div>
 
     <h4>不开车怎么走</h4>
     <div class="twocol">
       <div class="box"><h5>伊斯坦布尔：公共交通极好</h5><ul>
-        <li><strong>Istanbulkart</strong> 一卡通吃电车、地铁、渡轮，历史半岛全靠 T1 电车 + 步行。</li>
-        <li>打车用 <strong>BiTaksi</strong>（当地打车 App），跨欧亚一程约 150-300 里拉。</li>
-        <li>渡轮既是交通也是观光，Eminönü 到 Kadıköy 一程约 20 分钟。</li></ul></div>
-      <div class="box"><h5>卡帕多奇亚：酒店接送 + 日游团</h5><ul>
-        <li>洞穴酒店全部提供机场接送；红线 / 绿线一日游是标准产品（<a href="https://www.getyourguide.com/goreme-l32213/" target="_blank" rel="noopener">GetYourGuide</a> 或 <a href="https://www.klook.com" target="_blank" rel="noopener">Klook</a> 中文下单），含车含向导。</li>
-        <li>热气球公司凌晨上门接，全程无需自驾。</li>
-        <li>想更自由就按天包车（约 €120-180/天含司机）。</li></ul></div>
+        <li><strong>Istanbulkart</strong> 一卡通吃电车、地铁、渡轮；历史半岛靠 T1 电车 + 步行。</li>
+        <li>打车用 <strong>BiTaksi</strong>，跨欧亚一程约 150-300 里拉（≈ ¥22-44）。</li></ul></div>
+      <div class="box"><h5>卡帕多奇亚：接送 + 日游团</h5><ul>
+        <li>洞穴酒店均含机场接驳；红线 / 绿线一日游为标准产品（<a href="https://www.getyourguide.com/goreme-l32213/" target="_blank" rel="noopener">GetYourGuide</a> / <a href="https://www.klook.com" target="_blank" rel="noopener">Klook</a> 中文下单，含车含向导）。</li>
+        <li>更自由可按天包车，约 €120-180/天含司机。</li></ul></div>
     </div>
 
-    <h4>两人预算（7 天全包）</h4>
-    <div class="tablewrap"><table>
-      <thead><tr><th>项目</th><th>方案</th><th class="num">估算</th></tr></thead>
-      <tbody>
-        <tr><td>国际机票</td><td>直飞往返 ×2 人</td><td class="num">¥10,000 - 14,000</td></tr>
-        <tr><td>国内段机票</td><td>伊斯坦布尔 ↔ 卡帕多奇亚 ×2 人</td><td class="num">¥1,400 - 2,000</td></tr>
-        <tr><td>住宿 6 晚</td><td>Pera Palace 4 晚 + 洞穴酒店 2 晚</td><td class="num">¥12,000 - 20,000</td></tr>
-        <tr><td>热气球</td><td>头部公司 ×2 人</td><td class="num">¥4,800 - 5,600</td></tr>
-        <tr><td>餐饮</td><td>含 TURK 两星晚餐、Çiya、日常</td><td class="num">¥5,000 - 8,000</td></tr>
-        <tr><td>当地交通与日游</td><td>市内 + 红绿线 + 接送</td><td class="num">¥2,500 - 4,000</td></tr>
-        <tr class="total"><td>合计</td><td>两人</td><td class="num">≈ ¥3.8 - 5.5 万</td></tr>
-      </tbody>
-    </table></div>
+    <h4>两人预算 · 含计算逻辑</h4>
+    <p class="h4sub">住宿一行随你上面的选择实时变化。</p>
+    <div class="tablewrap"><table id="p2-budget"></table></div>
 
     <h4>资源对接</h4>
     <div class="people">
-      <div class="person"><b>Musa Dağdeviren · Kadıköy</b><span>Çiya Sofrası 主厨，《主厨的餐桌》第五季人物，用餐厅做安纳托利亚食物人类学档案。店里就能遇到，值得为他跑一趟亚洲岸。</span></div>
-      <div class="person"><b>Fatih Tutak · TURK</b><span>土耳其唯一米其林两星的本土叙事者，tasting menu 是理解"新土耳其菜"的一堂课。<a href="https://www.turkft.com" target="_blank" rel="noopener">官网订位</a></span></div>
-      <div class="person"><b>Culinary Backstreets 伊斯坦布尔站</b><span>创始站点，两岸市场与作坊的全天徒步，美食主线直接外包给它。<a href="https://culinarybackstreets.com/culinary-walks/istanbul/" target="_blank" rel="noopener">官网预订</a></span></div>
-      <div class="person"><b>Refika Birgül</b><span>土耳其最大美食 YouTuber（Refika's Kitchen），行前刷她的伊斯坦布尔市场系列，落地就知道每样东西怎么吃。</span></div>
-      <div class="person"><b>投资情报 · Invest in Türkiye</b><span>总统府投资办公室官网（invest.gov.tr），行业报告免费下载；配合央行利率决议日历看，大巴扎的田野观察才有对照组。</span></div>
-      <div class="person"><b>米其林指南伊斯坦布尔</b><span>2023 年进驻，星级与必比登名单是选店底表。<a href="https://guide.michelin.com/en/tr/istanbul/restaurants" target="_blank" rel="noopener">在线名单</a></span></div>
+      <div class="person"><b>Musa Dağdeviren · Kadıköy</b><span>Çiya 主厨，《主厨的餐桌》第五季人物，用餐厅做食物人类学档案，店里就能遇到。</span></div>
+      <div class="person"><b>Fatih Tutak · TURK</b><span>土耳其本土叙事唯一两星。<a href="https://www.turkft.com" target="_blank" rel="noopener">官网订位</a></span></div>
+      <div class="person"><b>Culinary Backstreets 伊斯坦布尔</b><span>创始站点，两岸市场作坊全天徒步。<a href="https://culinarybackstreets.com/culinary-walks/istanbul/" target="_blank" rel="noopener">官网预订</a></span></div>
+      <div class="person"><b>投资情报 · Invest in Türkiye</b><span>官方投资办公室行业报告（invest.gov.tr），配合央行利率日历看大巴扎田野才有对照组。</span></div>
     </div>
+    <div class="mysel"><h5>我的选择 · 土耳其</h5><p class="sum" id="p2-sum"></p><button class="btn" data-copy="p2">复制选择结果发给 Claude</button></div>
   </div>
 
-  <!-- ═══ PLAN 3 曼谷 ═══ -->
+  <!-- ═══════════ PLAN 3 曼谷 ═══════════ -->
   <div class="plan" id="p3">
-    <div class="plan-hero"><img src="__BKK__" alt="郑王庙与湄南河"><img src="__BKF__" alt="曼谷唐人街耀华力路街头美食"></div>
-    <div class="statrow">
+    <div class="plan-hero"><img src="__BKK__" alt="郑王庙"><img src="__BKF__" alt="曼谷唐人街街头美食"></div>
+    <div class="facts">
       <div><div class="k">签证</div><div class="v">永久互免 30 天</div></div>
       <div><div class="k">航程</div><div class="v">直飞约 6.5h，每日多班</div></div>
-      <div><div class="k">机票参考</div><div class="v mono">¥2,000 - 3,500/人 往返</div></div>
-      <div><div class="k">七月气候</div><div class="v">33°C 雨季<br>午后阵雨，室内主线无碍</div></div>
-      <div><div class="k">两人总预算</div><div class="v mono">¥2.6 - 4.7 万</div></div>
+      <div><div class="k">七月气候</div><div class="v">33°C 雨季，午后阵雨<br>室内美食主线无碍</div></div>
+      <div><div class="k">两人总预算</div><div class="v num" id="p3-total">计算中</div></div>
     </div>
-    <p style="max-width:48em;color:var(--muted);font-size:15px">为什么是它：此刻的曼谷就是亚洲餐桌的中心，2026 年亚洲 50 佳有 9 家在这座城（Gaggan 第 3、Nusara 第 5、Sorn 第 12），米其林三星两家。你朋友飞丹麦吃一顿的玩法，在曼谷可以一周连吃五顿世界级，而且直飞、免签、打车便宜，是三个方案里执行摩擦最小的。</p>
+    <p class="why">为什么是它：此刻的曼谷是亚洲餐桌的中心，2026 亚洲 50 佳 9 家在这座城（Gaggan 第 3、Nusara 第 5、Sorn 第 12）。你朋友飞丹麦吃一顿的玩法，在曼谷可以一周连吃五顿世界级，而且直飞、免签、打车便宜，执行摩擦最小。雨季反而是高端酒店的价格洼地。</p>
 
-    <h4>七天排期</h4>
+    <h4>住宿 · 六晚一店，档位三选</h4>
+    <p class="h4sub">点选即改预算。价格为比价网站近期报价（雨季为曼谷酒店淡季，实际价可能偏区间下沿）。</p>
+    <div id="p3-hotels"></div>
+
+    <h4>逐日行程 · 按小时拆解</h4>
+    <p class="h4sub">殿堂级餐厅的预订窗口是全行程最稀缺资源，页尾流程里我会最先处理它。</p>
     <div class="days">
-      <div class="day"><div class="d mono">D1 · 周二 7.14<small>河畔</small></div><div class="body"><b>直飞抵达，唐人街开场</b><span class="tagline"><span class="tg f">美食</span></span><p>入住河畔 Capella / 文华东方，或性价比选 Ariyasom Villa。傍晚郑王庙对岸日落，夜里扎进耀华力路：街头米其林密度全球第一的一公里。</p></div></div>
-      <div class="day"><div class="d mono">D2 · 周三 7.15<small>老城</small></div><div class="body"><b>大皇宫 + 泰华叙事晚餐</b><span class="tagline"><span class="tg f">美食</span><span class="tg b">需预订</span></span><p>上午大皇宫、卧佛寺；午餐 Krua Apsorn 或熬了半个世纪的 Wattana Panich 牛肉面。晚餐 Potong（亚洲 50 佳第 25，潮州移民第五代把家族药房改成餐厅，和潮汕华人史直接对话）。</p></div></div>
-      <div class="day"><div class="d mono">D3 · 周四 7.16<small>市场</small></div><div class="body"><b>市场深读 + 烹饪课</b><span class="tagline"><span class="tg f">美食</span><span class="tg p">项目</span></span><p>早上 Or Tor Kor 高端农贸市场做食材与物价扫描（榴莲分级定价体系值得研究），下午半日泰料烹饪课从买菜开始。晚餐冲 Sorn（泰南菜三星，订位全城最难）或备选 Nusara。</p></div></div>
-      <div class="day"><div class="d mono">D4 · 周五 7.17<small>商圈</small></div><div class="body"><b>投资田野日</b><span class="tagline"><span class="tg i">投资</span><span class="tg b">需预订</span></span><p>把 CP 集团生态当样本：7-Eleven 的鲜食供应链、Makro 批发店、Siam 商圈与老城零售的租金梯度；下午约曼谷的中国出海圈或 Techsauce 社群喝咖啡。晚餐 Gaggan（亚洲 50 佳第 3，票务制放票即抢）。</p></div></div>
-      <div class="day"><div class="d mono">D5 · 周六 7.18<small>大城</small></div><div class="body"><b>大城一日：废墟与河鲜</b><p>火车或包车 1.5h 到大城（Ayutthaya），世界遗产废墟群配当地向导讲暹罗贸易史，午餐河鲜烤大头虾。傍晚回曼谷，夜里 spa 按摩收尾。</p></div></div>
-      <div class="day"><div class="d mono">D6 · 周日 7.19<small>加都加</small></div><div class="body"><b>周末市场 + 街头食物学</b><span class="tagline"><span class="tg f">美食</span></span><p>上午恰图恰周末市场（1.5 万个摊位，观察泰国设计与消费力的最佳切片），下午 TCDC 设计中心或 songwat 老仓库街区咖啡，晚上报一个 street food tour（A Chef's Tour 晚间线）把漏网的摊位一网打尽。</p></div></div>
-      <div class="day"><div class="d mono">D7 · 周一 7.20<small>回程</small></div><div class="body"><b>回京</b><p>上午泳池加买手信（Or Tor Kor 的果干与咖喱酱能过关），午后直飞，当晚抵京。</p></div></div>
+      <details class="day" open><summary><span class="dd num">D1 · 周二 7.14</span><span class="dt">北京 → 曼谷 · 唐人街开场</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">10:00 前后</div><div class="c">直飞出发（约 6.5 小时，国航 / 泰航每日多班）</div></div>
+        <div class="slot"><div class="t num">14:30 当地</div><div class="c">抵达素万那普机场，机场快线 ARL 或出租进城</div></div>
+        <div class="slot"><div class="t num">16:30</div><div class="c">河畔酒店入住，泳池缓一缓</div></div>
+        <div class="slot"><div class="t num">18:00</div><div class="c">渡轮到对岸看郑王庙日落（黄昏顺光最好看）</div></div>
+        <div class="slot"><div class="t num">19:30-22:30</div><div class="c">耀华力路夜市扫街：街头米其林密度全球第一的一公里<span class="tg f">美食</span></div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D2 · 周三 7.15</span><span class="dt">老城 + 泰华叙事晚餐</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">08:30-11:30</div><div class="c">大皇宫（开门即进避高温）+ 卧佛寺</div></div>
+        <div class="slot"><div class="t num">12:00-13:30</div><div class="c">午餐：熬了半个世纪的 Wattana Panich 牛肉面，或 Krua Apsorn 蟹肉炒蛋</div></div>
+        <div class="slot"><div class="t num">14:00-17:00</div><div class="c">Songwat 老街区：河岸仓库咖啡与画廊（曼谷此刻最有生命力的街区更新样本）<span class="tg i">投资</span></div></div>
+        <div class="slot"><div class="t num">19:00-22:00</div><div class="c">Potong 晚餐：潮州移民第五代把家族药房改成餐厅，亚洲 50 佳第 25<span class="tg b">SevenRooms 预订</span><small>官网价 ฿6,300++/人，含税服实付约 ฿7,400 ≈ ¥1,510</small></div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D3 · 周四 7.16</span><span class="dt">市场深读 + 三星晚餐</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">08:00-11:00</div><div class="c">Or Tor Kor 高端农贸市场：榴莲分级定价体系、食材与物价记录<span class="tg i">投资</span></div></div>
+        <div class="slot"><div class="t num">11:30-15:30</div><div class="c">半日泰料烹饪课（从市场采买开始，含午餐）<span class="tg p">项目</span></div></div>
+        <div class="slot"><div class="t num">16:00-18:00</div><div class="c">回酒店泳池休整</div></div>
+        <div class="slot"><div class="t num">19:00-22:30</div><div class="c">Sorn 三星晚餐（泰南菜，全城最难订），备选 Nusara（50 佳第 5）<span class="tg b">抢位制</span><small>Sorn 约 ฿7,200/人 ≈ ¥1,470；每月放位数分钟抢完，我来盯；锁不到就顺延 D6</small></div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D4 · 周五 7.17</span><span class="dt">投资田野日 + Gaggan</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">09:30-12:00</div><div class="c">CP 生态田野：7-Eleven 鲜食供应链观察 + Makro 批发店扫价<span class="tg i">投资</span></div></div>
+        <div class="slot"><div class="t num">12:30-14:00</div><div class="c">商场美食层午餐（观察曼谷白领消费）</div></div>
+        <div class="slot"><div class="t num">14:30-17:00</div><div class="c">Siam 商圈与老城的租金梯度走访 + ICONSIAM 河岸综合体</div></div>
+        <div class="slot"><div class="t num">17:30-18:30</div><div class="c">与曼谷中国出海圈 / Techsauce 社群咖啡（我行前代约）<span class="tg p">项目</span></div></div>
+        <div class="slot"><div class="t num">19:30-22:30</div><div class="c">Gaggan：亚洲 50 佳第 3，25 道 emoji 菜单的剧场<span class="tg b">官网票务制</span><small>主餐厅约 ฿8,000/人、主厨餐桌约 ฿12,000/人（口径分歧，官网确认）</small></div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D5 · 周六 7.18</span><span class="dt">大城一日 · 废墟与河鲜</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">07:30</div><div class="c">包车出发（1.5 小时；火车版更便宜但看天气）</div></div>
+        <div class="slot"><div class="t num">09:00-12:30</div><div class="c">世界遗产废墟群：玛哈泰寺树抱佛头、崖差蒙空寺，当地向导讲暹罗贸易史</div></div>
+        <div class="slot"><div class="t num">12:30-14:00</div><div class="c">河鲜午餐：炭烤大头虾</div></div>
+        <div class="slot"><div class="t num">14:00-16:00</div><div class="c">邦芭茵夏宫或直接回程</div></div>
+        <div class="slot"><div class="t num">19:30</div><div class="c">回曼谷河畔晚餐 + 夜间 spa 两小时</div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D6 · 周日 7.19</span><span class="dt">周末市场 + 街头食物学</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">09:00-12:00</div><div class="c">恰图恰周末市场：1.5 万个摊位，泰国设计与消费力的最佳切片<span class="tg i">投资</span></div></div>
+        <div class="slot"><div class="t num">13:00-16:00</div><div class="c">二选一<div class="abwrap" data-cg="p3-d6pm"><button class="ab" data-v="A">A · TCDC 设计中心 + 河岸创意街区</button><button class="ab" data-v="B">B · 酒店泳池躺平 + 两小时按摩</button></div></div></div>
+        <div class="slot"><div class="t num">18:00-21:30</div><div class="c">街头美食徒步收官（A Chef's Tour 晚间线，本地领队带进游客不去的巷子）<span class="tg f">美食</span></div></div>
+      </div></details>
+      <details class="day"><summary><span class="dd num">D7 · 周一 7.20</span><span class="dt">回程</span><span class="caret">▶</span></summary><div class="slots">
+        <div class="slot"><div class="t num">上午</div><div class="c">泳池 + Or Tor Kor 买手信（果干、咖喱酱可入境）</div></div>
+        <div class="slot"><div class="t num">12:00</div><div class="c">去机场，午后直飞，当晚抵京</div></div>
+      </div></details>
     </div>
 
     <h4>不开车怎么走</h4>
     <div class="twocol">
       <div class="box"><h5>轨交 + 打车 + 船，零门槛</h5><ul>
-        <li><strong>BTS/MRT</strong> 覆盖所有商圈，Rabbit 卡即买即用；<strong>Grab</strong> 全程兜底，市内一程约 25-45 元人民币。</li>
-        <li><strong>湄南河快船与酒店摆渡</strong>：河畔酒店到老城最优雅的通勤方式。</li>
-        <li>雨季午后阵雨 1 小时左右，行程把室外项目排上午即可。</li></ul></div>
+        <li><strong>BTS / MRT</strong> 覆盖所有商圈；<strong>Grab</strong> 全程兜底，市内一程约 ¥25-45。</li>
+        <li><strong>湄南河快船与酒店摆渡</strong>：河畔酒店到老城最优雅的通勤。</li>
+        <li>雨季阵雨约 1 小时，室外项目排上午即可。</li></ul></div>
       <div class="box"><h5>大城一日的两种走法</h5><ul>
-        <li>省心版：包车往返含中文向导（约 ¥1,200-1,800/天，Klook / 携程当地玩乐可订）。</li>
-        <li>风物版：华南蓬车站火车去（1.5h，几十泰铢），当地突突车包半日，回程 minivan。</li></ul></div>
+        <li>省心版：包车含中文向导约 ¥1,200-1,800/天（Klook / 携程当地玩乐）。</li>
+        <li>风物版：华南蓬火车 1.5 小时几十泰铢，当地突突车包半日。</li></ul></div>
     </div>
 
-    <h4>两人预算（7 天全包）</h4>
-    <div class="tablewrap"><table>
-      <thead><tr><th>项目</th><th>方案</th><th class="num">估算</th></tr></thead>
-      <tbody>
-        <tr><td>国际机票</td><td>直飞往返 ×2 人</td><td class="num">¥5,000 - 7,000</td></tr>
-        <tr><td>住宿 6 晚</td><td>Ariyasom ¥1,200/晚 至 Capella ¥4,500/晚</td><td class="num">¥8,000 - 24,000</td></tr>
-        <tr><td>殿堂级餐厅 3 顿</td><td>Sorn ≈¥1,800/人 · Gaggan ≈¥2,500/人 · Potong ≈¥1,300/人</td><td class="num">¥8,000 - 12,000</td></tr>
-        <tr><td>日常餐饮</td><td>街头 + 市场 + 咖啡</td><td class="num">¥1,500 - 2,500</td></tr>
-        <tr><td>当地交通 + 大城一日</td><td>Grab + 包车向导</td><td class="num">¥2,000 - 3,000</td></tr>
-        <tr class="total"><td>合计</td><td>两人</td><td class="num">≈ ¥2.6 - 4.7 万</td></tr>
-      </tbody>
-    </table></div>
+    <h4>两人预算 · 含计算逻辑</h4>
+    <p class="h4sub">住宿一行随你上面的选择实时变化。曼谷的预算弹性几乎全部来自酒店档位。</p>
+    <div class="tablewrap"><table id="p3-budget"></table></div>
 
     <h4>资源对接</h4>
     <div class="people">
-      <div class="person"><b>预订窗口（最先动手）</b><span>Sorn 每月放位数分钟抢完，官网 + 让酒店礼宾同步候补；Gaggan 走官网票务制；Potong 用 SevenRooms。今天就设提醒。<a href="https://guide.michelin.com/en/article/michelin-guide-ceremony/michelin-guide-thailand-2026" target="_blank" rel="noopener">米其林泰国 2026 名单</a></span></div>
-      <div class="person"><b>Mark Wiens</b><span>常驻曼谷 20 年的美食博主（migrationology），他的曼谷街头清单仍是最可靠的免费向导。</span></div>
-      <div class="person"><b>Austin Bush</b><span>美食作家兼摄影师，《The Food of Southern Thailand》作者，理解 Sorn 那桌泰南菜的最佳预习材料。</span></div>
-      <div class="person"><b>A Chef's Tour / Bangkok Food Tours</b><span>晚间街头美食徒步（约 $60-80/人），本地领队带进游客不去的巷子。<a href="https://achefstour.com" target="_blank" rel="noopener">官网</a></span></div>
-      <div class="person"><b>投资情报 · Momentum Works</b><span>墨腾创投（新加坡）的东南亚市场报告是中文世界最好的入口；曼谷落地后可扫 Techsauce 社群活动。<a href="https://thelowdown.momentum.asia" target="_blank" rel="noopener">The Low Down</a></span></div>
-      <div class="person"><b>泰国投资促进委员会 BOI</b><span>官方行业与优惠政策库（boi.go.th），配合 7-Eleven 门店田野观察，一周能攒出一份消费市场小报告。</span></div>
+      <div class="person"><b>预订窗口（最先动手）</b><span>Sorn 每月放位数分钟抢完；Gaggan 官网票务制；Potong 用 SevenRooms（订金 ฿1,000/人抵餐费）。<a href="https://guide.michelin.com/en/article/michelin-guide-ceremony/michelin-guide-thailand-2026" target="_blank" rel="noopener">米其林泰国 2026 名单</a></span></div>
+      <div class="person"><b>Mark Wiens</b><span>常驻曼谷 20 年的美食博主（migrationology），街头清单仍是最可靠的免费向导。</span></div>
+      <div class="person"><b>Austin Bush</b><span>《The Food of Southern Thailand》作者，理解 Sorn 那桌菜的最佳预习。</span></div>
+      <div class="person"><b>投资情报 · 墨腾创投</b><span>Momentum Works 的东南亚市场报告是中文世界最好的入口。<a href="https://thelowdown.momentum.asia" target="_blank" rel="noopener">The Low Down</a></span></div>
     </div>
+    <div class="mysel"><h5>我的选择 · 曼谷</h5><p class="sum" id="p3-sum"></p><button class="btn" data-copy="p3">复制选择结果发给 Claude</button></div>
   </div>
 </div></section>
 
 <section id="budget"><div class="wrap">
-  <div class="sec-head"><span class="num mono">05</span><h2 class="serif">预算对比</h2></div>
-  <p class="sec-sub">两人 7 天全包估算（机票、住宿、餐饮、当地交通与体验），区间反映"舒适到放开花"的弹性。深蓝为三个深读方案。</p>
+  <div class="sec-eyebrow">Compare</div>
+  <h2 class="serif">预算对比</h2>
+  <p class="sec-sub">两人 7 天全包估算。区间宽度主要来自住宿档位选择；琥珀色为三个深读方案，区间与方案页内的档位选择对应。</p>
   <div class="chart-card">
-    <div class="legend"><span><i style="background:var(--accent)"></i>深读方案</span><span><i style="background:var(--bar-other)"></i>其他候选</span></div>
-    <div class="chart-scroll"><div id="chart" style="min-width:640px;position:relative"></div></div>
-    <details><summary>查看数据表</summary>
-      <div class="tablewrap" style="margin-top:10px"><table>
-        <thead><tr><th>目的地</th><th class="num">下限（万元）</th><th class="num">上限（万元）</th></tr></thead>
+    <div class="legend"><span><i style="background:var(--tungsten)"></i>深读方案</span><span><i style="background:var(--bar-other)"></i>其他候选</span></div>
+    <div class="chart-scroll"><div id="chart" style="min-width:620px;position:relative"></div></div>
+    <details class="dtable"><summary>查看数据表 ▸</summary>
+      <div class="tablewrap" style="margin-top:12px"><table style="min-width:420px">
+        <thead><tr><th>目的地</th><th style="text-align:right">下限（万元）</th><th style="text-align:right">上限（万元）</th></tr></thead>
         <tbody id="budget-table"></tbody>
       </table></div>
     </details>
@@ -454,95 +576,128 @@ footer p{max-width:60em}
 </div></section>
 
 <section id="platforms"><div class="wrap">
-  <div class="sec-head"><span class="num mono">06</span><h2 class="serif">项目制旅行 · 全球平台库</h2></div>
-  <p class="sec-sub">你问的"全域扫描机制"确实存在，只是散落在几类平台里。出发前用它们各扫一遍目的地，行程就能挂上真实任务。</p>
+  <div class="sec-eyebrow">Platforms</div>
+  <h2 class="serif">项目制旅行 · 平台库</h2>
+  <p class="sec-sub">你说的「全域扫描机制」散落在这几类平台里，出发前各扫一遍目的地即可。</p>
   <div class="plat">
-    <div class="box"><span class="use">换宿与在地项目</span><br><b><a href="https://www.workaway.info" target="_blank" rel="noopener">Workaway</a> / <a href="https://www.worldpackers.com" target="_blank" rel="noopener">Worldpackers</a> / <a href="https://wwoof.net" target="_blank" rel="noopener">WWOOF</a></b><p>全球在地项目库：酒庄采收、民宿运营、农场与手作坊换宿。按国家筛选，格鲁吉亚的酒庄项目和土耳其的陶坊都能搜到，短则一周即可参与。</p></div>
-    <div class="box"><span class="use">学者与专家带队</span><br><b><a href="https://www.contexttravel.com" target="_blank" rel="noopener">Context Travel</a></b><p>博士与领域专家带的小团深度导览（伊斯坦布尔的拜占庭史、经济史线路都有），单场 2-3 小时，把"研学"外包给最懂的人。</p></div>
-    <div class="box"><span class="use">美食记者路线</span><br><b><a href="https://culinarybackstreets.com" target="_blank" rel="noopener">Culinary Backstreets</a></b><p>驻地美食记者设计的市场与作坊徒步，第比利斯、伊斯坦布尔、曼谷三站全覆盖，正好对齐这次的前三候选。</p></div>
-    <div class="box"><span class="use">在地家宴</span><br><b><a href="https://www.eatwith.com" target="_blank" rel="noopener">EatWith</a> / <a href="https://www.travelingspoon.com" target="_blank" rel="noopener">Traveling Spoon</a></b><p>进当地人家里吃一顿并跟着做，是"感官主线"里性价比最高的深度体验，多数城市 ¥200-500/人。</p></div>
-    <div class="box"><span class="use">展会与商务考察</span><br><b><a href="https://10times.com" target="_blank" rel="noopener">10times</a></b><p>全球展会数据库，按城市 + 日期扫描出行窗口内的行业展会与峰会，商务考察型行程的骨架就从这里来。免费注册即可看参展商名录。</p></div>
-    <div class="box"><span class="use">活动日历扫描</span><br><b><a href="https://lu.ma" target="_blank" rel="noopener">Luma</a> / <a href="https://www.meetup.com" target="_blank" rel="noopener">Meetup</a></b><p>落地城市的创投、加密、设计类线下活动几乎都挂在这两个平台。搜"Tbilisi""Bangkok"加出行日期，约见比想象中容易。</p></div>
-    <div class="box"><span class="use">私人向导</span><br><b><a href="https://www.toursbylocals.com" target="_blank" rel="noopener">ToursByLocals</a> / <a href="https://www.getyourguide.com" target="_blank" rel="noopener">GetYourGuide</a> / <a href="https://www.klook.com" target="_blank" rel="noopener">Klook 客路</a></b><p>按天雇本地私导（可筛中文），把"不开车"和"要深度"同时解决；Klook 对中文用户支付最友好。</p></div>
-    <div class="box"><span class="use">数字游民数据</span><br><b><a href="https://nomads.com" target="_blank" rel="noopener">Nomad List</a></b><p>按生活成本、网速、安全性给全球城市打分的数据库，做"投资视角"的城市横评时是很好的对照数据源。</p></div>
-    <div class="box"><span class="use">方法论原典</span><br><b>吉姆·罗杰斯的两本环球游记</b><p>《Investment Biker》（1994，摩托环球）与《Adventure Capitalist》（2003，汽车环球）：他"边走边做尽调"的原始方法论，值得在路上重读其中目的地章节。</p></div>
+    <div class="box"><span class="use">换宿与在地项目</span><b><a href="https://www.workaway.info" target="_blank" rel="noopener">Workaway</a> / <a href="https://www.worldpackers.com" target="_blank" rel="noopener">Worldpackers</a></b><p>酒庄采收、民宿运营、手作坊换宿，按国家筛选，短则一周可参与。</p></div>
+    <div class="box"><span class="use">学者带队</span><b><a href="https://www.contexttravel.com" target="_blank" rel="noopener">Context Travel</a></b><p>博士与领域专家带的小团深度导览，单场 2-3 小时，把研学外包给最懂的人。</p></div>
+    <div class="box"><span class="use">美食记者路线</span><b><a href="https://culinarybackstreets.com" target="_blank" rel="noopener">Culinary Backstreets</a></b><p>驻地美食记者设计的市场徒步，第比利斯、伊斯坦布尔、曼谷三站全覆盖。</p></div>
+    <div class="box"><span class="use">展会与商务考察</span><b><a href="https://10times.com" target="_blank" rel="noopener">10times</a></b><p>全球展会数据库，按城市 + 日期扫描出行窗口内的行业展会，免费注册看参展商名录。</p></div>
+    <div class="box"><span class="use">活动日历</span><b><a href="https://lu.ma" target="_blank" rel="noopener">Luma</a> / <a href="https://www.meetup.com" target="_blank" rel="noopener">Meetup</a></b><p>落地城市的创投与设计类线下活动几乎都在这两个平台，搜城市名加日期。</p></div>
+    <div class="box"><span class="use">方法论原典</span><b>吉姆·罗杰斯环球游记两种</b><p>《Investment Biker》与《Adventure Capitalist》：边走边做尽调的原始方法论。</p></div>
   </div>
 </div></section>
 
-<section id="action"><div class="wrap">
-  <div class="sec-head"><span class="num mono">07</span><h2 class="serif">行动清单 · 今天到出发</h2></div>
-  <p class="sec-sub">按 7.14 周二出发倒排。核心原则：先锁死"最稀缺的东西"（餐厅席位与热气球），机票和酒店反而是最不缺的。</p>
+<section id="flow"><div class="wrap">
+  <div class="sec-eyebrow">Next</div>
+  <h2 class="serif">下一步 · 三步走</h2>
+  <p class="sec-sub">先定方案与选项，再由我出可执行的预订清单，你确认后才动手。联系人的邮件也放到第三步你点头之后再发。</p>
   <div class="steps">
-    <div class="step"><div></div><div><b>今晚：定目的地（7.10 周五前）</b><p>三选一，或回我这里再细化任何一个候选。定了目的地，后面所有预订才能动。</p></div></div>
-    <div class="step"><div></div><div><b>明天：锁机票（7.11 周六）</b><p>比价三件套：<a href="https://flights.ctrip.com" target="_blank" rel="noopener">携程机票</a>、<a href="https://www.tianxun.com" target="_blank" rel="noopener">天巡</a>、<a href="https://www.google.com/travel/flights" target="_blank" rel="noopener">Google Flights</a>。参考价：曼谷往返 ¥2,000-3,500/人，伊斯坦布尔直飞 ¥3,500+/人，第比利斯中转 ¥3,300+/人。周二三出发的票价通常比周末低一档。</p></div></div>
-    <div class="step"><div></div><div><b>同步：抢核心体验（7.11-7.12）</b><p>曼谷线抢 Sorn / Gaggan / Potong；土耳其线订 TURK 和热气球（Royal / Butterfly）；格鲁吉亚线邮件约 Pheasant's Tears 午宴与 GoTrip 包车。这些比机票更稀缺。</p></div></div>
-    <div class="step"><div></div><div><b>周日：订住宿（7.12）</b><p>只订前两晚也行，保留中途调整的即兴空间；旺季的是卡帕多奇亚洞穴酒店和 Rooms Kazbegi，这两家要一次订满。</p></div></div>
-    <div class="step"><div></div><div><b>行前杂务（7.13 周一）</b><p>eSIM（<a href="https://www.airalo.com" target="_blank" rel="noopener">Airalo</a>）、少量美元现金（格鲁吉亚和土耳其兑本币最方便）、下载 Bolt / BiTaksi / Grab、护照有效期检查（需 6 个月以上）。签证政策出行前最后核对一次：<a href="https://cs.mfa.gov.cn" target="_blank" rel="noopener">中国领事服务网</a>。</p></div></div>
-    <div class="step"><div></div><div><b>项目制加挂（可选，路上也能做）</b><p>用 10times 和 Luma 扫一遍出行窗口的当地活动；给想见的人发一封短邮件，模板见下。</p></div></div>
+    <div class="step"><span class="n"></span><div class="c"><b>你：选方案 + 页内做选择</b><p>三个方案挑一个，把住宿和二选一的活动点一遍，点「复制选择结果」发回给我。选择自动存在你本机浏览器里，关掉页面不丢。</p></div></div>
+    <div class="step"><span class="n"></span><div class="c"><b>我：出最终预订清单</b><p>按你的选择产出带链接和实时价格的预订清单：具体航班比价、酒店逐晚价格、餐厅放位时间与抢订方法、需要代约的人和话术草稿，逐项给你过目。</p></div></div>
+    <div class="step"><span class="n"></span><div class="c"><b>你确认后：逐项执行</b><p>支付和账号相关的操作由你完成（机票酒店下单需要你的证件与支付方式）；约人邮件在你看过草稿点头后才发出。</p></div></div>
   </div>
-  <details><summary>约见邮件模板（英文，可直接改用）</summary>
-<pre>Subject: Visiting [Tbilisi] July 14-20, coffee?
-
-Hi [Name],
-
-I'm a traveler and investor from Beijing, in [city] July 14-20 with a
-focus on [the local wine industry / consumer markets]. I've been reading
-[your report / your work on ...] and would love to buy you a coffee and
-hear how you see things on the ground.
-
-Any 30-minute slot that week works for me. Happy to come to you.
-
-Best,
-Dylan</pre>
-  </details>
 </div></section>
 
 <footer><div class="wrap">
-  <p><b>口径与免责：</b>所有价格为 2026 年 7 月 10 日核查的估算区间，机票为经济舱参考价，汇率按 1 美元 ≈ 7.1 人民币粗算。签证政策随时可能调整，出发前以<a href="https://cs.mfa.gov.cn" target="_blank" rel="noopener">中国领事服务网</a>与目的地使馆官网为准。</p>
-  <p><b>主要数据来源：</b><a href="https://www.uscreditcardguide.com/china-visa-free-map/" target="_blank" rel="noopener">中国护照免签地图（2026.6 更新）</a> · <a href="https://guide.michelin.com/en/article/michelin-guide-ceremony/michelin-guide-thailand-2026" target="_blank" rel="noopener">米其林泰国 2026</a> · <a href="https://fridaybangkok.com/en/n/asias-50-best-restaurants-2026" target="_blank" rel="noopener">亚洲 50 佳 2026</a> · <a href="https://www.tianxun.com/routes/pek/ist/beijing-capital-to-istanbul.html" target="_blank" rel="noopener">天巡北京-伊斯坦布尔航线</a> · <a href="https://www.tianxun.com/routes/bjsa/tbs/beijing-to-tbilisi.html" target="_blank" rel="noopener">天巡北京-第比利斯航线</a> · 印尼落地签新政（2025.11）。图片来自 Wikimedia Commons。</p>
+  <p><b>数据口径：</b>价格核查于 2026 年 7 月 10-11 日。汇率基准（ExchangeRate-API 实时接口 2026.07.10）：1 USD = ¥6.80，1 GEL ≈ ¥2.58，1 TRY ≈ ¥0.145，1 THB ≈ ¥0.204；人民币换算均按此口径由我计算。机票与酒店多为比价网站缓存价或起价，并非绑定 7.14-7.21 的锁定报价，下单前务必以实时报价为准；标注「估算」「缓冲」的数字是推算而非报价。</p>
+  <p><b>主要来源：</b><a href="https://www.expedia.com/lp/flights/pek/tbs/beijing-to-tbilisi" target="_blank" rel="noopener">Expedia 北京-第比利斯</a> · <a href="https://www.turkishairlines.com/en/flights-from-beijing-to-istanbul" target="_blank" rel="noopener">土耳其航空官网</a> · <a href="https://www.thaiairways.com/flights/en/flights-from-beijing-to-bangkok" target="_blank" rel="noopener">泰国航空官网</a> · Kayak 酒店均价页（Stamba / Rooms Kazbegi / Pera Palace / Capella 等） · <a href="https://www.restaurantpotong.com/tasting-menu" target="_blank" rel="noopener">Potong 官网</a> · <a href="https://guide.michelin.com/en/article/michelin-guide-ceremony/michelin-guide-thailand-2026" target="_blank" rel="noopener">米其林泰国 2026</a> · <a href="https://fridaybangkok.com/en/n/asias-50-best-restaurants-2026" target="_blank" rel="noopener">亚洲 50 佳 2026</a> · <a href="https://open.er-api.com/v6/latest/USD" target="_blank" rel="noopener">ExchangeRate-API</a>。签证政策出发前以<a href="https://cs.mfa.gov.cn" target="_blank" rel="noopener">中国领事服务网</a>为准。图片来自 Wikimedia Commons。</p>
 </div></footer>
 
 <script>
-/* ── destination board ── */
-const DESTS = [
- {n:"格鲁吉亚",r:"第比利斯 · 卡赫季 · 卡兹别克",rank:"① 深读方案",visa:["ok","互免 90 天"],fly:["","中转1次 11-13h"],wx:["ok","山区凉爽"],fit:{i:3,f:3,p:2},b:"2.5 - 3.5 万",tags:["visa","invest","food","project","weather"],pitch:"8000 年酿酒史 + 新兴市场教科书样本，投资与味觉是同一条主线。",a:"#plans"},
- {n:"土耳其",r:"伊斯坦布尔 · 卡帕多奇亚",rank:"② 深读方案",visa:["ok","免签 30 天 · 新政"],fly:["ok","直飞 10.5h"],wx:["ok","29°C 干爽"],fit:{i:3,f:3,p:2},b:"3.8 - 5.5 万",tags:["visa","direct","invest","food","project","weather"],pitch:"2026 年免签新红利；大巴扎是活的通胀经济学，米其林与热气球给足感官。",a:"#plans"},
- {n:"泰国曼谷",r:"曼谷 · 大城",rank:"③ 深读方案",visa:["ok","永久互免 30 天"],fly:["ok","直飞 6.5h"],wx:["warn","雨季阵雨"],fit:{i:2,f:3,p:2},b:"2.6 - 4.7 万",tags:["visa","direct","invest","food","project"],pitch:"亚洲 50 佳 9 家在此，一周连吃五顿世界级；后勤摩擦最小。",a:"#plans"},
- {n:"新加坡 + 吉隆坡",r:"双城",visa:["ok","均免签"],fly:["ok","直飞 6h"],wx:["ok","室内为主"],fit:{i:3,f:3,p:1},b:"3.5 - 5.0 万",tags:["visa","direct","invest","food","weather"],pitch:"家办与东南亚总部经济现场 + 小贩文化与米其林同框，投资主线最顺。"},
- {n:"印度尼西亚",r:"雅加达 · 万隆 / 巴厘",visa:["warn","落地签 $35"],fly:["ok","直飞 7.5h"],wx:["ok","7月旱季"],fit:{i:3,f:2,p:2},b:"2.5 - 4.0 万",tags:["direct","invest","project","weather"],pitch:"你点名的市场：2.8 亿人口消费现场。免签已取消但 e-VOA 一晚办妥，7 月正值旱季。"},
- {n:"乌兹别克斯坦",r:"塔什干 · 撒马尔罕 · 布哈拉",visa:["ok","免签 30 天"],fly:["ok","直飞 6h"],wx:["warn","38°C 干热"],fit:{i:2,f:2,p:3},b:"2.0 - 3.0 万",tags:["visa","direct","invest","project"],pitch:"丝路研学的顶配现场，蓝色穹顶之下也有转型经济的观察点；只是 7 月很晒。"},
- {n:"哈萨克斯坦",r:"阿拉木图 · 天山",visa:["ok","互免 30 天"],fly:["ok","直飞 5h"],wx:["ok","天山正当季"],fit:{i:2,f:1,p:2},b:"1.8 - 2.8 万",tags:["visa","direct","invest","project","weather"],pitch:"5 小时直飞的雪山草原，中亚资源经济的门户；向导包车即可玩透。"},
- {n:"俄罗斯双城",r:"莫斯科 · 圣彼得堡",visa:["ok","互免 · 2025.12 起"],fly:["ok","直飞 8h"],wx:["ok","白夜季"],fit:{i:2,f:2,p:2},b:"2.5 - 4.0 万",tags:["visa","direct","invest","project","weather"],pitch:"互免新政 + 7 月白夜，两城高铁 4h 相连；支付以银联和现金为主要提前备好。"},
- {n:"塞尔维亚 + 波黑",r:"贝尔格莱德 · 萨拉热窝",visa:["ok","均互免"],fly:["ok","直飞 · 班次少"],wx:["ok","28°C"],fit:{i:2,f:2,p:2},b:"2.5 - 3.5 万",tags:["visa","direct","project","weather"],pitch:"巴尔干双国叙事密度极高，物价友好；城际靠大巴，节奏要留松。"},
- {n:"菲律宾",r:"马尼拉 · 宿务",visa:["ok","免签 14 天 · 新政"],fly:["ok","直飞 4.5h"],wx:["bad","台风季"],fit:{i:2,f:1,p:2},b:"1.8 - 3.0 万",tags:["visa","direct"],pitch:"2026 年免签新政；但 7 月正值台风季，本窗口不推荐，留给冬天。"},
- {n:"阿联酋",r:"迪拜 · 阿布扎比",visa:["ok","互免 30 天"],fly:["ok","直飞 8h"],wx:["bad","45°C 酷暑"],fit:{i:3,f:2,p:1},b:"3.5 - 6.0 万",tags:["visa","direct","invest"],pitch:"投资主线满分的城市，但 7 月是它一年中最糟的时刻，强烈建议改期 11 月后。"},
- {n:"潮汕",r:"汕头 · 潮州",visa:["ok","国内"],fly:["ok","直飞揭阳 3.5h"],wx:["warn","湿热"],fit:{i:1,f:3,p:2},b:"0.8 - 1.5 万",tags:["cn","food","project"],pitch:"中国美食孤岛：牛肉火锅、卤鹅、工夫茶、夜粥。和 Potong 的潮州叙事互为镜像。"},
- {n:"新疆伊犁",r:"那拉提 · 喀拉峻 · 赛里木湖",visa:["ok","国内"],fly:["","经乌鲁木齐转伊宁"],wx:["ok","草原黄金季"],fit:{i:1,f:2,p:3},b:"1.5 - 2.5 万",tags:["cn","project","weather"],pitch:"7 月是伊犁一年中的巅峰：草原、雪山、薰衣草尾期。包车含司机即解决不开车问题。"},
- {n:"景德镇 + 徽州",r:"景德镇 · 婺源 · 黟县",visa:["ok","国内"],fly:["ok","高铁直达 6h"],wx:["warn","盛夏湿热"],fit:{i:1,f:2,p:3},b:"0.8 - 1.4 万",tags:["cn","food","project"],pitch:"项目制主线国内最佳：陶瓷驻场工作室 + 徽州古村，动手密度最高的一周。"}
+/* ═══ 数据（价格来源见页脚口径；hotel price = 每晚参考价 ¥） ═══ */
+const DESTS=[
+ {n:"格鲁吉亚",r:"第比利斯 · 卡赫季 · 卡兹别克",rank:"① 深读方案",visa:["ok","互免 90 天"],fly:["","中转1次 11-13h"],wx:["ok","山区凉爽"],fit:{i:3,f:3,p:2},b:"1.8 - 3.2",tags:["visa","invest","food","project","weather"],pitch:"8000 年酿酒史 + 新兴市场教科书样本，投资与味觉是同一条主线。"},
+ {n:"土耳其",r:"伊斯坦布尔 · 卡帕多奇亚",rank:"② 深读方案",visa:["ok","免签 30 天 · 新政"],fly:["ok","直飞 9h"],wx:["ok","29°C 干爽"],fit:{i:3,f:3,p:2},b:"3.2 - 5.2",tags:["visa","direct","invest","food","project","weather"],pitch:"2026 免签新红利；大巴扎是活的通胀经济学，米其林与热气球给足感官。"},
+ {n:"泰国曼谷",r:"曼谷 · 大城",rank:"③ 深读方案",visa:["ok","永久互免 30 天"],fly:["ok","直飞 6.5h"],wx:["warn","雨季阵雨"],fit:{i:2,f:3,p:2},b:"2.5 - 5.2",tags:["visa","direct","invest","food","project"],pitch:"亚洲 50 佳 9 家在此，一周连吃五顿世界级；后勤摩擦最小。"},
+ {n:"新加坡 + 吉隆坡",r:"双城",visa:["ok","均免签"],fly:["ok","直飞 6h"],wx:["ok","室内为主"],fit:{i:3,f:3,p:1},b:"3.5 - 5.0",tags:["visa","direct","invest","food","weather"],pitch:"家办与东南亚总部经济现场，小贩文化与米其林同框。"},
+ {n:"印度尼西亚",r:"雅加达 · 万隆 / 巴厘",visa:["warn","落地签 $35"],fly:["ok","直飞 7.5h"],wx:["ok","7月旱季"],fit:{i:3,f:2,p:2},b:"2.5 - 4.0",tags:["direct","invest","project","weather"],pitch:"你点名的市场：2.8 亿人口消费现场，e-VOA 一晚办妥，7 月正值旱季。"},
+ {n:"乌兹别克斯坦",r:"塔什干 · 撒马尔罕 · 布哈拉",visa:["ok","免签 30 天"],fly:["ok","直飞 6h"],wx:["warn","38°C 干热"],fit:{i:2,f:2,p:3},b:"2.0 - 3.0",tags:["visa","direct","invest","project"],pitch:"丝路研学的顶配现场，只是 7 月很晒。"},
+ {n:"哈萨克斯坦",r:"阿拉木图 · 天山",visa:["ok","互免 30 天"],fly:["ok","直飞 5h"],wx:["ok","天山正当季"],fit:{i:2,f:1,p:2},b:"1.8 - 2.8",tags:["visa","direct","invest","project","weather"],pitch:"5 小时直飞的雪山草原，中亚资源经济门户。"},
+ {n:"俄罗斯双城",r:"莫斯科 · 圣彼得堡",visa:["ok","互免 · 2025.12 起"],fly:["ok","直飞 8h"],wx:["ok","白夜季"],fit:{i:2,f:2,p:2},b:"2.5 - 4.0",tags:["visa","direct","invest","project","weather"],pitch:"互免新政 + 白夜，两城高铁 4h；支付备好银联和现金。"},
+ {n:"塞尔维亚 + 波黑",r:"贝尔格莱德 · 萨拉热窝",visa:["ok","均互免"],fly:["ok","直飞 · 班次少"],wx:["ok","28°C"],fit:{i:2,f:2,p:2},b:"2.5 - 3.5",tags:["visa","direct","project","weather"],pitch:"巴尔干叙事密度极高，物价友好；城际靠大巴，节奏留松。"},
+ {n:"菲律宾",r:"马尼拉 · 宿务",visa:["ok","免签 14 天 · 新政"],fly:["ok","直飞 4.5h"],wx:["bad","台风季"],fit:{i:2,f:1,p:2},b:"1.8 - 3.0",tags:["visa","direct"],pitch:"免签新政利好，但 7 月台风季，本窗口不推荐。"},
+ {n:"阿联酋",r:"迪拜 · 阿布扎比",visa:["ok","互免 30 天"],fly:["ok","直飞 8h"],wx:["bad","45°C 酷暑"],fit:{i:3,f:2,p:1},b:"3.5 - 6.0",tags:["visa","direct","invest"],pitch:"投资主线满分，但 7 月是一年中最糟时刻，建议改期 11 月后。"},
+ {n:"潮汕",r:"汕头 · 潮州",visa:["ok","国内"],fly:["ok","直飞揭阳 3.5h"],wx:["warn","湿热"],fit:{i:1,f:3,p:2},b:"0.8 - 1.5",tags:["cn","food","project"],pitch:"中国美食孤岛：牛肉火锅、卤鹅、工夫茶，与 Potong 的潮州叙事互为镜像。"},
+ {n:"新疆伊犁",r:"那拉提 · 喀拉峻 · 赛里木湖",visa:["ok","国内"],fly:["","经乌鲁木齐转伊宁"],wx:["ok","草原黄金季"],fit:{i:1,f:2,p:3},b:"1.5 - 2.5",tags:["cn","project","weather"],pitch:"7 月是伊犁巅峰：草原、雪山、薰衣草尾期。包车含司机即可。"},
+ {n:"景德镇 + 徽州",r:"景德镇 · 婺源 · 黟县",visa:["ok","国内"],fly:["ok","高铁直达 6h"],wx:["warn","盛夏湿热"],fit:{i:1,f:2,p:3},b:"0.8 - 1.4",tags:["cn","food","project"],pitch:"项目制国内最佳：陶瓷驻场工作室 + 徽州古村。"}
 ];
+
+const HOTELS={
+ p1:[
+  {id:"tbs",city:"第比利斯 · 4 晚",opts:[
+    {id:"stamba",name:"Stamba Hotel",price:1730,desc:"前印刷厂改造的设计酒店，城中生活方式地标，含早",src:"Kayak 近期均价 $254/晚",rec:1},
+    {id:"communal",name:"Communal Sololaki",price:1150,desc:"老城边精品宅邸，本地设计圈最爱，早餐出名",src:"Booking 参考 ≈$170/晚"},
+    {id:"fabrika",name:"Fabrika 客房",price:650,desc:"创意园区里的房间，社交密度最高，性价比之选",src:"官网参考 ≈$95/晚"}]},
+  {id:"sig",city:"西格纳吉 · 1 晚",opts:[
+    {id:"kabadoni",name:"Kabadoni Boutique",price:750,desc:"山城顶级精品，泳池看阿拉赞尼河谷",src:"Kayak $90-120 区间",rec:1},
+    {id:"guesthouse",name:"酒庄民宿",price:450,desc:"Pheasant's Tears 关联客房，晚上和酿酒师同桌",src:"邮件报价 ≈$65/晚"}]},
+  {id:"kzb",city:"卡兹别克 · 1 晚",opts:[
+    {id:"rooms",name:"Rooms Hotel Kazbegi",price:1300,desc:"落地窗正对 5047m 雪山，全国最值得住的一晚",src:"Kayak 均价 $191/晚，徒步旺季或上浮",rec:1},
+    {id:"alpina",name:"Hotel Alpina 类",price:600,desc:"同样的雪山视野，去掉设计感",src:"Booking 参考 ≈$90/晚"}]}],
+ p2:[
+  {id:"ist",city:"伊斯坦布尔 · 4 晚",opts:[
+    {id:"pera",name:"Pera Palace",price:2200,desc:"1892 年老牌，阿加莎写《东方快车谋杀案》的房间仍在",src:"Kayak $161 起；旺季经典房估 $250-400",rec:1},
+    {id:"georges",name:"Georges Hotel Galata",price:1400,desc:"加拉塔塔旁 20 间房精品，屋顶正对塔身",src:"Booking 参考 ≈€190/晚"},
+    {id:"karakoy",name:"10 Karaköy",price:1100,desc:"渡轮码头边设计酒店，去亚洲岸最方便",src:"Booking 参考 ≈€150/晚"}]},
+  {id:"cap",city:"卡帕多奇亚 · 2 晚",opts:[
+    {id:"museum",name:"Museum Hotel",price:4600,desc:"Relais & Chateaux 洞穴博物馆酒店，露台直面热气球海",src:"ZenHotels $698 起；7月估 $600-800",rec:1},
+    {id:"argos",name:"Argos in Cappadocia",price:2700,desc:"修道院遗址改造，地下酒窖晚餐",src:"Booking 参考 ≈€360/晚"},
+    {id:"sultan",name:"Sultan Cave Suites",price:1500,desc:"网红洞穴露台的原点，性价比洞穴房",src:"Kayak 均价 $281（各源 $150-280 分歧大）"}]}],
+ p3:[
+  {id:"bkk",city:"曼谷 · 6 晚",opts:[
+    {id:"capella",name:"Capella Bangkok",price:4800,desc:"河畔天花板，全球酒店榜首常客，雨季价偏下沿",src:"Kayak $664 起 / Agoda $785",rec:1},
+    {id:"mo",name:"文华东方",price:4000,desc:"148 年河畔传奇，作家楼是文学史的一部分",src:"官网参考，需按日期人工核对"},
+    {id:"ariyasom",name:"Ariyasom Villa",price:1250,desc:"素坤逸巷内 1940 年代宅邸改的 24 间房，闹中取静",src:"多源一致 $148-227/晚"}]}]
+};
+
+const BUDGET={
+ p1:{flights:{lo:6800,hi:9400,label:"国际机票 ×2 人",src:"Expedia / Skyscanner 7.11 缓存价：往返 $502-549 ≈ ¥3,400-3,750/人（阿斯塔纳航空经阿拉木图等）；临近出票缓冲 +0-25% → 按 ¥3,400-4,700/人 计"},
+     fixed:[
+      {label:"包车与司机 3.5 天",lo:2500,hi:4500,src:"GoTrip 定价页：卡赫季日 ≈250 GEL、军事大道段 ≈300-350 GEL（1 GEL ≈ ¥2.58）；中文司机（蜜柚）按 ¥900-1,200/天"},
+      {label:"餐饮与酒 6 天",lo:3500,hi:5500,src:"Barbarestan 两人含酒 ≈350 GEL + supra 宴 ≈300 GEL + 日常两人 ¥400-700/天"},
+      {label:"体验",lo:1200,hi:3200,src:"硫磺浴私汤 200-300 GEL + 酒庄品鉴 + 教堂越野车 100 GEL；上限含 Culinary Backstreets 徒步 $135/人"}]},
+ p2:{flights:{lo:12000,hi:15000,label:"国际机票 ×2 人 + 国内段",src:"土航官网：7 月直飞往返 ¥5,283 起/人（较可信）；含国航比价与缓冲按 ¥5,300-6,200/人 计；国内段 IST↔卡帕两人往返 ¥1,400-2,600（土航/飞马）"},
+     fixed:[
+      {label:"热气球 ×2 人",lo:5000,hi:6800,src:"2026 第三方价格页：Royal $420-500/人、Butterfly $365-480/人；官网不公开标价，需邮件询价确认"},
+      {label:"餐饮 6 天",lo:5000,hi:8000,src:"TURK tasting €200/人 ×2 ≈ ¥3,000 + Çiya 两人 ≈¥250 + 日常两人 ¥400-700/天"},
+      {label:"当地交通与日游",lo:2500,hi:4000,src:"Istanbulkart + BiTaksi ≈¥800 + 红绿线日游 €60-80/人 ×2 天 + 接驳"}]},
+ p3:{flights:{lo:5000,hi:7000,label:"国际机票 ×2 人",src:"Kayak 缓存 $268 往返起、泰航官网 ¥2,577 起；7 月为需求高峰 → 按 ¥2,500-3,500/人 计"},
+     fixed:[
+      {label:"殿堂餐厅 3 顿 ×2 人",lo:9000,hi:11000,src:"Sorn ≈฿7,200/人（多方一致）+ Gaggan ฿8,000-12,000/人（口径分歧，官网确认）+ Potong ฿6,300++ 实付 ≈฿7,400/人（官网）；1 ฿ ≈ ¥0.204"},
+      {label:"日常餐饮",lo:1500,hi:2500,src:"街头 + 市场 + 咖啡，两人 ¥250-400/天"},
+      {label:"当地交通 + 大城一日",lo:2000,hi:3000,src:"Grab 市内 ¥25-45/程 + 大城包车含向导 ¥1,200-1,800（Klook）"}]}
+};
+
+/* ═══ 状态与工具 ═══ */
+const store=JSON.parse(localStorage.getItem("tdb2")||"{}");
+const save=()=>localStorage.setItem("tdb2",JSON.stringify(store));
+const fmt=n=>"¥"+n.toLocaleString("zh-CN");
+const wan=n=>(n/10000).toFixed(1);
+
+/* ═══ 棋盘 ═══ */
 const grid=document.getElementById("boardgrid");
 const dotRow=(cls,label,v)=>{let d="";for(let i=0;i<3;i++)d+=`<span class="dot ${i<v?"f":""}"></span>`;return `<span class="fit ${cls}">${label}<span class="dots">${d}</span></span>`};
 DESTS.forEach(x=>{
   const el=document.createElement("article");el.className="dest";el.dataset.tags=x.tags.join(" ");
   el.innerHTML=`${x.rank?`<span class="rank">${x.rank}</span>`:""}
-  <h3>${x.n} <span class="region">${x.r}</span></h3>
+  <h3>${x.n}<span class="region">${x.r}</span></h3>
   <div class="chips"><span class="chip ${x.visa[0]}">${x.visa[1]}</span><span class="chip ${x.fly[0]}">${x.fly[1]}</span><span class="chip ${x.wx[0]}">7月 · ${x.wx[1]}</span></div>
   <p class="pitch">${x.pitch}</p>
   <div class="fitrow">${dotRow("fi","投资",x.fit.i)}${dotRow("ff","美食",x.fit.f)}${dotRow("fp","项目",x.fit.p)}</div>
-  <div class="budget-line"><span>两人 7 天</span><span class="mono">¥ ${x.b}</span></div>`;
+  <div class="budget-line"><span>两人 7 天</span><span class="num">¥ ${x.b} 万</span></div>`;
   grid.appendChild(el);
 });
 document.querySelectorAll(".filters button").forEach(btn=>{
   btn.addEventListener("click",()=>{
     document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("on"));
     btn.classList.add("on");const f=btn.dataset.f;
-    document.querySelectorAll(".dest").forEach(c=>{
-      c.classList.toggle("hide",f!=="all"&&!c.dataset.tags.split(" ").includes(f));
-    });
+    document.querySelectorAll(".dest").forEach(c=>c.classList.toggle("hide",f!=="all"&&!c.dataset.tags.split(" ").includes(f)));
   });
 });
 
-/* ── plan tabs ── */
+/* ═══ tabs ═══ */
 document.querySelectorAll(".tabs button").forEach(btn=>{
   btn.addEventListener("click",()=>{
     document.querySelectorAll(".tabs button").forEach(b=>b.classList.remove("on"));
@@ -551,44 +706,115 @@ document.querySelectorAll(".tabs button").forEach(btn=>{
   });
 });
 
-/* ── budget chart ── */
+/* ═══ 住宿选择与预算 ═══ */
+function nightsOf(city){const m=city.match(/(\d+)\s*晚/);return m?+m[1]:1}
+function renderHotels(pid){
+  const host=document.getElementById(pid+"-hotels");host.innerHTML="";
+  HOTELS[pid].forEach(g=>{
+    const key=pid+"-"+g.id;
+    if(!store[key])store[key]=(g.opts.find(o=>o.rec)||g.opts[0]).id;
+    const div=document.createElement("div");div.className="hgroup";
+    div.innerHTML=`<p class="city">${g.city}</p>`;
+    const wrap=document.createElement("div");wrap.className="opts";
+    g.opts.forEach(o=>{
+      const b=document.createElement("button");b.type="button";b.className="opt"+(store[key]===o.id?" sel":"");
+      b.innerHTML=`<span class="mark">已选</span><span class="name">${o.name}<span class="price num">${fmt(o.price)}/晚</span></span><p class="desc">${o.desc}</p><span class="src">${o.src}${o.rec?' · <span class="recb">推荐</span>':""}</span>`;
+      b.addEventListener("click",()=>{store[key]=o.id;save();renderHotels(pid);renderBudget(pid);renderSum(pid)});
+      wrap.appendChild(b);
+    });
+    div.appendChild(wrap);host.appendChild(div);
+  });
+}
+function hotelSum(pid){
+  let sum=0,parts=[];
+  HOTELS[pid].forEach(g=>{
+    const o=g.opts.find(x=>x.id===store[pid+"-"+g.id])||g.opts[0];
+    const n=nightsOf(g.city);sum+=o.price*n;parts.push(`${o.name} ${fmt(o.price)}×${n}晚`);
+  });
+  return{sum,parts};
+}
+function renderBudget(pid){
+  const B=BUDGET[pid],h=hotelSum(pid);
+  let lo=B.flights.lo+h.sum,hi=B.flights.hi+h.sum;
+  let rows=`<thead><tr><th style="width:20%">项目</th><th>计算逻辑与来源</th><th style="text-align:right;width:22%">两人估算</th></tr></thead><tbody>`;
+  rows+=`<tr><td>${B.flights.label}</td><td><span class="main">${B.flights.src}</span></td><td class="r num">${fmt(B.flights.lo)} - ${fmt(B.flights.hi)}</td></tr>`;
+  rows+=`<tr><td>住宿（按你的选择）</td><td><span class="main">${h.parts.join("；")}</span><span class="src">改上面的选项，这一行会实时变化</span></td><td class="r num">${fmt(h.sum)}</td></tr>`;
+  B.fixed.forEach(f=>{lo+=f.lo;hi+=f.hi;rows+=`<tr><td>${f.label}</td><td><span class="main">${f.src}</span></td><td class="r num">${fmt(f.lo)} - ${fmt(f.hi)}</td></tr>`});
+  rows+=`<tr class="total"><td>合计</td><td>两人 7 天全包</td><td class="r num">≈ ¥${wan(lo)} - ${wan(hi)} 万</td></tr></tbody>`;
+  document.getElementById(pid+"-budget").innerHTML=rows;
+  document.getElementById(pid+"-total").textContent=`≈ ¥${wan(lo)} - ${wan(hi)} 万`;
+}
+
+/* ═══ 二选一 ═══ */
+document.querySelectorAll(".abwrap").forEach(w=>{
+  const cg=w.dataset.cg;
+  w.querySelectorAll(".ab").forEach(b=>{
+    if(store[cg]===b.dataset.v)b.classList.add("sel");
+    b.addEventListener("click",()=>{
+      store[cg]=b.dataset.v;save();
+      w.querySelectorAll(".ab").forEach(x=>x.classList.toggle("sel",x===b));
+      renderSum(cg.split("-")[0]);
+    });
+  });
+});
+
+/* ═══ 选择摘要与复制 ═══ */
+const PLAN_NAMES={p1:"格鲁吉亚",p2:"土耳其",p3:"曼谷"};
+function sumText(pid){
+  const h=hotelSum(pid);
+  let t=`【${PLAN_NAMES[pid]}方案 · 我的选择】\n住宿：${h.parts.join("；")}（合计 ${fmt(h.sum)}）`;
+  document.querySelectorAll(`.abwrap[data-cg^="${pid}-"]`).forEach(w=>{
+    const v=store[w.dataset.cg];
+    if(v){const b=w.querySelector(`.ab[data-v="${v}"]`);if(b)t+=`\n二选一：${b.textContent.trim()}`}
+  });
+  const total=document.getElementById(pid+"-total").textContent;
+  t+=`\n两人总预算：${total}`;
+  return t;
+}
+function renderSum(pid){document.getElementById(pid+"-sum").textContent=sumText(pid)}
+document.querySelectorAll("[data-copy]").forEach(btn=>{
+  btn.addEventListener("click",async()=>{
+    const t=sumText(btn.dataset.copy);
+    try{await navigator.clipboard.writeText(t);btn.textContent="已复制，回聊天窗口粘贴给我";}
+    catch(e){window.prompt("手动复制：",t)}
+    setTimeout(()=>{btn.textContent="复制选择结果发给 Claude"},2600);
+  });
+});
+["p1","p2","p3"].forEach(p=>{renderHotels(p);renderBudget(p);renderSum(p)});
+
+/* ═══ 预算对比图 ═══ */
 const ROWS=[
- {n:"潮汕",lo:0.8,hi:1.5,note:"高铁 / 直飞揭阳，美食主线"},
+ {n:"潮汕",lo:0.8,hi:1.5,note:"高铁 / 直飞揭阳"},
  {n:"新疆伊犁",lo:1.5,hi:2.5,note:"含全程包车司机"},
- {n:"阿拉木图",lo:1.8,hi:2.8,note:"直飞 5h，含向导包车"},
- {n:"乌兹别克斯坦",lo:2.0,hi:3.0,note:"三城联游含城际火车"},
- {n:"俄罗斯双城",lo:2.5,hi:4.0,note:"含莫斯科-圣彼得堡高铁"},
- {n:"格鲁吉亚",lo:2.5,hi:3.5,top:1,note:"含酒庄体验与 3-4 天包车"},
- {n:"曼谷",lo:2.6,hi:4.7,top:1,note:"上限含 Capella + 三顿殿堂餐厅"},
- {n:"新加坡+吉隆坡",lo:3.5,hi:5.0,note:"住宿是主要变量"},
- {n:"土耳其",lo:3.8,hi:5.5,top:1,note:"含热气球与洞穴酒店"}
+ {n:"阿拉木图",lo:1.8,hi:2.8,note:"直飞 5h"},
+ {n:"格鲁吉亚",lo:1.8,hi:3.2,top:1,note:"区间 = 住宿档位（Fabrika ↔ Stamba）"},
+ {n:"乌兹别克斯坦",lo:2.0,hi:3.0,note:"三城联游"},
+ {n:"曼谷",lo:2.5,hi:5.2,top:1,note:"区间 = 住宿档位（Ariyasom ↔ Capella）"},
+ {n:"俄罗斯双城",lo:2.5,hi:4.0,note:"含两城高铁"},
+ {n:"土耳其",lo:3.2,hi:5.2,top:1,note:"区间 = 住宿档位（10 Karaköy ↔ Pera+Museum）"},
+ {n:"新加坡+吉隆坡",lo:3.5,hi:5.0,note:"住宿是主要变量"}
 ];
 (function(){
-  const W=660,PL=118,PR=64,RH=34,PT=24,PB=26,max=6;
+  const W=640,PL=118,PR=66,RH=36,PT=22,PB=28,max=6;
   const H=PT+ROWS.length*RH+PB;
   const x=v=>PL+(W-PL-PR)*v/max;
-  const css=getComputedStyle(document.documentElement);
-  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="两人7天预算区间对比条形图">`;
-  for(let g=0;g<=max;g++){s+=`<line x1="${x(g)}" y1="${PT-8}" x2="${x(g)}" y2="${H-PB+4}" stroke="var(--line)" stroke-width="${g===0?1.2:0.6}"/>`;
-    s+=`<text x="${x(g)}" y="${H-6}" font-size="11" fill="var(--muted)" text-anchor="middle" font-family="SF Mono,Menlo,monospace">${g}万</text>`;}
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="两人7天预算区间对比">`;
+  for(let g=0;g<=max;g++){s+=`<line x1="${x(g)}" y1="${PT-6}" x2="${x(g)}" y2="${H-PB+4}" stroke="var(--line)" stroke-width="${g===0?1.2:.6}"/><text x="${x(g)}" y="${H-8}" font-size="11" fill="var(--muted)" text-anchor="middle">${g}万</text>`}
   ROWS.forEach((r,i)=>{
-    const y=PT+i*RH+RH/2, col=r.top?"var(--accent)":"var(--bar-other)";
+    const y=PT+i*RH+RH/2,col=r.top?"var(--tungsten)":"var(--bar-other)";
     s+=`<text x="${PL-10}" y="${y+4}" font-size="12.5" fill="var(--ink)" text-anchor="end">${r.n}</text>`;
-    s+=`<rect class="bar" data-i="${i}" x="${x(r.lo)}" y="${y-8}" width="${x(r.hi)-x(r.lo)}" height="16" rx="4" fill="${col}"/>`;
-    s+=`<text x="${x(r.hi)+8}" y="${y+4}" font-size="11.5" fill="var(--muted)" font-family="SF Mono,Menlo,monospace">${r.lo}-${r.hi}</text>`;
+    s+=`<rect class="bar" data-i="${i}" x="${x(r.lo)}" y="${y-8}" width="${Math.max(x(r.hi)-x(r.lo),6)}" height="16" rx="4" fill="${col}"/>`;
+    s+=`<text x="${x(r.hi)+8}" y="${y+4}" font-size="11.5" fill="var(--muted)">${r.lo}-${r.hi}</text>`;
   });
   s+=`</svg>`;
   const holder=document.getElementById("chart");holder.innerHTML=s;
   const tip=document.createElement("div");tip.className="tooltip";holder.appendChild(tip);
   holder.querySelectorAll(".bar").forEach(b=>{
-    b.style.cursor="default";
-    b.addEventListener("mousemove",e=>{
-      const r=ROWS[+b.dataset.i],hr=holder.getBoundingClientRect();
+    b.addEventListener("mousemove",e=>{const r=ROWS[+b.dataset.i],hr=holder.getBoundingClientRect();
       tip.innerHTML=`<b>${r.n}</b> ¥${r.lo}-${r.hi}万 · ${r.note}`;
-      tip.style.left=(e.clientX-hr.left)+"px";tip.style.top=(e.clientY-hr.top-6)+"px";tip.style.opacity=1;
-    });
+      tip.style.left=(e.clientX-hr.left)+"px";tip.style.top=(e.clientY-hr.top-6)+"px";tip.style.opacity=1});
     b.addEventListener("mouseleave",()=>tip.style.opacity=0);
   });
-  document.getElementById("budget-table").innerHTML=ROWS.map(r=>`<tr><td>${r.n}${r.top?"（深读方案）":""}</td><td class="num">${r.lo}</td><td class="num">${r.hi}</td></tr>`).join("");
+  document.getElementById("budget-table").innerHTML=ROWS.map(r=>`<tr><td>${r.n}${r.top?"（深读方案）":""}</td><td class="r num">${r.lo}</td><td class="r num">${r.hi}</td></tr>`).join("");
 })();
 </script>

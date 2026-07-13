@@ -2,7 +2,10 @@
 
 把每一次「即兴出发」的调研做成一页可分享的决策网站，长期留档、持续迭代。
 
-**在线访问：** https://dylan-kong.github.io/travel-decision-book/
+**在线访问：**
+
+- 决策手册（7 月即兴出发）：https://dylan-kong.github.io/travel-decision-book/
+- 转角遇见世界（2026 夏季出发方案）：https://dylan-kong.github.io/travel-decision-book/travel-radar-2026.html
 
 ## 这是什么
 

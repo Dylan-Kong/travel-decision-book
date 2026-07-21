@@ -7,6 +7,7 @@
 - 决策手册（7 月即兴出发）：https://dylan-kong.github.io/travel-decision-book/
 - 转角遇见世界（2026 夏季出发方案）：https://dylan-kong.github.io/travel-decision-book/travel-radar-2026.html
 - 考证之夏（8 月潜水学习地对比）：https://dylan-kong.github.io/travel-decision-book/learn-dive-2026.html
+- 看展之旅（7-8 月北京→深圳→新加坡文化行程）：https://dylan-kong.github.io/travel-decision-book/culture-trip-2026.html
 
 ## 这是什么
 

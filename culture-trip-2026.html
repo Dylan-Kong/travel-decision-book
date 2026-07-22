@@ -39,8 +39,8 @@ body{margin:0;background:var(--paper);color:var(--ink);
 .num{font-variant-numeric:tabular-nums}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
-.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
 
 nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;gap:20px;align-items:center;overflow-x:auto;padding:13px 24px}
@@ -48,86 +48,109 @@ nav .brand{font-weight:650;font-size:14px;white-space:nowrap;margin-right:auto}
 nav a{font-size:13.5px;color:var(--muted);white-space:nowrap}
 nav a:hover{color:var(--ink);text-decoration:none}
 
-header{padding:78px 0 48px}
+header{padding:76px 0 44px}
 .eyebrow{font-size:12.5px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
 h1{font-size:clamp(32px,5vw,52px);line-height:1.12;margin:14px 0 16px;font-weight:700;letter-spacing:-.015em;text-wrap:balance}
-.lede{max-width:40em;color:var(--muted);font-size:17px;margin:0 0 30px}
-.route{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.lede{max-width:42em;color:var(--muted);font-size:17px;margin:0 0 28px}
+.route{display:flex;flex-wrap:wrap;gap:10px}
 .leg{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;flex:1 1 200px}
 .leg .c{font-weight:650;font-size:15px}
 .leg .c .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px}
 .leg .d{font-size:12.5px;color:var(--muted);margin-top:2px}
 .leg.bj .dot{background:var(--bj)} .leg.sz .dot{background:var(--sz)} .leg.sg .dot{background:var(--sg)}
 
-.alert{background:var(--warn-bg);border:1px solid color-mix(in srgb,var(--warn) 40%,transparent);border-radius:14px;padding:18px 22px;margin-bottom:8px}
-.alert h3{margin:0 0 10px;font-size:14.5px;font-weight:650;color:var(--warn)}
-.alert ul{margin:0;padding-left:18px;font-size:14px}
-.alert li{margin:5px 0}
-.alert li strong{color:var(--ink)}
-
-section{padding:56px 0 0}
+section{padding:54px 0 0}
 .sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
 .city-tag{font-size:12px;font-weight:650;padding:3px 11px;border-radius:999px}
 .city-tag.bj{background:var(--bj-bg);color:var(--bj)} .city-tag.sz{background:var(--sz-bg);color:var(--sz)} .city-tag.sg{background:var(--sg-bg);color:var(--sg)}
 h2{font-size:clamp(24px,3.2vw,32px);margin:6px 0 8px;font-weight:700;letter-spacing:-.01em}
-.sec-sub{color:var(--muted);margin:0 0 26px;max-width:46em;font-size:15px}
-h4{font-size:17px;font-weight:650;margin:34px 0 14px;display:flex;align-items:center;gap:9px}
-h4 .pin{font-size:12px;font-weight:650;padding:2px 9px;border-radius:6px;background:var(--select-bg);color:var(--accent)}
+.sec-sub{color:var(--muted);margin:0 0 24px;max-width:48em;font-size:15px}
+h4{font-size:17px;font-weight:650;margin:32px 0 14px}
 
-.evt{display:grid;grid-template-columns:132px 1fr;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
-@media (max-width:560px){.evt{grid-template-columns:1fr;gap:5px}}
-.evt .when{font-size:13px;font-weight:650;color:var(--accent);line-height:1.5}
-.evt .when small{display:block;color:var(--muted);font-weight:400;font-variant-numeric:tabular-nums}
-.evt .body b{font-size:15.5px}
-.evt .body .venue{font-size:13px;color:var(--muted);margin:2px 0}
-.evt .body p{margin:5px 0 0;font-size:14px;color:var(--muted)}
-.evt .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.tag{font-size:12px;padding:2px 9px;border-radius:999px;background:var(--card2);color:var(--muted);white-space:nowrap}
-.tag.free{background:var(--ok-bg);color:var(--ok);font-weight:600}
-.tag.pick{background:var(--select-bg);color:var(--accent);font-weight:600}
-.tag.gone{background:var(--bad-bg);color:var(--bad);font-weight:600}
-.tag.verify{background:var(--warn-bg);color:var(--warn);font-weight:600}
-.evt .price{font-weight:600}
+.intro-note{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;font-size:14.5px;color:var(--muted);margin-bottom:16px}
+.intro-note b{color:var(--ink)}
+.callout{background:var(--warn-bg);border:1px solid color-mix(in srgb,var(--warn) 40%,transparent);border-radius:14px;padding:16px 20px;margin-bottom:14px;font-size:14px}
+.callout h5{margin:0 0 8px;font-size:14px;font-weight:650;color:var(--warn)}
+.callout ul{margin:0;padding-left:18px} .callout li{margin:5px 0} .callout li strong{color:var(--ink)}
 
-.hl{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px;margin:14px 0}
-.hl .kicker{font-size:12px;font-weight:650;letter-spacing:.08em;color:var(--bj);text-transform:uppercase}
-.hl h3{margin:6px 0 4px;font-size:20px;font-weight:700}
-.hl .meta{font-size:13.5px;color:var(--muted);margin-bottom:14px}
-.plan-row{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:14px}
-.plan-row:last-child{border-bottom:none}
-.plan-row .k{font-size:13px;font-weight:600;color:var(--muted)}
+.keynote{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 4px}
+@media (max-width:600px){.keynote{grid-template-columns:1fr}}
+.keynote .col{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.keynote .col .label{font-size:12px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.keynote .col.dis{border-top:3px solid var(--bj)} .keynote .col.dis .label{color:var(--bj)}
+.keynote .col.clr{border-top:3px solid var(--sz)} .keynote .col.clr .label{color:var(--sz)}
+.keynote .col h5{margin:0 0 6px;font-size:16px;font-weight:650}
+.keynote .col p{margin:0;font-size:13.5px;color:var(--muted)}
+.keynote .col p.eg{margin-top:8px;font-size:12.5px;color:var(--ink);opacity:.78}
+
+.lens{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+.lens summary{list-style:none;cursor:pointer;padding:17px 20px;display:flex;gap:14px;align-items:flex-start}
+.lens summary::-webkit-details-marker{display:none}
+.lens summary .ln{font-family:ui-serif,Georgia,serif;font-weight:700;color:var(--bj);font-size:15px;flex:0 0 auto;line-height:1.55}
+.lens summary .lt{flex:1}
+.lens summary .lt b{font-size:16px;display:block}
+.lens summary .lt .one{font-size:13.5px;color:var(--muted);margin-top:3px}
+.lens summary .caret{color:var(--muted);font-size:12px;transition:transform .15s;padding-top:4px}
+.lens[open] summary .caret{transform:rotate(90deg)}
+.lens .more{padding:2px 20px 18px 52px;font-size:14px;color:var(--muted);line-height:1.78}
+.lens .more p{margin:9px 0} .lens .more b{color:var(--ink)}
+.lens .more .term{font-size:13px;background:var(--select-bg);border-radius:6px;padding:1px 7px;color:var(--accent);font-weight:600}
+.lens .more .anchor{display:block;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px}
+.lens .more .anchor b{color:var(--bj)}
+.oneliner{background:var(--select-bg);border-left:3px solid var(--tungsten);border-radius:0 12px 12px 0;padding:14px 18px;font-size:14.5px;margin-top:12px}
+.oneliner b{color:var(--ink)}
 
 .works{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;counter-reset:w}
-.work{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;position:relative}
+.work{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
 .work .n{counter-increment:w;font-family:ui-serif,Georgia,serif;font-size:13px;font-weight:700;color:var(--bj);display:block;margin-bottom:4px}
 .work .n::before{content:counter(w) " · "}
-.work b{font-size:14.5px}
-.work .artist{font-size:12.5px;color:var(--muted)}
+.work b{font-size:14.5px} .work .artist{font-size:12.5px;color:var(--muted)}
 .work p{margin:6px 0 0;font-size:13px;color:var(--muted)}
 
-.prep{counter-reset:p;display:flex;flex-direction:column;gap:10px}
-.pstep{display:grid;grid-template-columns:38px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-.pstep .pn{counter-increment:p;width:30px;height:30px;border-radius:50%;background:var(--bj-bg);color:var(--bj);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;font-family:ui-serif,Georgia,serif}
-.pstep .pn::before{content:counter(p)}
-.pstep b{font-size:14.5px}
-.pstep p{margin:3px 0 0;font-size:13.5px;color:var(--muted)}
-.oneliner{background:var(--select-bg);border-left:3px solid var(--tungsten);border-radius:0 12px 12px 0;padding:14px 18px;font-size:14.5px;margin-top:12px}
-
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
-.spot{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:8px}
-.spot .top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
-.spot h5{margin:0;font-size:15.5px;font-weight:650}
-.spot .dist{font-size:12px;color:var(--muted);white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.spot{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:7px}
+.spot h5{margin:0;font-size:15px;font-weight:650}
 .spot .venue{font-size:12.5px;color:var(--muted)}
 .spot p{margin:0;font-size:13.5px;color:var(--muted);flex:1}
-.spot .row{display:flex;justify-content:space-between;font-size:12.5px;border-top:1px solid var(--line);padding-top:8px;gap:8px}
-.spot .row .price{font-weight:600;color:var(--ink)}
 
-.pick3{background:var(--card);border:1.5px solid var(--tungsten);border-radius:16px;padding:20px 24px;margin-top:18px}
-.pick3 h4{margin:0 0 10px}
-.pick3 ol{margin:0;padding-left:20px;font-size:14px}
-.pick3 li{margin:7px 0}
-.pick3 li strong{color:var(--ink)}
+/* daily route blocks */
+.day{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:12px}
+.day .dh{font-weight:650;font-size:15.5px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.day .dh .badge{font-size:11.5px;font-weight:650;padding:1px 9px;border-radius:999px;background:var(--card2);color:var(--muted)}
+.day .dh .badge.out{background:var(--bad-bg);color:var(--bad)}
+.day .dsub{font-size:12.5px;color:var(--muted);margin:3px 0 12px}
+.ropts{display:flex;flex-direction:column;gap:10px}
+.ropt{display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start}
+.ropt .rl{width:24px;height:24px;border-radius:7px;font-weight:700;font-size:12.5px;display:flex;align-items:center;justify-content:center;background:var(--select-bg);color:var(--accent)}
+.ropt b{font-size:14px} .ropt p{margin:2px 0 0;font-size:13.5px;color:var(--muted)}
+section.sz .ropt .rl{background:var(--sz-bg);color:var(--sz)}
+section.sg .ropt .rl{background:var(--sg-bg);color:var(--sg)}
+
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card);margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:660px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);background:var(--card2);font-weight:600;letter-spacing:.04em;white-space:nowrap}
+td .s{color:var(--ok);font-weight:600}
+td .free{color:var(--ok);font-weight:600}
+td small{color:var(--muted)}
+tr:last-child td{border-bottom:none}
+.foodtbl table{min-width:560px}
+
+.pick{background:var(--card);border:1.5px solid var(--tungsten);border-radius:16px;padding:20px 24px;margin-top:18px}
+.pick h4{margin:0 0 10px}
+.pick ol{margin:0;padding-left:20px;font-size:14px} .pick li{margin:7px 0} .pick li strong{color:var(--ink)}
+.pick .note{font-size:13px;color:var(--muted);margin:12px 0 0}
+
+.evt{display:grid;grid-template-columns:120px 1fr;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 20px;margin-bottom:10px}
+@media (max-width:560px){.evt{grid-template-columns:1fr;gap:5px}}
+.evt .when{font-size:13px;font-weight:650;color:var(--accent);line-height:1.5}
+.evt .when small{display:block;color:var(--muted);font-weight:400}
+.evt .body b{font-size:15px} .evt .body .venue{font-size:13px;color:var(--muted);margin:2px 0}
+.evt .body .buy{font-size:13px;margin-top:5px}
+.evt .body .buy b{font-size:13px;color:var(--ink)}
+.tag{font-size:12px;padding:2px 9px;border-radius:999px;background:var(--card2);color:var(--muted);white-space:nowrap;margin-left:6px}
+.tag.gone{background:var(--bad-bg);color:var(--bad);font-weight:600}
 
 footer{margin-top:70px;border-top:1px solid var(--line);padding:30px 0 54px;font-size:12.5px;color:var(--muted)}
 footer p{max-width:60em;margin:0 0 10px}
@@ -136,149 +159,325 @@ footer p{max-width:60em;margin:0 0 10px}
 
 <nav><div class="wrap">
   <span class="brand serif">看展之旅</span>
-  <a href="#alerts">变更</a>
-  <a href="#beijing">北京</a>
-  <a href="#renaissance">看展准备</a>
+  <a href="#recap">看展回顾</a>
+  <a href="#lenses">五个视角</a>
+  <a href="#bjmenu">北京菜单</a>
   <a href="#shenzhen">深圳</a>
   <a href="#singapore">新加坡</a>
 </div></nav>
 
 <header><div class="wrap">
-  <div class="eyebrow">文化行程 · 数据核查 2026.07.21 周二</div>
+  <div class="eyebrow">文化行程 · 更新 2026.07.22</div>
   <h1 class="serif">看展之旅</h1>
-  <p class="lede">北京最后两晚 + 一场文艺复兴真迹，转深圳工作间隙的展与演，再到新加坡国庆前的艺术周。按你的旅行偏好排：艺术展、音乐会、音乐剧、沉浸式，尽量给多选择，每条带来源与票价。</p>
+  <p class="lede">北京看了乌菲齐的文艺复兴真迹，这里把它读透（五个视角，能展开看深）；转深圳工作间隙的展与演，再到新加坡国庆前的艺术周（两人同行，含帮朋友踩点 NUS 生活圈）。带来源、票价、学生价与买票入口。</p>
   <div class="route">
-    <div class="leg bj"><div class="c"><span class="dot"></span>北京</div><div class="d">今晚 7.21 - 明晚 7.22，周四 7.23 早离京</div></div>
-    <div class="leg sz"><div class="c"><span class="dot"></span>深圳</div><div class="d">7.23 - 8.1，腾讯滨海工作，周五晚有事</div></div>
-    <div class="leg sg"><div class="c"><span class="dot"></span>新加坡</div><div class="d">8.1 - 8.5/8.6，国庆(8.9)前一周</div></div>
+    <div class="leg bj"><div class="c"><span class="dot"></span>北京</div><div class="d">看展回顾 + 演出菜单（存档）</div></div>
+    <div class="leg sz"><div class="c"><span class="dot"></span>深圳</div><div class="d">7.23-8.1，腾讯滨海工作，两个周五晚有事</div></div>
+    <div class="leg sg"><div class="c"><span class="dot"></span>新加坡</div><div class="d">8.1-8.5/6，两人，国庆(8.9)前一周</div></div>
   </div>
 </div></header>
 
-<section id="alerts" style="padding-top:8px"><div class="wrap">
-  <div class="alert">
-    <h3>三条会影响计划的变更（先看）</h3>
-    <ul>
-      <li><strong>意大利展只能明天(周三 7.22)白天看。</strong>工作日 18 点闭馆，夜场延长只限周末，你周四早走。唯一窗口是周三白天 9-17 点。</li>
-      <li><strong>teamLab 北京已永久闭馆</strong>（2025.3 关，未开新馆），别再规划。中国大陆目前无常设 teamLab。</li>
-      <li><strong>意大利展票价全价 120 / 优惠 60 元</strong>（早鸟 68/88 已过期）。需单独购票的特展，出发前一天在官方小程序或大麦锁定 7.22 时段。</li>
-    </ul>
+<!-- ══════════ 看展回顾 ══════════ -->
+<section id="recap"><div class="wrap">
+  <div class="sec-head"><span class="city-tag bj">北京 · 看展回顾</span></div>
+  <h2 class="serif">看完之后：这些画到底在说什么</h2>
+  <p class="sec-sub">你在中国美术馆看的是乌菲齐美术馆（佛罗伦萨美第奇家族的收藏，全球文艺复兴最重的殿堂之一）的 36 件真迹。一次来华极罕见，光保险运输就是天价。回来把它读透，价值翻倍。</p>
+
+  <h4>先给一把钥匙：线条派 vs 色彩派</h4>
+  <div class="keynote">
+    <div class="col dis"><div class="label">佛罗伦萨 · disegno</div><h5>信「线条 / 素描」</h5><p>艺术是<b>心智</b>的产物，先有理念再落笔。线条 = 理性、结构、思想。</p><p class="eg">你看的：达芬奇、米开朗琪罗、拉斐尔、波提切利。</p></div>
+    <div class="col clr"><div class="label">威尼斯 · colorito</div><h5>信「色彩 / 光」</h5><p>艺术是<b>眼睛和肉身</b>的产物，直接用色堆出来。色彩 = 感官、物质、生命。</p><p class="eg">你看的：提香、贝利尼、乔尔乔内，最后到卡拉瓦乔。</p></div>
   </div>
+  <p class="sec-sub" style="margin-top:12px">这是文艺复兴内部最大的一场审美之争，也是「艺术属于头脑还是属于感官」的哲学之争。你走过的三个厅，正好是这条线从「理念的完美」滑向「感官与真实」的全过程。</p>
 </div></section>
 
-<section id="beijing"><div class="wrap">
-  <div class="sec-head"><span class="city-tag bj">北京 · 今明两晚</span></div>
-  <h2 class="serif">离京前最后两晚 + 一场真迹</h2>
-  <p class="sec-sub">周二是全周演出最淡的一晚，周三选择明显更好。中国美术馆的文艺复兴展放周三白天，晚上再看演出，正好不撞闭馆。</p>
+<!-- ══════════ 五个视角 ══════════ -->
+<section id="lenses"><div class="wrap">
+  <div class="sec-head"><span class="city-tag bj">北京 · 五个视角</span></div>
+  <h2 class="serif">同一批画，五种读法</h2>
+  <p class="sec-sub">点开每一条看深一层。用人话讲，术语都解释了，读完你在任何美术馆看意大利画都能接上。</p>
 
-  <h4><span class="pin">今晚 7.21 周二</span>还赶得上的</h4>
-  <div class="evt"><div class="when">19:30<small>周二 7.21</small></div><div class="body"><b>四季潮乐 · 西窗听秋（民乐烛光音乐会）</b><div class="venue">三里屯 · 爱乐汇艺术空间</div><p>北京民族乐团，烛光氛围小型民乐赏析。今晚最省心、还赶得上的一场。</p><div class="tags"><span class="tag pick">今晚首选</span><span class="tag price">¥100 起</span></div></div></div>
-  <div class="evt"><div class="when">看到 19:00<small>周二 7.21</small></div><div class="body"><b>段建宇个展「雏菊，微风，没有亲戚在写诗」</b><div class="venue">UCCA 尤伦斯 · 798（18:30 停止入场）</div><p>中国当代绘画一线画家北京首个机构个展。今晚偏晚，更适合明天白天顺路；想去要赶在 18:30 前入场。</p><div class="tags"><span class="tag">当代艺术</span><span class="tag price">¥60 / 线上 50</span></div></div></div>
-  <div class="evt"><div class="when">傍晚起<small>周二 7.21</small></div><div class="body"><b>798 夜逛 + 三里屯 / 隆福寺晚餐</b><div class="venue">朝阳 · 798 艺术区</div><p>画廊多在 18 点关，但园区夜氛围与餐饮延续，适合散步垫场。硬核夜演可临时刷 showstart 看当晚 livehouse。</p><div class="tags"><span class="tag">街区</span></div></div></div>
+  <details class="lens" open><summary><span class="ln">一</span><span class="lt"><b>新柏拉图主义：美是神留在人间的痕迹</b><span class="one">佛罗伦萨人相信，看见美就是在往神那里走。</span></span><span class="caret">▶</span></summary>
+    <div class="more">
+      <p>美第奇家族养了一群哲学家（<b>费奇诺</b> Marsilio Ficino 领头，办了「柏拉图学园」），把古希腊柏拉图的想法接进基督教。</p>
+      <p>核心画面来自柏拉图《会饮篇》里的<b>一座「爱的阶梯」</b>：从爱一个人的身体，往上走到爱灵魂、爱智慧，最后爱上「美本身」，也就是神。</p>
+      <p>所以他们说：美不是诱惑，美是路标。你被一张脸、一具身体打动，那股心动就是灵魂想往上走。费奇诺给这种「往上走的爱」起名叫 <span class="term">柏拉图式的爱</span>。</p>
+      <span class="anchor"><b>看展锚点：</b>任何一张让你觉得「好美」的画，背后都在做这件事，把感官的美当成通神的入口。</span>
+    </div>
+  </details>
 
-  <h4><span class="pin">明晚 7.22 周三</span>更值得的三选一</h4>
-  <div class="evt"><div class="when">晚场<small>周三 7.22</small></div><div class="body"><b>漫步经典 · 委内瑞拉兰达埃塔青年交响乐团</b><div class="venue">国家大剧院（7.22-24 首度访华）</div><p>El Sistema 体系青年乐团，拉美节奏融合古典，三位指挥三套曲目。明晚首推。当晚具体厅/曲目/票价在大麦或官网确认。</p><div class="tags"><span class="tag pick">明晚首推</span><span class="tag">古典</span><span class="tag verify">票价待确认</span></div></div></div>
-  <div class="evt"><div class="when">晚场<small>周三 7.22</small></div><div class="body"><b>舞蹈诗剧《沉香 · 陆》</b><div class="venue">北京保利剧院（7.22-23）</div><p>北京舞蹈学院创作，融合 19 个民族、53 支传统乐舞的沉浸式舞蹈。偏爱身体性与沉浸表达选这个。</p><div class="tags"><span class="tag">沉浸舞剧</span><span class="tag verify">票价待确认</span></div></div></div>
-  <div class="evt"><div class="when">19:30-21:30<small>周三 7.22</small></div><div class="body"><b>环球节拍 · 快乐的打击乐音乐会</b><div class="venue">中山公园音乐堂</div><p>「打开艺术之门」系列，性价比高但偏亲子，对高审美成人略浅，作备选。</p><div class="tags"><span class="tag">亲民</span><span class="tag price">¥30 起</span></div></div></div>
-</div></section>
+  <details class="lens"><summary><span class="ln">二</span><span class="lt"><b>美与爱：两个维纳斯</b><span class="one">同一位爱神，一半通神，一半生育。裸体是神学，不是情色。</span></span><span class="caret">▶</span></summary>
+    <div class="more">
+      <p>费奇诺把维纳斯（爱与美的女神）拆成两个：<span class="term">天上的维纳斯</span>代表对神性美的沉思，纯粹向上；<span class="term">世俗的维纳斯</span>代表感官、生育、扎进物质。不是善恶，是同一股力的两头。</p>
+      <p>提香的<b>《花神》Flora</b> 就是「世俗」那一端的顶点：丰饶、婚约、暖光下的肌肤，用颜色把「可欲的美」推满。波提切利的维纳斯（真身在乌菲齐，你这次看的是他别的作品）是这套寓言最有名的图解。</p>
+      <span class="anchor"><b>看展锚点：</b>文艺复兴的裸体是在论证「美即通神」，不是为了好看而好看。</span>
+    </div>
+  </details>
 
-<section id="renaissance"><div class="wrap">
-  <div class="sec-head"><span class="city-tag bj">北京 · 周三白天锚点</span></div>
-  <h2 class="serif">致敬巨匠：从达·芬奇到卡拉瓦乔</h2>
-  <p class="sec-sub">36 件意大利文艺复兴真迹，与乌菲齐美术馆等合办，中国美术馆一层 3 / 5 / 7 号厅。这是你这趟唯一能看的文艺复兴真迹展，值得占掉周三上午。</p>
+  <details class="lens"><summary><span class="ln">三</span><span class="lt"><b>宗教：先和解，后震撼</b><span class="one">前半场让美与信仰握手，后半场卡拉瓦乔把神拽回街头。</span></span><span class="caret">▶</span></summary>
+    <div class="more">
+      <p>前半场（佛罗伦萨、拉斐尔）解决一个矛盾：怎么把异教的古希腊塞进基督教？答案是「人体是上帝造的，画好人体就是赞美神」。米开朗琪罗的裸体、拉斐尔的圣母，都在做这件调和。</p>
+      <p>后半场的转折是<b>卡拉瓦乔</b>。新教冲击后，天主教开会（<span class="term">特伦特会议</span>）定调：宗教画要打动普通人、要真实，别只顾优雅炫技。</p>
+      <p>卡拉瓦乔的答案很极端：画圣徒用街上的平民当模特，脚是脏的，光像审讯灯从上面砸下来。他把神圣从云端拽回街头，让穷人也认得出画里就是自己。<b>这就是文艺复兴走进巴洛克的门。</b></p>
+      <span class="anchor"><b>看展锚点：</b>第三厅那张「最暗、最有戏剧光」的，就是全场情绪的高潮。</span>
+    </div>
+  </details>
 
-  <div class="hl">
-    <span class="kicker">怎么去 · 明天上午</span>
-    <h3>开馆即入，避人流</h3>
-    <div class="meta">4.28-8.28 · 周一闭馆 · 9:00-17:00（16:00 停票）· 五四大街 1 号</div>
-    <div class="plan-row"><div class="k">预约</div><div>出发前一天在<strong>中国美术馆官方小程序</strong>或<strong>大麦</strong>搜「致敬巨匠」，选 7.22 时段。属需单独购票的特展。</div></div>
-    <div class="plan-row"><div class="k">票价</div><div>全价 120 / 优惠 60（学生等）。早鸟 68/88 已过期。</div></div>
-    <div class="plan-row"><div class="k">时机</div><div>暑期工作日，<strong>9:00 开馆即入</strong>，避开 11-14 点高峰与旅行团。先直奔一层 3/5/7 号厅。</div></div>
-    <div class="plan-row"><div class="k">导览</div><div>现场特展服务台或小程序内确认语音 / AI 讲解入口（形式未公开，到馆问）。</div></div>
-  </div>
+  <details class="lens"><summary><span class="ln">四</span><span class="lt"><b>人的尊严：为什么突然满墙都是肖像</b><span class="one">人第一次被当成「可以自己决定成为谁」的存在，于是「我」值得被画下来。</span></span><span class="caret">▶</span></summary>
+    <div class="more">
+      <p>一个叫<span class="term">皮科</span>（Pico della Mirandola）的人写了《论人的尊严》：上帝对人说，我没给你固定位置，你自己选，往下堕成兽，往上升为神。人第一次被定义成「自我塑造」的存在。</p>
+      <p>中世纪的画里没有「个人」，只有圣人符号。文艺复兴突然开始为一个活人、一个银行家、一位公爵夫人画像，还想让他不朽。这说明：独一无二的「我」，现在值得被记住了。</p>
+      <span class="anchor"><b>看展锚点：</b>第二厅拉斐尔那三幅肖像，看眼神、看手、看那张脸的自信，你看的是「个体」这个概念刚刚诞生。</span>
+    </div>
+  </details>
+
+  <details class="lens"><summary><span class="ln">五</span><span class="lt"><b>钱与权：这些画，也是资本的红利</b><span class="one">整场文艺复兴是美第奇银行的钱堆出来的，画是那个时代最保值的另类资产。</span></span><span class="caret">▶</span></summary>
+    <div class="more">
+      <p>钱从哪来：羊毛纺织、教廷银行业务、明矾垄断。美第奇是银行家。</p>
+      <p>艺术对他们是三件工具：城市声望（软实力）、比谁供养的大师更牛（status 信号）、把放贷赚的「有罪的钱」变成教堂祭坛画来赎罪。每张祭坛画背后，都是一笔算过账的资本配置。</p>
+      <p><b>你今天看的不只是画，是一个商业共和国把金融盈余转成的、五百年不贬值的资产。</b></p>
+      <span class="anchor"><b>接你的投资主线：</b>罗杰斯会说，佛罗伦萨是那个时代最好的另类资产市场。</span>
+    </div>
+  </details>
+
+  <div class="oneliner">整场一句话：<b>佛罗伦萨给了线条与秩序 → 达芬奇、拉斐尔推到完美 → 威尼斯用色彩解放它 → 卡拉瓦乔用黑暗与强光颠覆它，门后就是巴洛克。</b></div>
 
   <h4>36 件里最不该错过的 5 件</h4>
   <div class="works">
-    <div class="work"><span class="n"></span><b>手拿苹果的青年男子肖像</b><span class="artist"> · 拉斐尔</span><p>大展海报同款，红金白三色的典雅贵族气，盛期文艺复兴肖像范本。</p></div>
-    <div class="work"><span class="n"></span><b>花神 Flora</b><span class="artist"> · 提香</span><p>威尼斯画派「以色造型」招牌，看他怎么用颜色而非线条塑造肌肤与丝绸。</p></div>
+    <div class="work"><span class="n"></span><b>手拿苹果的青年男子肖像</b><span class="artist"> · 拉斐尔</span><p>海报同款，红金白三色的典雅贵族气，盛期文艺复兴肖像范本。</p></div>
+    <div class="work"><span class="n"></span><b>花神 Flora</b><span class="artist"> · 提香</span><p>威尼斯「以色造型」招牌，看他怎么用颜色而非线条塑造肌肤与丝绸。</p></div>
     <div class="work"><span class="n"></span><b>劫掠伽倪墨得斯（素描）</b><span class="artist"> · 米开朗琪罗</span><p>难得的米氏真迹，素描里也有雕塑感，看他对人体结构与力量的理解。</p></div>
     <div class="work"><span class="n"></span><b>三博士来朝</b><span class="artist"> · 波提切利</span><p>佛罗伦萨早期文艺复兴的线条美与叙事密度。</p></div>
-    <div class="work"><span class="n"></span><b>伊丽莎白·贡扎加肖像</b><span class="artist"> · 拉斐尔</span><p>与第 1 件对照看拉斐尔的肖像语言。第三篇章另有卡拉瓦乔真迹（明暗对照，现场确认名）。</p></div>
+    <div class="work"><span class="n"></span><b>伊丽莎白·贡扎加肖像</b><span class="artist"> · 拉斐尔</span><p>与第 1 件对照看拉斐尔的肖像语言。第三厅另有卡拉瓦乔真迹。</p></div>
   </div>
 
-  <h4>进馆前 30 分钟读：文艺复兴脉络</h4>
-  <p class="sec-sub" style="margin-bottom:16px">三个篇章正好是一条时间加地理主线。读懂它，看展效率翻倍。</p>
-  <div class="prep">
-    <div class="pstep"><span class="pn"></span><div><b>佛罗伦萨 = 起点（人文曙光）</b><p>15 世纪美第奇赞助下重拾「以人为本」。关键词：透视法（画面第一次有纵深）+ 波提切利的线条。看《三博士来朝》留意人物排布与空间。</p></div></div>
-    <div class="pstep"><span class="pn"></span><div><b>达·芬奇 = 晕染法 sfumato</b><p>极薄的明暗过渡让轮廓「化在空气里」，没有硬边缘。看归于达芬奇圈子的作品，先找边界是不是柔化的。</p></div></div>
-    <div class="pstep"><span class="pn"></span><div><b>拉斐尔 = 盛期的均衡</b><p>把素描与优雅综合到极致，肖像讲究对称、和谐、理想化的高贵。重点看手、眼神、三角形构图。</p></div></div>
-    <div class="pstep"><span class="pn"></span><div><b>威尼斯画派 = 以色与光造型</b><p>提香、贝利尼、丁托列托不靠线条靠色彩层叠与光感塑形，更暖更松。对比佛罗伦萨「重素描」，这是文艺复兴内部最重要的分野。看《花神》感受肌肤与织物的光。</p></div></div>
-    <div class="pstep"><span class="pn"></span><div><b>卡拉瓦乔 = 明暗对照 tenebrism</b><p>把光变成戏剧性探照灯，强光打主体、其余沉入黑暗，人物粗粝真实、不再理想化。这是文艺复兴走向巴洛克的转折。进第三篇章找「最暗、最有戏剧光」的那张。</p></div></div>
-  </div>
-  <div class="oneliner">一句话串起来：<b>佛罗伦萨给了线条与秩序 → 达芬奇、拉斐尔推到完美 → 威尼斯用色彩解放它 → 卡拉瓦乔用黑暗与强光颠覆它。</b>三个展厅走一遍，就是这条脉络。</div>
-
-  <h4>北京同期其他值得的展（若挤得出时间）</h4>
+  <h4>看完之后的延伸</h4>
   <div class="grid">
-    <div class="spot"><div class="top"><h5>矶崎新回顾展</h5><span class="dist">强推</span></div><div class="venue">央美美术馆 CAFA · 望京</div><p>建筑大师回顾「一个世界公民眼中的中国」，建筑 / 设计口味必看。周一闭馆。</p><div class="row"><span>暑期在展</span><span class="price">票价核实</span></div></div>
-    <div class="spot"><div class="top"><h5>段建宇个展</h5><span class="dist">798</span></div><div class="venue">UCCA 尤伦斯</div><p>「雏菊，微风，没有亲戚在写诗」，中国当代绘画一线。</p><div class="row"><span>5.1-8.30</span><span class="price">¥60 / 50</span></div></div>
-    <div class="spot"><div class="top"><h5>陶融万象</h5><span class="dist">清华</span></div><div class="venue">清华大学艺术博物馆</div><p>中国现代民间陶瓷艺术展 + 常设「土火万象」。周一闭馆。</p><div class="row"><span>6.30-11.8</span><span class="price">约 ¥60</span></div></div>
-    <div class="spot"><div class="top"><h5>归心一园 · 乾隆花园光影展</h5><span class="dist">沉浸</span></div><div class="venue">国家典籍博物馆 · 国图</div><p>15 幕沉浸场景 + 17 处交互装置，故宫乾隆花园主题。按白天规划。</p><div class="row"><span>7.9-12.6</span><span class="price">售票</span></div></div>
+    <div class="spot"><h5>未来一趟佛罗伦萨</h5><span class="venue">旅行系统的下一颗种子</span><p>乌菲齐看波提切利维纳斯真身、学院美术馆看大卫、罗马看卡拉瓦乔教堂真迹、威尼斯看提香。这展就是引子，可作一张新页面。</p></div>
+    <div class="spot"><h5>两本升级读物</h5><span class="venue">从「看画」到「懂画」</span><p>贡布里希《艺术的故事》给脉络；帕诺夫斯基或瓦尔堡谈波提切利与新柏拉图寓言，专治「图像背后的思想」。</p></div>
+    <div class="spot"><h5>记忆锚</h5><span class="venue">带走一条线，不是一堆名字</span><p>别只记「看了达芬奇」。记住 disegno vs colorito 这条线 + 卡拉瓦乔的转折，下次任何美术馆看意大利画都能接上。</p></div>
   </div>
 </div></section>
 
-<section id="shenzhen"><div class="wrap">
+<!-- ══════════ 北京菜单（存档+买票） ══════════ -->
+<section id="bjmenu"><div class="wrap">
+  <div class="sec-head"><span class="city-tag bj">北京 · 演出菜单（存档）</span></div>
+  <h2 class="serif">这几天北京在演的 + 哪里买票</h2>
+  <p class="sec-sub">你只看了展，其余作存档。核心是把「哪里买票」标清楚，下次不用再找。</p>
+
+  <div class="evt"><div class="when">7.22-24<small>今晚起</small></div><div class="body"><b>漫步经典 · 委内瑞拉兰达埃塔青年交响乐团</b><div class="venue">国家大剧院（7.22-23）/ 北京艺术中心（7.24）· ¥120/280/380/480</div><p style="font-size:13.5px;color:var(--muted);margin:5px 0 0">El Sistema 体系青年乐团，拉美节奏融合古典，三位指挥三套曲目。</p><div class="buy"><b>买票：</b>国家大剧院官网 chncpa.org 或大麦搜「漫步经典」。</div></div></div>
+  <div class="evt"><div class="when">7.22-23<small></small></div><div class="body"><b>舞蹈诗剧《沉香 · 陆》</b><div class="venue">北京保利剧院 · 票价以平台为准</div><p style="font-size:13.5px;color:var(--muted);margin:5px 0 0">19 个民族、53 支传统乐舞的沉浸式舞蹈。</p><div class="buy"><b>买票：</b>保利票务 polyt.cn 或大麦。</div></div></div>
+  <div class="evt"><div class="when">日常<small>白天</small></div><div class="body"><b>段建宇个展「雏菊，微风，没有亲戚在写诗」</b><div class="venue">UCCA 尤伦斯 · 798 · ¥60 / 线上 50 · 至 8.30</div><p style="font-size:13.5px;color:var(--muted);margin:5px 0 0">中国当代绘画一线画家北京首个机构个展。</p><div class="buy"><b>买票：</b>大麦搜「UCCA」或 UCCA 官网。</div></div></div>
+
+  <div class="intro-note" style="margin-top:16px"><b>北京买票四个入口（收藏）：</b><br>
+  ① <b>大麦 App / damai.cn</b>：中国最大演出票务，音乐会/话剧/演唱会/展览都在这，委内瑞拉这场也搜得到。买演出票要<b>实名</b>（身份证/护照）。<br>
+  ② <b>国家大剧院</b>：官网 chncpa.org 或微信小程序「国家大剧院」，大剧院自己的演出这里最全、开票最早。<br>
+  ③ <b>保利剧院</b>：保利票务 polyt.cn 或大麦。<br>
+  ④ <b>中国美术馆特展</b>（你看的意大利展）：官方微信小程序「中国美术馆」+ 大麦。livehouse 用「秀动 showstart」。</div>
+</div></section>
+
+<!-- ══════════ 深圳 ══════════ -->
+<section id="shenzhen" class="sz"><div class="wrap">
   <div class="sec-head"><span class="city-tag sz">深圳 · 7.23 - 8.1</span></div>
-  <h2 class="serif">工作间隙的展与演</h2>
-  <p class="sec-sub">深圳美术馆多在 17:30-18:00 闭馆，工作日下班基本赶不上「看展」，晚上主要留给音乐会 / livehouse / 深博（暑期延到 21 点）。看展留周末。按离腾讯滨海（后海）由近到远排。</p>
+  <h2 class="serif">工作间隙的展与演（以后海为圆心）</h2>
+  <p class="sec-sub">腾讯滨海在后海。深圳美术馆多 17:30-18:00 闭馆，工作日下班看展基本赶不上，晚上主要给音乐会/夜景/深博暑期夜场，看展留周末。两个周五晚（7.24、7.31）你有事，排除。</p>
 
-  <div class="grid">
-    <div class="spot"><div class="top"><h5>沧溟载艺 · 大洋洲珍品</h5><span class="dist">最近</span></div><div class="venue">南山博物馆 · 南山大道</div><p>凯布朗利博物馆藏 171 件，太平洋岛民跨海迁徙文明。免费、离你最近、够看半天。</p><div class="row"><span>6.12-10.7</span><span class="price">免费</span></div></div>
-    <div class="spot"><div class="top"><h5>Es Devlin《我心归处》</h5><span class="dist">步行可达</span></div><div class="venue">深圳湾文化广场 · 后海</div><p>世界顶级舞台设计师亚洲首个大型个展，21 米穹顶 + 手绘可带走。分量最重，离腾讯最近。</p><div class="row"><span style="color:var(--bad);font-weight:600">展期三源打架</span><span class="price">¥48-88</span></div></div>
-    <div class="spot"><div class="top"><h5>山海艺术节 BINGO! SHEKOU</h5><span class="dist">蛇口</span></div><div class="venue">海上世界文化艺术中心</div><p>设计互联主办，户外 + 室内，夜间可逛。海上世界晚上餐饮夜景热闹。</p><div class="row"><span>5.22-8.30</span><span class="price">免费</span></div></div>
-    <div class="spot"><div class="top"><h5>何香凝美术馆两展</h5><span class="dist">华侨城</span></div><div class="venue">华侨城 · OCT</div><p>建立新美术（6.13-9.6）+ 林墉苏华作品展（6.20-8.9）。顺路 OCT-LOFT 创意园夜逛。</p><div class="row"><span>暑期在展</span><span class="price">免费</span></div></div>
-    <div class="spot"><div class="top"><h5>深圳音乐厅晚场</h5><span class="dist">福田</span></div><div class="venue">莲花山 · 深圳音乐厅</div><p>7.24 金声合唱团 20:00、7.25《天鹅湖》主题音乐会 19:30、7.25 广青交湾区巡演。下班能赶。票价官网确认。</p><div class="row"><span>7.24 / 7.25 晚</span><span class="price">核实</span></div></div>
-    <div class="spot"><div class="top"><h5>深圳博物馆（延至 21 点）</h5><span class="dist">福田</span></div><div class="venue">古代艺术馆 · 同心路</div><p>暑期唯一适合工作日晚看的博物馆。三燕文化特展（至 7.26）、唐三彩精品（至 7.31）。</p><div class="row"><span>晚场到 21:00</span><span class="price">免费</span></div></div>
-    <div class="spot"><div class="top"><h5>石语·筑痕 + 星尘大剧院</h5><span class="dist">福田</span></div><div class="venue">当代艺术与城市规划馆 MOCAUP</div><p>古代建筑石刻（至 7.31，¥68）+ 孟思特个展（免费，至 8.16）。</p><div class="row"><span>至 7.31 / 8.16</span><span class="price">¥68 / 免费</span></div></div>
-    <div class="spot"><div class="top"><h5>古埃及文明大展</h5><span class="dist">跨境</span></div><div class="venue">香港故宫文化博物馆 · 西九</div><p>埃及博物馆珍藏，世界级。福田口岸高铁 15-20 分钟直达。周末愿跨境的最高分量选择。</p><div class="row"><span>展至 8.31</span><span class="price">核实</span></div></div>
+  <div class="callout"><h5>三条硬约束（决定整个排布）</h5><ul>
+    <li><strong>工作日晚基本看不了展。</strong>唯一例外：<strong>深圳博物馆暑期夜场，周二至周日开到 21:00</strong>（周一闭馆），免费。</li>
+    <li><strong>周一（7.27）几乎全闭馆</strong>：深博、南山博物馆、深圳湾文化广场、何香凝、关山月、OCAT、MOCAUP 周一全闭。周一晚只走夜景/南头古城/蛇口/餐厅。</li>
+    <li><strong>看展重心压在两个整周末（7.25-26、8.1）</strong>，工作日晚给夜场/夜景/演出/吃。</li>
+  </ul></div>
+
+  <h4>按晚上/周末分块，每块给 A/B/C</h4>
+  <div class="day"><div class="dh">周四 7.23 晚 <span class="badge">下班约 18:30 起</span></div><div class="dsub">刚到深圳，就近轻松开场。</div>
+    <div class="ropts">
+      <div class="ropt"><span class="rl">A</span><div><b>滨海粤菜（零通勤）</b><p>深圳湾公园/人才公园看日落海景 → 深圳湾 1 号观海酒家海景晚餐 → 深圳湾文化广场外部夜景打卡（建筑免费）。</p></div></div>
+      <div class="ropt"><span class="rl">B</span><div><b>深博夜场（想看展）</b><p>2 号线直达市民中心站 → 深圳博物馆夜场（至 21:00，免费）看历史民俗常设 → COCO Park 夜宵。</p></div></div>
+      <div class="ropt"><span class="rl">C</span><div><b>南头古城（文艺出片）</b><p>南头古城夜逛 → 楼上·植院 / 小春日和晚餐 → 十日谈咖啡收尾。</p></div></div>
+    </div>
+  </div>
+  <div class="day"><div class="dh">周六 7.25 <span class="badge">全天 · 当晚演出资源最多</span></div>
+    <div class="ropts">
+      <div class="ropt"><span class="rl">A</span><div><b>南山滨海文艺（紧凑）</b><p>上午南山博物馆 → 南头古城/海岸城午餐 → 下午深圳湾文化广场（Es Devlin）→ 黄昏人才公园海景 → 晚深圳音乐厅（广青交 19:30 或柴可夫斯基《天鹅湖》主题音乐会 19:30）。</p></div></div>
+      <div class="ropt"><span class="rl">B</span><div><b>华侨城艺术（悠闲）</b><p>上午何香凝美术馆 + 华·美术馆 → OCT-LOFT 午餐（暹罗泰）+ 园区咖啡 → 下午 OCAT 当代展 → 傍晚回深圳湾海景晚餐。</p></div></div>
+      <div class="ropt"><span class="rl">C</span><div><b>蛇口设计 + 现场（悠闲）</b><p>上午海上世界文化艺术中心设计展（周末开到 21:00）→ 海上世界海鲜午餐 → 下午 K11 ECOAST/观复博物馆 → 蛇口海边黄昏 → 晚 MAO Livehouse「旅行新蜜蜂」19:30。</p></div></div>
+    </div>
+  </div>
+  <div class="day"><div class="dh">周日 7.26 <span class="badge">全天</span></div>
+    <div class="ropts">
+      <div class="ropt"><span class="rl">A</span><div><b>福田美术馆群（一站看满）</b><p>关山月美术馆（9:00 开）→ MOCAUP 当代艺术 → 深圳博物馆，三馆步行可达 → 傍晚福田晚餐。</p></div></div>
+      <div class="ropt"><span class="rl">B</span><div><b>南山补看（悠闲）</b><p>把周六没去的（深圳湾文化广场或南山博物馆）补上 → 海岸城/万象天地午餐 → 南头古城下午+黄昏晚餐。</p></div></div>
+      <div class="ropt"><span class="rl">C</span><div><b>跨境香港故宫（全日）</b><p>古埃及大展，见下方跨境卡。周日馆 10:00-18:00。</p></div></div>
+    </div>
+  </div>
+  <div class="day"><div class="dh">工作日晚菜单 <span class="badge">周二-周四通用</span> <span class="badge out">周一多闭馆</span></div><div class="dsub">周一（7.27）深博等全闭，只走 A/C。</div>
+    <div class="ropts">
+      <div class="ropt"><span class="rl">A</span><div><b>滨海夜景 + 海景粤菜（每天可用）</b><p>深圳湾公园/人才公园夜景 → 深圳湾 1 号观海酒家 或海岸城晚餐。零通勤，累的晚上首选。</p></div></div>
+      <div class="ropt"><span class="rl">B</span><div><b>深博夜场（仅周二-周四）</b><p>2 号线市民中心站 → 深圳博物馆至 21:00（免费）。唯一能工作日晚看展的选项。</p></div></div>
+      <div class="ropt"><span class="rl">C</span><div><b>南头古城 / 蛇口夜（每天可用）</b><p>南头古城夜逛+文艺晚餐+咖啡；或 2 号线到海上世界，商业区到 22:00 + K11 ECOAST 海边。</p></div></div>
+    </div>
+  </div>
+  <div class="day"><div class="dh">周六 8.1 <span class="badge">收尾</span></div>
+    <div class="ropts">
+      <div class="ropt"><span class="rl">A</span><div><b>补全清单（悠闲）</b><p>把两个周末没看完的一个片区补齐（华侨城/蛇口/福田），配对应片区午餐+咖啡+黄昏滨海。</p></div></div>
+      <div class="ropt"><span class="rl">B</span><div><b>跨境香港故宫（全日）</b><p>若 7.26 没去，8.1 周六香港故宫开到 20:00，下午出发也从容。</p></div></div>
+    </div>
   </div>
 
-  <div class="pick3">
-    <h4>时间紧，只去 3 个</h4>
+  <h4>场馆速查（时间 · 交通 · 票价 · 学生）</h4>
+  <div class="tbl"><table>
+    <thead><tr><th>场馆</th><th>区 / 从后海</th><th>开放（停止入场）</th><th>票价 / 学生</th></tr></thead>
+    <tbody>
+      <tr><td>深圳湾文化广场<br><small>Es Devlin 沉浸个展</small></td><td>后海 · 13 号线人才公园站，步行 5-10 分</td><td>周二-日 10-18（17:00）· 周一闭</td><td>外部免费；展厅需票<span class="s">（精确价+学生价待核实）</span></td></tr>
+      <tr><td>南山博物馆</td><td>南山 · 桃园站，约 20-25 分</td><td>周二-日 10-18（16:30）· 周六至 21:00 · 周一闭</td><td><span class="free">免费</span>（特展可能收费）</td></tr>
+      <tr><td>南头古城</td><td>南山 · 约 20 分</td><td>24 小时；店铺 10-20，餐厅到 22:30</td><td><span class="free">免费</span> · 工作日晚可用</td></tr>
+      <tr><td>海上世界文化艺术中心<br><small>设计互联</small></td><td>蛇口 · 2 号线海上世界站，约 15 分</td><td>展馆 周一-五 10-19 / 周末 10-21</td><td>进馆免费；特展需票<span class="s">（待核实）</span></td></tr>
+      <tr><td>何香凝美术馆<br><small>+ 华·美术馆</small></td><td>华侨城 · 1 号线华侨城站，约 20 分</td><td>周二-日 9:30-17（16:30）· 周一闭</td><td><span class="free">免费</span></td></tr>
+      <tr><td>OCAT 深圳馆</td><td>华侨城 OCT-LOFT · 约 22 分</td><td>10-17:30（17:15）· 周一闭</td><td>多数<span class="free">免费</span>，特展需票</td></tr>
+      <tr><td>深圳博物馆<br><small>历史民俗馆 · 工作日晚唯一解</small></td><td>福田 · 2 号线市民中心站，约 25-30 分</td><td>暑期 周二-日 <b>9-21</b>（20:30）· 周一闭</td><td><span class="free">免费免预约</span></td></tr>
+      <tr><td>MOCAUP<br><small>当代艺术与城市规划馆</small></td><td>福田 · 市民中心站</td><td>周二-日 10-18（17:30）· 周一闭</td><td><span class="free">免费</span>，部分展收费</td></tr>
+      <tr><td>关山月美术馆</td><td>福田 · 4 号线少年宫站</td><td>9-17（16:30）· 周一闭</td><td><span class="free">免费</span></td></tr>
+      <tr><td>深圳音乐厅</td><td>福田 · 少年宫站</td><td>7.25 广青交 19:30 / 天鹅湖主题 19:30</td><td>票价官网确认 · szyyt.com</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>吃（按片区）</h4>
+  <div class="tbl foodtbl"><table>
+    <thead><tr><th>片区</th><th>店</th><th>人均 · 招牌</th></tr></thead>
+    <tbody>
+      <tr><td>后海 / 深圳湾</td><td>观海酒家（深圳湾 1 号）</td><td>¥150-200 · 虾饺蒸凤爪，露台海景，<b>建议订位</b></td></tr>
+      <tr><td>后海</td><td>客语概念店（海岸城）</td><td>¥80-100 · 盐焗鸡、客家酿豆腐</td></tr>
+      <tr><td>蛇口 / 海上世界</td><td>Glass Forest · Maan Coffee · 蛇口渔港海鲜</td><td>咖啡 ¥30-60 · 海鲜时价 · 海景高层</td></tr>
+      <tr><td>华侨城 OCT</td><td>暹罗泰</td><td>¥120-150 · 咖喱蟹、虾酱炒饭</td></tr>
+      <tr><td>南头古城</td><td>楼上·植院 · 小春日和 · 十日谈咖啡 · 米粉星球</td><td>融合菜 &lt;¥100 花园露台，工作日晚夜逛首选，出片</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout" style="margin-top:16px"><h5>跨境 · 香港故宫「古埃及文明大展」（周末专程最高分量）</h5><ul>
+    <li>展至 <strong>2026.8.31</strong>，西九文化区。周一三四日 10-18；<strong>周五六及公假 10-20</strong>；周二闭馆（暑期特开周二含 8.4）。</li>
+    <li>票价（港币，原价 / <b>全日制学生</b>）：标准 HK$70 / <b class="s">35</b>；<b>古埃及特展 HK$190 / <b class="s">95</b></b>；全馆通票 HK$250 / <b class="s">125</b>。学生凭全日制学生证；你返斯坦福读研若为全日制在读可用，否则按成人价。</li>
+    <li>怎么去：后海 → <strong>福田口岸高铁到西九龙仅约 14 分钟</strong>，门到门约 1-1.5 小时；或深圳湾口岸跨境巴士直达西九龙。</li>
+  </ul></div>
+
+  <div class="pick"><h4>时间紧的精选</h4>
     <ol>
-      <li><strong>南山博物馆 · 大洋洲珍品</strong>：免费、离你最近、171 件够看半天，周末白天首选，零决策。</li>
-      <li><strong>深圳音乐厅《天鹅湖》主题音乐会 7.25 周六 19:30</strong>：唯一能填满晚场的高质量选项，下班来得及，票价先官网确认。</li>
-      <li><strong>Es Devlin《我心归处》</strong>：步行可达腾讯、体验独一档；唯一前提是<strong>先打电话确认 7 月下旬还在展</strong>（展期三源打架）。若撤展，用香港故宫古埃及大展替补。</li>
+      <li><strong>工作日晚：深圳博物馆暑期夜场</strong>（周二-四至 21:00，免费，2 号线直达）。全城唯一工作日晚能看展的大馆，周一不可用。</li>
+      <li><strong>工作日晚（累）：深圳湾滨海夜景 + 海景粤菜</strong>，步行可达，零通勤。</li>
+      <li><strong>周末动线甲「南山滨海文艺」：</strong>南山博物馆 → 南头古城午餐 → 深圳湾文化广场 Es Devlin → 人才公园黄昏 → 深圳湾 1 号晚餐 → 深圳音乐厅（周六 19:30）。全程以后海为圆心，最远不超 25 分钟。</li>
+      <li><strong>周末动线乙「蛇口设计海」：</strong>海上世界文化艺术中心 → 海上世界海鲜午餐 → K11 ECOAST → 蛇口海边黄昏 → MAO Livehouse（周六 19:30）。</li>
     </ol>
-    <p style="font-size:13px;color:var(--muted);margin:12px 0 0">时效提醒：深博三燕展 7.26 止、唐三彩 7.31 止、MOCAUP 石语 7.31 止、海上世界沈远/张培力 7.21 已撤。</p>
+    <p class="note">待核实：深圳湾文化广场 Es Devlin 精确票价+学生价、海上世界与 OCAT 当期展与票价、音乐厅具体票价。出行前平台再确认。</p>
   </div>
 </div></section>
 
-<section id="singapore"><div class="wrap">
-  <div class="sec-head"><span class="city-tag sg">新加坡 · 8.1 - 8.6</span></div>
-  <h2 class="serif">国庆前一周的艺术浓度</h2>
-  <p class="sec-sub">正卡在国庆（8.9）前一周，全年艺术浓度较高。三大馆都有当期特展，Esplanade 有西区班底音乐剧，8.1 周六当晚国庆预演烟花 + 灯光步道开幕 + 灯光秀叠加。汇率 1 SGD ≈ ¥5.3。</p>
+<!-- ══════════ 新加坡 ══════════ -->
+<section id="singapore" class="sg"><div class="wrap">
+  <div class="sec-head"><span class="city-tag sg">新加坡 · 8.1 - 8.5/6 · 两人</span></div>
+  <h2 class="serif">国庆前一周的艺术、设计与美食</h2>
+  <p class="sec-sub">两人同行，正卡在国庆（8.9）前一周，艺术浓度全年偏高。三大馆都有特展，Esplanade 有西区班底音乐剧。按地理聚落排，减少通勤。含一条帮朋友踩点 NUS 生活圈的支线。汇率 1 SGD ≈ ¥5.3。</p>
 
-  <div class="grid">
-    <div class="spot"><div class="top"><h5>杉本博司《Form Is Emptiness》</h5><span class="dist">审美天花板</span></div><div class="venue">SAM · Tanjong Pagar Distripark</div><p>黑白摄影 + 哲学装置，高级、克制、耐看。本窗口最值得为审美专程的一站。</p><div class="row"><span>展至 10.4</span><span class="price">S$10-20 核实</span></div></div>
-    <div class="spot"><div class="top"><h5>国家美术馆一日</h5><span class="dist">一条动线</span></div><div class="venue">National Gallery Singapore</div><p>何香凝水墨（至 8.23）+ Fear No Power 女性群展 + 顶楼 Milli（Labyrinth 三星主厨）晚餐。看展加吃饭一条线。</p><div class="row"><span>当期在展</span><span class="price">S$20-30</span></div></div>
-    <div class="spot"><div class="top"><h5>律政俏佳人 音乐剧</h5><span class="dist">音乐剧</span></div><div class="venue">Esplanade Theatre</div><p>西区班底、Nathania Ong 主演 Elle Woods，本窗口唯一大型音乐剧。尽早订 Cat 1/2。</p><div class="row"><span>7.29-8.16</span><span class="price">S$38-228</span></div></div>
-    <div class="spot"><div class="top"><h5>ArtScience 双展</h5><span class="dist">金沙内</span></div><div class="venue">ArtScience Museum</div><p>Into the Ocean 深海沉浸（OceanX 合作）+ teamLab Future World 常设。视觉冲击强，动线顺。</p><div class="row"><span>当期在展</span><span class="price">S$22</span></div></div>
-    <div class="spot"><div class="top"><h5>新加坡芭蕾《大师杰作》</h5><span class="dist">8.1-8.2</span></div><div class="venue">Singtel Waterfront Theatre</div><p>舞团三联幕，新古典到当代一次看全。8.1 晚 8pm、8.2 日场。</p><div class="row"><span>7.31-8.2</span><span class="price">SISTIC 核实</span></div></div>
-    <div class="spot"><div class="top"><h5>小野丽莎演唱会</h5><span class="dist">到埠首晚</span></div><div class="venue">Esplanade Concert Hall</div><p>Bossa Nova 天后，音乐厅氛围，8.1 晚 8pm，适合落地首晚松弛。</p><div class="row"><span>8.1 晚</span><span class="price">SISTIC 核实</span></div></div>
+  <div class="callout"><h5>三条硬校准（先看，别踩坑）</h5><ul>
+    <li><strong>今年国庆烟花不在滨海湾，移到了加冷 Kallang（国家体育场旁）。</strong>8.1 周六是官方预演，约 19:30 放烟花。滨海湾这边只有超级树灯光秀。想正面看烟花要去加冷占位。</li>
+    <li><strong>8.1 晚是硬取舍：</strong>国庆户外夜 vs 小野丽莎演唱会（仅此一场）vs 新加坡芭蕾（8.1 20:00），三选一。Day 1 给了 A/B/C。</li>
+    <li><strong>学生票：两人都用现有学生证 + 国际学生证 ISIC。</strong>朋友的 NUS 卡要注册入学后才有，这趟大概率还没有。国家美术馆确认认 ISIC（减 S$5）；ArtScience 的优惠是「本地居民」口径，海外游客学生大概率享不到，按游客价。</li>
+  </ul></div>
+
+  <h4>五天逐日，每天 A/B/C</h4>
+  <div class="day"><div class="dh">Day 1 · 8.1 周六 <span class="badge">市政区艺术群 + 国庆夜</span></div><div class="dsub">全天在 Civic District 步行圈（美术馆彼此 5-10 分钟）。</div>
+    <div class="ropts">
+      <div class="ropt"><span class="rl">A</span><div><b>艺术马拉松 + 滨海湾灯光</b><p>10:00 国家美术馆（东南亚最大现代艺术馆，留 3h）+ 顶楼 Milli 露台城景 → 13:30 馆内 Violet Oon 娘惹菜午餐 → 15:00 步行 8 分到土生华人博物馆 → 傍晚 Gardens by the Bay，19:45 & 20:45 超级树《Songs of Singapore》国庆特别版（免费）。少奔波。</p></div></div>
+      <div class="ropt"><span class="rl">B</span><div><b>加冷正面看烟花（仪式感）</b><p>白天同 A，傍晚提早收 → 18:00 前 MRT 到 Stadium 站，占位 Stadium Riverside Walk 或 Tanjong Rhu（正对加冷，同框体育场+天际线），19:30 看 NDP 预演烟花。当晚封路、地铁挤，早到。</p></div></div>
+      <div class="ropt"><span class="rl">C</span><div><b>国庆日 + 小野丽莎（音乐替户外）</b><p>白天国家美术馆 + 国家博物馆（光影沉浸装置很上镜）→ 19:30 Esplanade Concert Hall 小野丽莎 bossa nova（S$78 起）。散场沿滨海湾夜景走，赶 20:45 超级树灯光秀尾声。</p></div></div>
+    </div>
   </div>
+  <div class="day"><div class="dh">Day 2 · 8.2 周日 <span class="badge">滨海湾沉浸 + 芭蕾午场</span></div><div class="dsub">全天 Bayfront 站步行圈。</div>
+    <div class="ropts">
+      <div class="ropt"><span class="rl">A</span><div><b>自然穹顶 + 数字艺术 + 芭蕾</b><p>09:30 Gardens by the Bay 云雾林（室内瀑布避暑）+ 花穹（双馆 S$46/人）→ 12:30 午餐 → <b>14:00 芭蕾《大师杰作》午场</b>（Singtel Waterfront，紧邻）→ 16:30 ArtScience（teamLab 数字沉浸，两人互动拍照佳）→ 晚 MBS Spectra 灯光水舞（免费）。</p></div></div>
+      <div class="ropt"><span class="rl">B</span><div><b>悠闲版（省一馆）</b><p>只做 Gardens by the Bay + ArtScience，午后 Marina Bay 环湾散步（螺旋桥、鱼尾狮、金沙运河），不看芭蕾，节奏松。</p></div></div>
+      <div class="ropt"><span class="rl">C</span><div><b>设计购物穿插</b><p>上午 Gardens by the Bay → 下午 Orchard：Tiffany Blue Box Café（ION L3，Julien Royer 主理，两人 Tiffany 蓝拍照点，需 SevenRooms 订位）→ 晚回滨海湾看 Spectra。</p></div></div>
+    </div>
+  </div>
+  <div class="day"><div class="dh">Day 3 · 8.3 周一 <span class="badge">当代艺术 + 华人街区 + Tiong Bahru</span></div>
+    <div class="ropts">
+      <div class="ropt"><span class="rl">A</span><div><b>SAM + 牛车水 + Tiong Bahru</b><p>10:30 SAM（当代艺术，货仓改造，学生 S$5）→ 12:30 Maxwell 熟食中心（天天海南鸡饭）→ 14:00 <b>NUS Baba House</b>（仅周一 14:00 有导览，<b>须提前邮件预约</b>，学生凭证免费）→ 16:00 Tiong Bahru 包豪斯组屋街区 + 咖啡（Tiong Bahru Bakery / Plain Vanilla）。</p></div></div>
+      <div class="ropt"><span class="rl">B</span><div><b>牛车水深度（美食浓）</b><p>Chinatown Complex（700+ 摊，Xiu Ji 酿豆腐、Fatty Ox 烧腊，均米其林收录）+ 佛牙寺 + Ann Siang / Club St 精品店与咖啡。</p></div></div>
+      <div class="ropt"><span class="rl">C</span><div><b>悠闲双人</b><p>只做 SAM + Tiong Bahru 咖啡巡礼，午后泡一家 café 看书，晚看演出。</p></div></div>
+    </div>
+  </div>
+  <div class="day"><div class="dh">Day 4 · 8.4 周二 <span class="badge">甘榜格南设计街区 + 演出</span></div><div class="dsub">Kampong Glam 步行圈（Bugis 站）。</div>
+    <div class="ropts">
+      <div class="ropt"><span class="rl">A</span><div><b>甘榜格南 + 律政俏佳人</b><p>10:30 苏丹回教堂金顶 + 哈芝巷（设计小店、涂鸦墙，两人拍照街）→ 13:00 Zam Zam / Victory 百年 murtabak 煎饼 → 15:00 Maison Ikkoku 咖啡 → 傍晚律政俏佳人 @ Esplanade Theatre（青年票 S$40，时刻待核实）。</p></div></div>
+      <div class="ropt"><span class="rl">B</span><div><b>甘榜格南 → Orchard（精致下午茶）</b><p>上午甘榜格南 → 午后 MRT 到 Orchard：Tiffany Blue Box Café（若 Day 2 未去这里补，需订位）+ ION/Ngee Ann City 逛街，晚 Orchard 用餐。</p></div></div>
+      <div class="ropt"><span class="rl">C</span><div><b>纯悠闲（暴雨日备胎）</b><p>甘榜格南半天 + 下午回酒店泳池，晚看演出。多为室内+短距，适合下雨。</p></div></div>
+    </div>
+  </div>
+  <div class="day"><div class="dh">Day 5 · 8.5 周三 <span class="badge">西南艺术区 + 帮朋友踩点 NUS</span></div><div class="dsub">西南聚落一条线串起来。</div>
+    <div class="ropts">
+      <div class="ropt"><span class="rl">A</span><div><b>Gillman + NUS + Holland V</b><p>10:30 Gillman Barracks（免费当代画廊群，殖民营房林荫）+ 营房内 Naked Finn 海鲜午餐 → 13:30 NUS Kent Ridge：NUS Museum（免费，含青铜/东南亚艺术+雕塑，周三 OK）+ 感受 UTown → 16:00 Holland Village（TAKSU 画廊、% Arabica、Sunday Folks，NUS 研究生最爱的社交片区，帮朋友试住感）。</p></div></div>
+      <div class="ropt"><span class="rl">B</span><div><b>艺术优先，NUS 轻踩点</b><p>上午 Gillman Barracks 深逛，下午只去 NUS Museum + Kent Ridge 走一圈，傍晚 Holland V 晚饭。</p></div></div>
+      <div class="ropt"><span class="rl">C</span><div><b>Orchard 收尾购物</b><p>若西南已做完，Day 5 用来 Orchard 扫货 + Tiffany Blue Box + 精品，晚市区告别晚餐。</p></div></div>
+    </div>
+  </div>
+  <div class="intro-note"><b>宜居片区（帮朋友预判 NUS 生活圈）：</b>Clementi（最省、绿线直达、生活便利，租金约 S$900-1,500/月）、Buona Vista（绿+黄线换乘、去 NUS 约 10 分钟）、one-north（新创科技区、步行到地铁 5 分钟、Rochester 餐饮）。若待到 8.6 周四：上午补 Baba House（周四 10:00 场）或遗漏聚落，午后带手信去樟宜。</div>
 
-  <div class="pick3">
-    <h4>8.1 周六国庆夜三连（全免费）</h4>
+  <h4>场馆速查（时间 · MRT · 票价 · 学生）</h4>
+  <div class="tbl"><table>
+    <thead><tr><th>场馆</th><th>区 · MRT</th><th>开放（末进）</th><th>游客 / 学生</th></tr></thead>
+    <tbody>
+      <tr><td>国家美术馆<br><small>东南亚最大现代艺术馆</small></td><td>Civic · City Hall</td><td>每日 10-19（18:30）</td><td>S$20 / <span class="s">ISIC 减 5 ≈ S$15</span> · 本地免费</td></tr>
+      <tr><td>ArtScience Museum<br><small>teamLab 数字沉浸</small></td><td>Marina Bay · Bayfront</td><td>周日-四 10-19 / 周五六 10-21</td><td>All-Access 约 S$50-56 · <small>海外学生优惠大概率不适用</small></td></tr>
+      <tr><td>SAM 新加坡美术馆<br><small>当代</small></td><td>Tanjong Pagar · Cantonment</td><td>每日 10-19</td><td>S$10 / <span class="s">学生 S$5</span> · 本地免费</td></tr>
+      <tr><td>国家博物馆</td><td>Civic · Bras Basah</td><td>每日 10-19</td><td>约 S$15 / <span class="s">学生约 S$10-11.5</span> · 永久馆免费</td></tr>
+      <tr><td>土生华人博物馆<br><small>Peranakan</small></td><td>Civic · City Hall</td><td>每日 10-19，周五至 21</td><td>S$12 / <span class="s">学生 S$8</span> · 本地免费</td></tr>
+      <tr><td>Gardens by the Bay<br><small>花穹 + 云雾林</small></td><td>Marina Bay · Bayfront</td><td>约 09-21</td><td>双馆 S$46 · <small>无学生价</small>，Klook 常 S$36-42</td></tr>
+      <tr><td>NUS Museum</td><td>Kent Ridge · Kent Ridge</td><td>周二-日 10-19:30 · 周一闭</td><td><span class="free">免费</span></td></tr>
+      <tr><td>NUS Baba House<br><small>仅预约导览</small></td><td>Chinatown · Outram Park</td><td>周一14/周二14·18:30/周四10/周六11</td><td>游客 S$10 / <span class="s">学生凭证免费</span> · 邮件预约</td></tr>
+      <tr><td>Gillman Barracks<br><small>当代画廊群</small></td><td>西南 · Labrador Park</td><td>多为周二-日 11-19</td><td><span class="free">免费</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="sec-sub" style="margin-top:0;font-size:13px">提示：三家国家馆游客票在 Klook/Trip.com 常有小折扣（如国家美术馆二级平台约 S$13-14）。但<b>学生价通常只能现场柜台办</b>，走学生价就现场买，带学校实体证件+护照。</p>
+
+  <h4>8.1-8.6 在演的演出</h4>
+  <div class="tbl foodtbl"><table>
+    <thead><tr><th>演出</th><th>场地 · 场次</th><th>票价 / 学生</th></tr></thead>
+    <tbody>
+      <tr><td>律政俏佳人 音乐剧<br><small>西区班底，约 2.5h</small></td><td>Esplanade Theatre · 档期约 7.29-8.9（末场待核实）</td><td>S$30-228 / <span class="s">青年票 S$40</span>（资格待核实）</td></tr>
+      <tr><td>新加坡芭蕾《大师杰作》<br><small>三联幕</small></td><td>Singtel Waterfront · 7.31 20:00 / 8.1 20:00 / <b>8.2 14:00</b></td><td>票价待核实（SISTIC）· 建议选 8.2 午场</td></tr>
+      <tr><td>小野丽莎 Lisa Ono<br><small>bossa nova，仅一场</small></td><td>Esplanade Concert Hall · <b>8.1 19:30</b></td><td>S$78 起 · 与国庆夜/芭蕾冲突</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>吃（按片区）</h4>
+  <div class="tbl foodtbl"><table>
+    <thead><tr><th>片区</th><th>店</th><th>人均 · 招牌</th></tr></thead>
+    <tbody>
+      <tr><td>市政区 / 滨海湾</td><td>Milli（国家美术馆 L6）· National Kitchen by Violet Oon · Odette（三星）</td><td>Milli 露台城景 S$90-150；Violet Oon 娘惹 S$50-80；Odette S$300+ 需极早订</td></tr>
+      <tr><td>CBD</td><td>Lau Pa Sat + 沙爹街（7pm 封街）</td><td>S$15-30 · 牛/鸡沙爹、福建炒虾面 · 近滨海湾</td></tr>
+      <tr><td>牛车水 / Tanjong Pagar</td><td>Maxwell 天天海南鸡饭 · Chinatown Complex · Kok Sen（必比登）</td><td>熟食 S$5-10；Kok Sen 大虾河粉 S$20-30 建议订</td></tr>
+      <tr><td>Tiong Bahru</td><td>Tiong Bahru Bakery · Plain Vanilla · Grey Area Coffee</td><td>咖啡糕点 S$8-18 · 包豪斯组屋街区</td></tr>
+      <tr><td>甘榜格南</td><td>Zam Zam / Victory · Maison Ikkoku</td><td>Murtabak S$8-15；咖啡 brunch S$15-25</td></tr>
+      <tr><td>Orchard</td><td>Tiffany Blue Box Café（ION L3）</td><td>S$50-100 · 溏心蛋配鱼子酱、Tiffany 汉堡 · 需 SevenRooms 订位</td></tr>
+      <tr><td>Holland V / NUS</td><td>Naked Finn（Gillman）· Two Men Bagel · Sunday Folks</td><td>Naked Finn 炭烤海鲜 S$60-100；Holland V 轻食 S$10-25</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="intro-note"><b>实用（两人版）：</b>交通最省事是两人各自用海外 Visa/Mastercard 感应卡直接刷闸（SimplyGo，无需买卡）；深夜/暴雨/拎战利品时两人拼 Grab（市内 S$8-15）。8 月西南季风，午后常雷阵雨，带折叠伞+博物馆冷气的薄外套，室内馆当雨天备胎。治安极好，夜归无虞；国庆彩排期加冷/滨海湾演出夜封路早出发。<b>尽早预订：</b>NUS Baba House（邮件，名额提前约 2 个月）、Tiffany Blue Box Café（SevenRooms）、演出票（国庆季热门）。</div>
+
+  <div class="pick"><h4>5 天必做精选（两人）</h4>
     <ol>
-      <li><strong>Light Together 灯光步道开幕</strong>：Bras Basah.Bugis 文化区 5 点位，7:30pm 起，恰好 8.1 开幕。</li>
-      <li><strong>Garden Rhapsody 超级树灯光秀</strong>：Gardens by the Bay，7:45pm / 8:45pm 各约 15 分钟。</li>
-      <li><strong>远观 NDP 预演烟花</strong>：8.1 约 7:30pm 起，滨海湾/加冷一带可远观。国庆日 8.9 在你离境后，8.1 是唯一能蹭烟花的晚上。</li>
+      <li><strong>国家美术馆</strong>（东南亚现代艺术天花板）+ 顶楼 Milli 看城景。ISIC 学生减 5。</li>
+      <li><strong>8.1 国庆夜</strong>：超级树《Songs of Singapore》灯光秀（免费），或去加冷正面看 NDP 预演烟花。</li>
+      <li><strong>Gardens by the Bay 云雾林+花穹 + ArtScience teamLab</strong>（滨海湾一天打包）。</li>
+      <li><strong>一场演出</strong>：8.2 芭蕾午场 或 8.4 律政俏佳人（青年票 S$40）。</li>
+      <li><strong>小贩美食三连</strong>：Maxwell 天天鸡饭 + Lau Pa Sat 沙爹街 + Tiong Bahru 咖啡；穿插 True Blue 娘惹菜配土生华人博物馆、Tiffany Blue Box 打卡。</li>
+      <li><strong>Day 5 帮朋友踩点：</strong>Gillman Barracks + NUS Museum + Holland Village，顺看 Clementi / Buona Vista / one-north 生活圈。</li>
     </ol>
-    <p style="font-size:13px;color:var(--muted);margin:12px 0 0">避坑：金沙剧院这周空窗（《万世巨星》8.19 才开）；Gallery Month 与 Night Festival 都在 8.15 后，别误排。兰花盛宴 Flower Dome 至 8.10；米其林指南 2026 名单 8.4 公布。</p>
+    <p class="note">待核实：8.1「灯光步道开幕」未查到对应官方活动，未写进硬行程；Spectra 确切时刻；芭蕾票价；律政俏佳人每日场次与末场日期、青年票资格；ArtScience 周中价及海外学生优惠；ISIC 在国家博物馆/土生华人/SAM 的受理。</p>
   </div>
 </div></section>
 
 <footer><div class="wrap">
-  <p><b>数据口径：</b>核查于 2026 年 7 月 21 日。演出 / 展览排期与票价来自各场馆官网、大麦、豆瓣同城、北京本地宝、SISTIC、Esplanade、国家美术馆等；标「核实 / 待确认」的项为来源冲突或未公开，出行前请再核对一次。汇率近似 1 SGD ≈ ¥5.3。签证以<a href="https://cs.mfa.gov.cn" target="_blank" rel="noopener">中国领事服务网</a>为准。</p>
-  <p><b>这是什么：</b>「旅行决策手册」系统里的一张页面，主线为美食感官与项目制之外的第四类：城市文化行程。<a href="./index.html">返回决策手册首页</a>。</p>
+  <p><b>数据口径：</b>核查于 2026 年 7 月 22 日。演出/展览排期、票价、学生价来自各场馆官网、大麦、SISTIC、Esplanade、National Gallery、香港故宫等；标「待核实」的为来源冲突或未公开，出行前请再核对一次。汇率近似 1 SGD ≈ ¥5.3、1 HKD ≈ ¥0.92。学生票资格以各馆现场核验为准（多数认全日制在校学生证 / ISIC）。</p>
+  <p><b>这是什么：</b>「旅行决策手册」系统里的一张页面，第四类：城市文化行程。<a href="./index.html">返回决策手册首页</a>。</p>
 </div></footer>
 </body></html>
